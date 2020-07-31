@@ -4,19 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="shadowHost">Helly</div>
-    <my-counter id="counter" count="10"></my-counter>
-    <br /><br />
-    <button onClick="update()">Update</button>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
     <script src="http://127.0.0.1:3000/hmr/app.js"></script>
-    <script>
-      function update() {
-        let counter = document.querySelector('#counter');
-        counter.setAttribute('count', 20);
-      }
-    </script>
   </body>
 </html>

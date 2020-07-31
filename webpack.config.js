@@ -7,12 +7,16 @@ module.exports = {
   entry: [
     // 'webpack-dev-server/client?http://0.0.0.0:8080/',
     // 'webpack/hot/only-dev-server',
-    path.resolve(__dirname, 'src/index.ts'),
-    path.resolve(__dirname, 'src/counter.ts'),
+    path.resolve(__dirname, 'src/index.tsx'),
   ],
   mode: 'development',
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /(node_modules)/,
+        use: ['awesome-typescript-loader', 'tslint-loader'],
+      },
       {
         test: /\.js$/,
         enforce: 'pre',
@@ -22,11 +26,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /(node_modules)/,
-        use: ['awesome-typescript-loader', 'tslint-loader'],
       },
       {
         test: /\.scss$/,
@@ -81,27 +80,27 @@ module.exports = {
       //     },
       //   ],
       // },
-      // {
-      //   test: /\.svg/,
-      //   use: {
-      //     loader: 'svg-url-loader',
-      //   },
-      // },
-      // {
-      //   test: /\.(png|jpe?g|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //     },
-      //   ],
-      // },
+      {
+        test: /\.svg/,
+        use: {
+          loader: 'svg-url-loader',
+        },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.html'] },
   output: {
-    // path: `${__dirname}/dist`,
+    path: `${__dirname}/public`,
     filename: 'app.js',
-    // publicPath: '/hmr/',
+    publicPath: '/hmr/',
   },
   devtool: 'source-map',
   optimization: {

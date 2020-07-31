@@ -1,10 +1,14 @@
 {
-  "name": "shadow-dom",
+  "name": "chat",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.dev.js",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
   "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "autoprefixer": "^9.8.5",
     "awesome-typescript-loader": "^5.2.1",
     "cross-env": "^7.0.2",
