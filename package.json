@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/react-router-dom": "^5.1.5",
+    "classnames": "^2.2.6",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
@@ -12,8 +16,13 @@
     "autoprefixer": "^9.8.5",
     "awesome-typescript-loader": "^5.2.1",
     "cross-env": "^7.0.2",
+    "css-loader": "^4.2.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^9.0.2",
     "source-map-loader": "^1.0.1",
+    "style-loader": "^1.2.1",
     "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",

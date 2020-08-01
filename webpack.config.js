@@ -30,16 +30,16 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          // {
-          //   // creates style nodes from JS strings
-          //   loader: 'style-loader',
-          // },
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: path.resolve(__dirname, 'src'),
-            },
+            // creates style nodes from JS strings
+            loader: 'style-loader',
           },
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     publicPath: path.resolve(__dirname, 'src'),
+          //   },
+          // },
           {
             // translates CSS into CommonJS
             loader: 'css-loader',
@@ -102,7 +102,7 @@ module.exports = {
     filename: 'app.js',
     publicPath: '/hmr/',
   },
-  devtool: 'source-map',
+  // devtool: 'source-map',
   optimization: {
     // runtimeChunk: {
     //     name: 'common',
@@ -110,6 +110,7 @@ module.exports = {
     minimize: true,
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'src'),
     watchContentBase: true,
     disableHostCheck: true,

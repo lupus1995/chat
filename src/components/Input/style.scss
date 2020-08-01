@@ -1,0 +1,21 @@
+.input {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 56px;
+  margin-bottom: 15px;
+  padding: 18px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.114286px;
+  color: #202020;
+  font: 500 16px 'Roboto';
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 19;
+    letter-spacing: 0.114286px;
+    color: #b4b4b4;
+  }
+}
