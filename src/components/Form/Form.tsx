@@ -2,11 +2,17 @@ import React, { FC } from 'react';
 import './style.scss';
 import Button from '../Button/Button';
 
-const Form: FC<{ className?: string }> = ({ children, className = '' }) => {
+const Form: FC<{ className?: string; buttonText?: string }> = ({
+  children,
+  className = '',
+  buttonText = 'ВОЙТИ В АККАУНТ',
+}) => {
   return (
     <form className={className} action="#" autoComplete="off">
       {children}
-      <Button>ВОЙТИ В АККАУНТ</Button>
+      <Button primary className="text-uppercase">
+        {buttonText}
+      </Button>
     </form>
   );
 };

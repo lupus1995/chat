@@ -12,18 +12,21 @@ import {
 import Link from '../../components/CustomLink/CustomLink';
 import { useHistory } from 'react-router-dom';
 import consts from '../../consts';
+import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
+import FormAuthWrapper from '../../wrappers/FormAuthWrapper/FormAuthWrapper';
+import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 
 const Auth = () => {
   const history = useHistory();
   return (
-    <main className="d-flex flex-direction-column justify-content-center authContent">
+    <MainAuthWrapper>
       <Typography className="text-center" tag="h1">
         Войти в аккаунт
       </Typography>
       <Text className="subtitle text-center" tag="p">
         Пожалуйста, войдите в свой аккаунт
       </Text>
-      <div className="formWrapper">
+      <FormAuthWrapper>
         <Form className="d-flex flex-direction-column">
           <Input
             rules={{ requiredInputRules, emailRules }}
@@ -36,11 +39,11 @@ const Auth = () => {
             type="password"
           />
         </Form>
-        <div className="text-center linkAuth">
+        <LinkAuthWrapper>
           <Link to={consts.pages.register}>Зарегистрироваться</Link>
-        </div>
-      </div>
-    </main>
+        </LinkAuthWrapper>
+      </FormAuthWrapper>
+    </MainAuthWrapper>
   );
 };
 

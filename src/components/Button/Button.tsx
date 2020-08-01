@@ -4,9 +4,13 @@ import './style';
 const Button: FC<{
   type?: JSX.IntrinsicElements['button']['type'];
   className?: string;
-}> = ({ children, className = 'primary', type = 'button' }) => {
+  primary?: boolean;
+}> = ({ children, primary = false, className = '', type = 'button' }) => {
   return (
-    <button className={`button ${className}`} type={type}>
+    <button
+      className={`button ${className} ${primary ? 'primary' : ''}`}
+      type={type}
+    >
       {children}
     </button>
   );

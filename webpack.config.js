@@ -101,6 +101,7 @@ module.exports = {
     path: `${__dirname}/public`,
     filename: 'app.js',
     publicPath: '/hmr/',
+    chunkFilename: '[name].js',
   },
   // devtool: 'source-map',
   optimization: {
