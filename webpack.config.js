@@ -15,18 +15,18 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /(node_modules)/,
-        use: ['awesome-typescript-loader', 'tslint-loader'],
+        use: ['babel-loader', 'awesome-typescript-loader', 'tslint-loader'],
       },
-      {
-        test: /\.js$/,
-        enforce: 'pre',
-        use: ['source-map-loader'],
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-      },
+      // {
+      //   test: /\.js$/,
+      //   enforce: 'pre',
+      //   use: ['source-map-loader'],
+      // },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /(node_modules)/,
+      //   loader: 'babel-loader',
+      // },
       {
         test: /\.scss$/,
         use: [
@@ -105,9 +105,9 @@ module.exports = {
   },
   // devtool: 'source-map',
   optimization: {
-    // runtimeChunk: {
-    //     name: 'common',
-    // },
+    runtimeChunk: {
+      name: 'test',
+    },
     splitChunks: {
       cacheGroups: {
         vendors: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 import Typography from '../../components/Typography/Typography';
 import Text from '../../components/Text/Text';
@@ -7,7 +7,6 @@ import FormAuthWrapper from '../../wrappers/FormAuthWrapper/FormAuthWrapper';
 import Form from '../../components/Form/Form';
 import Input from '../../components/Input/Input';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
-import Link from '../../components/CustomLink/CustomLink';
 import consts from '../../consts';
 import {
   lineLengthRules,

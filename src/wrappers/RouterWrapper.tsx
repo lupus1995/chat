@@ -1,8 +1,16 @@
-import React, { FC, useEffect, lazy, Suspense } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useHistory, Switch, Route } from 'react-router-dom';
 import consts from '../consts';
-const Auth = lazy(() => import('../pages/Auth/Auth'));
-const Register = lazy(() => import('../pages/Register/Regster'));
+import Loadeble from 'react-loadable';
+const Register = Loadeble({
+  loader: () => import('../pages/Register/Register'),
+  loading: () => <div>Loading...</div>,
+});
+
+const Auth = Loadeble({
+  loader: () => import('../pages/Auth/Auth'),
+  loading: () => <div>Loading...</div>,
+});
 
 const RouterWrapper: FC = ({ children }) => {
   const history = useHistory();
@@ -10,12 +18,10 @@ const RouterWrapper: FC = ({ children }) => {
     history.push(consts.pages.auth);
   }, []);
   return (
-    <Suspense fallback={<div>Загрузка...</div>}>
-      <Switch>
-        <Route path={consts.pages.auth} component={Auth} />
-        <Route path={consts.pages.register} component={Register} />
-      </Switch>
-    </Suspense>
+    <Switch>
+      <Route path={consts.pages.auth} component={Auth} />
+      <Route path={consts.pages.register} component={Register} />
+    </Switch>
   );
 };
 
