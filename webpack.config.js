@@ -108,6 +108,15 @@ module.exports = {
     // runtimeChunk: {
     //     name: 'common',
     // },
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
     minimize: true,
   },
   devServer: {
