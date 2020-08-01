@@ -9,8 +9,12 @@ import {
   requiredInputRules,
   emailRules,
 } from '../../rulesValidation/rules';
+import Link from '../../components/CustomLink/CustomLink';
+import { useHistory } from 'react-router-dom';
+import consts from '../../consts';
 
 const Auth = () => {
+  const history = useHistory();
   return (
     <main className="d-flex flex-direction-column justify-content-center authContent">
       <Typography className="text-center" tag="h1">
@@ -19,14 +23,23 @@ const Auth = () => {
       <Text className="subtitle text-center" tag="p">
         Пожалуйста, войдите в свой аккаунт
       </Text>
-      <Form className="d-flex formWrapper flex-direction-column">
-        <Input
-          rules={{ lineLengthRules, requiredInputRules, emailRules }}
-          placeholder="Email"
-          type="text"
-        />
-        {/* <Input placeholder="Password" type="password" /> */}
-      </Form>
+      <div className="formWrapper">
+        <Form className="d-flex flex-direction-column">
+          <Input
+            rules={{ requiredInputRules, emailRules }}
+            placeholder="Email"
+            type="text"
+          />
+          <Input
+            rules={{ requiredInputRules, lineLengthRules }}
+            placeholder="Password"
+            type="password"
+          />
+        </Form>
+        <div className="text-center linkAuth">
+          <Link to={consts.pages.register}>Зарегистрироваться</Link>
+        </div>
+      </div>
     </main>
   );
 };
