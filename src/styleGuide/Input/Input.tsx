@@ -2,8 +2,8 @@ import React, { FC, useRef, MutableRefObject, useState } from 'react';
 import './style.scss';
 import consts from '../../resourse/consts';
 import { RulesValidationInterface } from '../../rulesValidation/interfaces';
-import MessageError from '../MessageError/MessageError';
 import { validation } from './helpers';
+import MessageError from '../../components/MessageError/MessageError';
 let debounceTimeoutId: number = 0;
 const Input: FC<{
   type: string;

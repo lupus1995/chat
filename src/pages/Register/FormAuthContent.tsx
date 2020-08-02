@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from '../../components/Form/Form';
-import Input from '../../components/Input/Input';
+import Form from '../../styleGuide/Form/Form';
+import Input from '../../styleGuide/Input/Input';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import consts from '../../resourse/consts';
 import {
@@ -8,7 +8,7 @@ import {
   requiredInputRules,
   emailRules,
 } from '../../rulesValidation/rules';
-import Link from '../../components/CustomLink/CustomLink';
+import Link from '../../styleGuide/CustomLink/CustomLink';
 
 const FormAuthContent = () => {
   return (

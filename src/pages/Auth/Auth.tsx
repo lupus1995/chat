@@ -1,23 +1,21 @@
 import React from 'react';
 import './style.scss';
-import Typography from '../../components/Typography/Typography';
-import Text from '../../components/Text/Text';
-import Form from '../../components/Form/Form';
-import Input from '../../components/Input/Input';
+import Text from '../../styleGuide/Text/Text';
+import Form from '../../styleGuide/Form/Form';
+import Input from '../../styleGuide/Input/Input';
 import {
   lineLengthRules,
   requiredInputRules,
   emailRules,
 } from '../../rulesValidation/rules';
-import Link from '../../components/CustomLink/CustomLink';
-import { useHistory } from 'react-router-dom';
+import Link from '../../styleGuide/CustomLink/CustomLink';
 import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 import FormAuthWrapper from '../../wrappers/FormAuthWrapper/FormAuthWrapper';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
+import Typography from '../../styleGuide/Typography/Typography';
 
 const Auth = () => {
-  const history = useHistory();
   return (
     <MainAuthWrapper>
       <Typography className="text-center" tag="h1">

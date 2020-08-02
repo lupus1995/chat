@@ -12,15 +12,21 @@ const Auth = Loadeble({
   loading: () => <div>Loading...</div>,
 });
 
-const RouterWrapper: FC = ({ children }) => {
+const Chat = Loadeble({
+  loader: () => import('../pages/Chat/Chat'),
+  loading: () => <div>Loading...</div>,
+});
+
+const RouterWrapper: FC = () => {
   const history = useHistory();
   useEffect(() => {
-    history.push(consts.pages.auth);
+    history.push(consts.pages.chat);
   }, []);
   return (
     <Switch>
       <Route path={consts.pages.auth} component={Auth} />
       <Route path={consts.pages.register} component={Register} />
+      <Route path={consts.pages.chat} component={Chat} />
     </Switch>
   );
 };

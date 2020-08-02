@@ -1,6 +1,6 @@
 import React from 'react';
-import Typography from '../../components/Typography/Typography';
-import Text from '../../components/Text/Text';
+import Typography from '../../styleGuide/Typography/Typography';
+import Text from '../../styleGuide/Text/Text';
 import icons from '../../resourse/icons';
 
 const RegisterSuccessMessage = () => {
