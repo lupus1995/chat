@@ -11,7 +11,7 @@ import {
 } from '../../rulesValidation/rules';
 import Link from '../../components/CustomLink/CustomLink';
 import { useHistory } from 'react-router-dom';
-import consts from '../../consts';
+import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 import FormAuthWrapper from '../../wrappers/FormAuthWrapper/FormAuthWrapper';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
@@ -23,7 +23,7 @@ const Auth = () => {
       <Typography className="text-center" tag="h1">
         Войти в аккаунт
       </Typography>
-      <Text className="subtitle text-center" tag="p">
+      <Text className="subtitle-h1 text-center" tag="p">
         Пожалуйста, войдите в свой аккаунт
       </Text>
       <FormAuthWrapper>

@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { useHistory, Switch, Route } from 'react-router-dom';
-import consts from '../consts';
+import consts from '../resourse/consts';
 import Loadeble from 'react-loadable';
 const Register = Loadeble({
   loader: () => import('../pages/Register/Register'),

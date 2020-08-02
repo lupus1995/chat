@@ -5,6 +5,6 @@ const Typography: FC<{ tag?: string; className?: string }> = ({
   children,
   tag = 'span',
   className = '',
-}) => createElement(tag, { className }, children);
+}) => createElement(tag, { className: `typography ${className}` }, children);
 
 export default Typography;

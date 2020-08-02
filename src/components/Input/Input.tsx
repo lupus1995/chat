@@ -1,6 +1,6 @@
 import React, { FC, useRef, MutableRefObject, useState } from 'react';
 import './style.scss';
-import consts from '../../consts';
+import consts from '../../resourse/consts';
 import { RulesValidationInterface } from '../../rulesValidation/interfaces';
 import MessageError from '../MessageError/MessageError';
 import { validation } from './helpers';
