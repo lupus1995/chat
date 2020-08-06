@@ -7,6 +7,7 @@ import {
   lineLengthRules,
   requiredInputRules,
   emailRules,
+  checkPassword,
 } from '../../rulesValidation/rules';
 import Link from '../../styleGuide/CustomLink/CustomLink';
 
@@ -33,7 +34,7 @@ const FormAuthContent = () => {
           type="password"
         />
         <Input
-          rules={{ requiredInputRules, lineLengthRules }}
+          rules={{ requiredInputRules, lineLengthRules, checkPassword }}
           placeholder="Повторите пароль"
           type="password"
         />

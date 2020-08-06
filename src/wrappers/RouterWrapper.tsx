@@ -18,10 +18,10 @@ const Chat = Loadeble({
 });
 
 const RouterWrapper: FC = () => {
-  const history = useHistory();
-  useEffect(() => {
-    history.push(consts.pages.chat);
-  }, []);
+  // const history = useHistory();
+  // useEffect(() => {
+  // history.push(consts.pages.chat);
+  // }, []);
   return (
     <Switch>
       <Route path={consts.pages.auth} component={Auth} />

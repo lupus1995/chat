@@ -9,12 +9,20 @@ body {
   background-color: #fff;
 }
 
+img {
+  max-width: 100%;
+}
+
 .d-flex {
   display: flex;
 }
 
 .flex-direction-column {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .justify-content-center {
@@ -25,4 +33,8 @@ body {
 }
 .text-uppercase {
   text-transform: uppercase;
+}
+
+.flex-direction-row-reverse {
+  flex-direction: row-reverse;
 }

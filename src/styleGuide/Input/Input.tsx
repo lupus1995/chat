@@ -10,7 +10,9 @@ const Input: FC<{
   classNames?: string;
   placeholder: string;
   rules: RulesValidationInterface;
-}> = ({ type = 'text', classNames = '', placeholder, rules }) => {
+  name?: string;
+}> = ({ type = 'text', classNames = '', placeholder, rules, name }) => {
+  console.log(name);
   const typePassword = type === consts.typeInputPassword;
   const [readonly, setReadonly] = useState<boolean>(typePassword);
   const [message, setMessage] = useState<string>('');

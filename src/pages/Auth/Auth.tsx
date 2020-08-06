@@ -11,9 +11,9 @@ import {
 import Link from '../../styleGuide/CustomLink/CustomLink';
 import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
-import FormAuthWrapper from '../../wrappers/FormAuthWrapper/FormAuthWrapper';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import Typography from '../../styleGuide/Typography/Typography';
+import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 
 const Auth = () => {
   return (
@@ -24,7 +24,7 @@ const Auth = () => {
       <Text className="subtitle-h1 text-center" tag="p">
         Пожалуйста, войдите в свой аккаунт
       </Text>
-      <FormAuthWrapper>
+      <AuthFormContent>
         <Form className="d-flex flex-direction-column">
           <Input
             rules={{ requiredInputRules, emailRules }}
@@ -40,7 +40,7 @@ const Auth = () => {
         <LinkAuthWrapper>
           <Link to={consts.pages.register}>Зарегистрироваться</Link>
         </LinkAuthWrapper>
-      </FormAuthWrapper>
+      </AuthFormContent>
     </MainAuthWrapper>
   );
 };

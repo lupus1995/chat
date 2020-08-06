@@ -17,16 +17,6 @@ module.exports = {
         exclude: /(node_modules)/,
         use: ['babel-loader', 'awesome-typescript-loader', 'tslint-loader'],
       },
-      // {
-      //   test: /\.js$/,
-      //   enforce: 'pre',
-      //   use: ['source-map-loader'],
-      // },
-      // {
-      //   test: /\.(js|jsx)$/,
-      //   exclude: /(node_modules)/,
-      //   loader: 'babel-loader',
-      // },
       {
         test: /\.scss$/,
         use: [

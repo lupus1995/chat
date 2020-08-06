@@ -15,7 +15,12 @@ export function validation({
   rules: RulesValidationInterface;
 }) {
   let rule: RuleValidationInterface | undefined;
-  const { requiredInputRules, emailRules, lineLengthRules } = rules;
+  const {
+    requiredInputRules,
+    emailRules,
+    lineLengthRules,
+    checkPassword,
+  } = rules;
   if (typeof requiredInputRules === 'function') {
     rule = requiredInputRules({
       firstClickByInput: val.length === 0,
@@ -45,6 +50,15 @@ export function validation({
       return;
     }
   }
+
+  // if (typeof checkPassword === 'function') {
+  //   rule = checkPassword({ string: val });
+  //   if (rule.rule) {
+  //     setError(rule.rule);
+  //     setMessage(rule.message);
+  //     return;
+  //   }
+  // }
 
   setError(false);
   setMessage('');

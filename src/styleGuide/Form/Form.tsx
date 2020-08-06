@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import './style.scss';
 import Button from '../Button/Button';
 
@@ -7,8 +7,10 @@ const Form: FC<{ className?: string; buttonText?: string }> = ({
   className = '',
   buttonText = 'ВОЙТИ В АККАУНТ',
 }) => {
+  const ref = useRef(null);
+  console.log(ref.current);
   return (
-    <form className={className} action="#" autoComplete="off">
+    <form ref={ref} className={className} action="#" autoComplete="off">
       {children}
       <Button primary className="text-uppercase">
         {buttonText}

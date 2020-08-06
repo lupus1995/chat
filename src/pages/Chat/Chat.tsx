@@ -1,7 +1,13 @@
 import React from 'react';
+import ChatMessageLeft from './ChatMessage/ChatMessageLeft';
 
 const Chat = () => {
-  return <div>chat page</div>;
+  return (
+    <>
+      <ChatMessageLeft />
+      <ChatMessageLeft right />
+    </>
+  );
 };
 
 export default Chat;

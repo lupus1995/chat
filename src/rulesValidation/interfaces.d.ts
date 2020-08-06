@@ -11,4 +11,11 @@ export interface RulesValidationInterface {
     firstClickByInput: boolean;
   }) => RuleValidationInterface;
   emailRules?: ({ string }: { string: string }) => RuleValidationInterface;
+  checkPassword?: ({
+    password,
+    repeatPassword,
+  }: {
+    password: string;
+    repeatPassword: string;
+  }) => RuleValidationInterface;
 }
