@@ -6,6 +6,7 @@ const Chat = () => {
     <>
       <ChatMessage />
       <ChatMessage right />
+      <ChatMessage imgMessage />
       <ChatMessage typing />
     </>
   );
