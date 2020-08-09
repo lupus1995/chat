@@ -7,7 +7,6 @@ const FormWrapper: FC<{ form: KeyForm[] }> = ({ children, form }) => {
       const name = Object.keys(form[index])[0];
       return React.cloneElement(child, {
         defaultValue: form[index][name].defaultValue,
-        defaultError: form[index][name].defaultError,
         name,
       });
     });

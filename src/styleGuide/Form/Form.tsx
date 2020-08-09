@@ -12,6 +12,7 @@ export interface KeyForm {
 }
 
 export interface FormContextInterface {
+  submit: boolean;
   fields: any;
   setFields: ({
     name,
@@ -46,11 +47,23 @@ const Form: FC<{
   data: KeyForm[];
 }> = ({ children, className = '', buttonText = 'ВОЙТИ В АККАУНТ', data }) => {
   const [fields, setFields] = useState<any>(initFields(data));
+  const [submit, setSubmit] = useState<boolean>(false);
   const ref = useRef(null);
   return (
-    <form ref={ref} className={className} action="#" autoComplete="off">
+    <form
+      onSubmit={(e: any) => {
+        setSubmit(true);
+        e.preventDefault();
+        return false;
+      }}
+      ref={ref}
+      className={className}
+      action="#"
+      autoComplete="off"
+    >
       <FormContext.Provider
         value={{
+          submit,
           fields,
           setFields: ({
             name,
@@ -72,7 +85,7 @@ const Form: FC<{
       >
         <FormWrapper form={data}>{children}</FormWrapper>
       </FormContext.Provider>
-      <Button primary className="text-uppercase">
+      <Button type="submit" primary className="text-uppercase">
         {buttonText}
       </Button>
     </form>

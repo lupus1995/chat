@@ -4,6 +4,7 @@ import React, {
   MutableRefObject,
   useState,
   useContext,
+  useEffect,
 } from 'react';
 import './style.scss';
 import consts from '../../../resourse/consts';
@@ -19,21 +20,19 @@ const Input: FC<{
   rules: RulesValidationInterface;
   name?: string;
   defaultValue?: string;
-  defaultError?: boolean;
 }> = ({
   type = 'text',
   classNames = '',
   placeholder,
   rules,
   name = '',
-  defaultError = false,
   defaultValue = '',
 }) => {
-  const { fields, setFields } = useContext(FormContext);
+  const { fields, setFields, submit } = useContext(FormContext);
   const typePassword = type === consts.typeInputPassword;
   const [readonly, setReadonly] = useState<boolean>(typePassword);
   const [message, setMessage] = useState<string>('');
-  const [error, setError] = useState<boolean>(defaultError);
+  const [error, setError] = useState<boolean>(false);
   const input: MutableRefObject<HTMLInputElement | null> = useRef(null);
   const handleFocus = () => {
     if (typePassword && readonly) {
@@ -65,6 +64,19 @@ const Input: FC<{
       setFields({ name, value: e.target.value, error: resultValidation.error });
     }, 100);
   };
+
+  useEffect(() => {
+    if (submit && input.current) {
+      validation({
+        value: input.current.value,
+        setError,
+        setMessage,
+        rules,
+        fields,
+      });
+    }
+  }, [submit]);
+
   return (
     <>
       <div className="inputConteiner">
