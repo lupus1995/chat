@@ -6,11 +6,11 @@ import React, {
   useContext,
 } from 'react';
 import './style.scss';
-import consts from '../../resourse/consts';
-import { RulesValidationInterface } from '../../rulesValidation/interfaces';
+import consts from '../../../resourse/consts';
+import { RulesValidationInterface } from '../rulesValidation/interfaces';
 import { validation } from './helpers';
-import MessageError from '../../components/MessageError/MessageError';
-import { FormContext } from '../Form/Form';
+import MessageError from '../../../components/MessageError/MessageError';
+import { FormContext } from '../Form';
 let debounceTimeoutId: number = 0;
 const Input: FC<{
   type: string;

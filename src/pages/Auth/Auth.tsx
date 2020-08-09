@@ -2,12 +2,12 @@ import React from 'react';
 import './style.scss';
 import Text from '../../styleGuide/Text/Text';
 import Form from '../../styleGuide/Form/Form';
-import Input from '../../styleGuide/Input/Input';
+import Input from '../../styleGuide/Form/Input/Input';
 import {
   lineLengthRules,
   requiredInputRules,
   emailRules,
-} from '../../rulesValidation/rules';
+} from '../../styleGuide/Form/rulesValidation/rules';
 import Link from '../../styleGuide/CustomLink/CustomLink';
 import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';

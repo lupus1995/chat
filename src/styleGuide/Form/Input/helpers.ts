@@ -1,7 +1,7 @@
 import {
   RulesValidationInterface,
   RuleValidationInterface,
-} from '../../rulesValidation/interfaces';
+} from '../rulesValidation/interfaces';
 
 export function validation({
   value,

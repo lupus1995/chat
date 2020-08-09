@@ -1,15 +1,15 @@
 import React from 'react';
 import Form from '../../styleGuide/Form/Form';
-import Input from '../../styleGuide/Input/Input';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import consts from '../../resourse/consts';
+import Link from '../../styleGuide/CustomLink/CustomLink';
+import Input from '../../styleGuide/Form/Input/Input';
 import {
-  lineLengthRules,
   requiredInputRules,
   emailRules,
+  lineLengthRules,
   checkPassword,
-} from '../../rulesValidation/rules';
-import Link from '../../styleGuide/CustomLink/CustomLink';
+} from '../../styleGuide/Form/rulesValidation/rules';
 
 const FormAuthContent = () => {
   return (
