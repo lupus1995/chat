@@ -1,9 +1,16 @@
-import React, { FC, useRef, MutableRefObject, useState } from 'react';
+import React, {
+  FC,
+  useRef,
+  MutableRefObject,
+  useState,
+  useContext,
+} from 'react';
 import './style.scss';
 import consts from '../../resourse/consts';
 import { RulesValidationInterface } from '../../rulesValidation/interfaces';
 import { validation } from './helpers';
 import MessageError from '../../components/MessageError/MessageError';
+import { FormContext } from '../Form/Form';
 let debounceTimeoutId: number = 0;
 const Input: FC<{
   type: string;
@@ -11,13 +18,22 @@ const Input: FC<{
   placeholder: string;
   rules: RulesValidationInterface;
   name?: string;
-}> = ({ type = 'text', classNames = '', placeholder, rules, name }) => {
-  console.log(name);
+  defaultValue?: string;
+  defaultError?: boolean;
+}> = ({
+  type = 'text',
+  classNames = '',
+  placeholder,
+  rules,
+  name = '',
+  defaultError = false,
+  defaultValue = '',
+}) => {
+  const { fields, setFields } = useContext(FormContext);
   const typePassword = type === consts.typeInputPassword;
   const [readonly, setReadonly] = useState<boolean>(typePassword);
   const [message, setMessage] = useState<string>('');
-  const [error, setError] = useState<boolean>(false);
-  const [blur, setBlur] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(defaultError);
   const input: MutableRefObject<HTMLInputElement | null> = useRef(null);
   const handleFocus = () => {
     if (typePassword && readonly) {
@@ -25,32 +41,36 @@ const Input: FC<{
     }
   };
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    validation({
-      val: e.target.value,
+    const resultValidation = validation({
+      value: e.target.value,
       setError,
       setMessage,
       rules,
+      fields,
     });
-    setBlur(true);
+    setFields({ name, value: e.target.value, error: resultValidation.error });
   };
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!blur) return;
     e.persist();
     clearTimeout(debounceTimeoutId);
     debounceTimeoutId = window.setTimeout(() => {
       e.target.value = e.target.value.substring(0, 255);
-      validation({
-        val: e.target.value,
+      const resultValidation = validation({
+        value: e.target.value,
         setError,
         setMessage,
         rules,
+        fields,
       });
+      setFields({ name, value: e.target.value, error: resultValidation.error });
     }, 100);
   };
   return (
     <>
       <div className="inputConteiner">
         <input
+          defaultValue={defaultValue}
+          name={name}
           ref={input}
           type={type}
           readOnly={readonly}

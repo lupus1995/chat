@@ -4,16 +4,18 @@ import {
 } from '../../rulesValidation/interfaces';
 
 export function validation({
-  val,
+  value,
   setError,
   setMessage,
   rules,
+  fields = {},
 }: {
-  val: string;
+  value: string;
   setError: (error: boolean) => void;
   setMessage: (message: string) => void;
   rules: RulesValidationInterface;
-}) {
+  fields?: any;
+}): { value: string; error: boolean } {
   let rule: RuleValidationInterface | undefined;
   const {
     requiredInputRules,
@@ -23,43 +25,62 @@ export function validation({
   } = rules;
   if (typeof requiredInputRules === 'function') {
     rule = requiredInputRules({
-      firstClickByInput: val.length === 0,
+      firstClickByInput: value.length === 0,
     });
 
     if (rule.rule) {
       setError(rule.rule);
       setMessage(rule.message);
-      return;
+      return {
+        value,
+        error: rule.rule,
+      };
     }
   }
 
   if (typeof lineLengthRules === 'function') {
-    rule = lineLengthRules({ string: val });
+    rule = lineLengthRules({ string: value });
     if (rule.rule) {
       setError(rule.rule);
       setMessage(rule.message);
-      return;
+      return {
+        value,
+        error: rule.rule,
+      };
     }
   }
 
   if (typeof emailRules === 'function') {
-    rule = emailRules({ string: val });
+    rule = emailRules({ string: value });
     if (rule.rule) {
       setError(rule.rule);
       setMessage(rule.message);
-      return;
+      return {
+        value,
+        error: rule.rule,
+      };
     }
   }
 
-  // if (typeof checkPassword === 'function') {
-  //   rule = checkPassword({ string: val });
-  //   if (rule.rule) {
-  //     setError(rule.rule);
-  //     setMessage(rule.message);
-  //     return;
-  //   }
-  // }
+  if (typeof checkPassword === 'function') {
+    rule = checkPassword({
+      repeatPassword: value,
+      password: fields.password.value,
+    });
+    if (rule.rule) {
+      setError(rule.rule);
+      setMessage(rule.message);
+      return {
+        value,
+        error: rule.rule,
+      };
+    }
+  }
 
   setError(false);
   setMessage('');
+  return {
+    value,
+    error: false,
+  };
 }

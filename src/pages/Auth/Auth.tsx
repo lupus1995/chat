@@ -25,7 +25,23 @@ const Auth = () => {
         Пожалуйста, войдите в свой аккаунт
       </Text>
       <AuthFormContent>
-        <Form className="d-flex flex-direction-column">
+        <Form
+          data={[
+            {
+              email: {
+                defaultValue: '',
+                defaultError: true,
+              },
+            },
+            {
+              password: {
+                defaultValue: '',
+                defaultError: true,
+              },
+            },
+          ]}
+          className="d-flex flex-direction-column"
+        >
           <Input
             rules={{ requiredInputRules, emailRules }}
             placeholder="Email"

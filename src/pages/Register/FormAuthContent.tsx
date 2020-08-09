@@ -15,6 +15,32 @@ const FormAuthContent = () => {
   return (
     <>
       <Form
+        data={[
+          {
+            email: {
+              defaultValue: '',
+              defaultError: true,
+            },
+          },
+          {
+            name: {
+              defaultValue: '',
+              defaultError: true,
+            },
+          },
+          {
+            password: {
+              defaultValue: '',
+              defaultError: true,
+            },
+          },
+          {
+            repeatPassword: {
+              defaultValue: '',
+              defaultError: true,
+            },
+          },
+        ]}
         buttonText="зарегистрироваться"
         className="d-flex flex-direction-column"
       >
