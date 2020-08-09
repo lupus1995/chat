@@ -3,8 +3,12 @@ import './style.scss';
 import classNames from 'classnames';
 import Avatar from '../../../components/Avatar/Avatar';
 import Attachment from './Attachment';
+import Typing from '../Typing/Typing';
 
-const ChatMessageLeft: FC<{ right?: boolean }> = ({ right = false }) => {
+const ChatMessage: FC<{ right?: boolean; typing?: boolean }> = ({
+  right = false,
+  typing = false,
+}) => {
   return (
     <section className="chatMessageWrapper">
       <div
@@ -22,17 +26,19 @@ const ChatMessageLeft: FC<{ right?: boolean }> = ({ right = false }) => {
           <Avatar right={right} />
           <div
             className={classNames('chatMessage', {
-              chatMesageLeft: !right,
+              chatMesageLeft: !right && !typing,
               chatMessageRight: right,
             })}
           >
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
+            {!typing &&
+              `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
             impedit dicta expedita nostrum recusandae consectetur culpa
             quibusdam vitae voluptates assumenda rem necessitatibus nam
-            doloribus illum, cupiditate itaque, accusamus, corrupti deserunt!
+            doloribus illum, cupiditate itaque, accusamus, corrupti deserunt!`}
+            {typing && <Typing />}
           </div>
         </div>
-        {!right && <Attachment />}
+        {!right && !typing && <Attachment />}
       </div>
       <span
         className={classNames('time', {
@@ -46,4 +52,4 @@ const ChatMessageLeft: FC<{ right?: boolean }> = ({ right = false }) => {
   0;
 };
 
-export default ChatMessageLeft;
+export default ChatMessage;

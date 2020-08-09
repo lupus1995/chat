@@ -1,11 +1,12 @@
 import React from 'react';
-import ChatMessageLeft from './ChatMessage/ChatMessageLeft';
+import ChatMessage from './ChatMessage/ChatMessage';
 
 const Chat = () => {
   return (
     <>
-      <ChatMessageLeft />
-      <ChatMessageLeft right />
+      <ChatMessage />
+      <ChatMessage right />
+      <ChatMessage typing />
     </>
   );
 };
