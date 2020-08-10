@@ -25,6 +25,10 @@ img {
   flex-wrap: wrap;
 }
 
+.align-items-center {
+  align-items: center;
+}
+
 .justify-content-center {
   justify-content: center;
 }
@@ -37,4 +41,8 @@ img {
 
 .flex-direction-row-reverse {
   flex-direction: row-reverse;
+}
+
+.position-relative {
+  position: relative;
 }

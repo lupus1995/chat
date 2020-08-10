@@ -2,6 +2,31 @@
   margin-top: auto;
   height: 30px;
   width: 30px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarDialog {
+  min-width: 40px;
+  height: 40px;
+}
+
+.avatarOnline {
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #00c980;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .avatarLeft {

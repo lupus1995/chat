@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import './style.scss';
 import classNames from 'classnames';
-import Avatar from '../../../components/Avatar/Avatar';
+import Avatar from '../../../../components/Avatar/Avatar';
 import Attachment from './Attachment';
 import Typing from '../Typing/Typing';
 import AttachmentOneImage from './AttachmentOneImage';
+import Time from '../../../../components/Time/Time';
 
 const ChatMessage: FC<{
   right?: boolean;
@@ -45,13 +46,7 @@ const ChatMessage: FC<{
         </div>
         {!right && !typing && !imgMessage && <Attachment />}
       </div>
-      <span
-        className={classNames('time', {
-          timeRight: right,
-        })}
-      >
-        Вчера, в 12:31
-      </span>
+      <Time />
     </section>
   );
   0;

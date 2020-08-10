@@ -1,0 +1,18 @@
+.unreadMessage {
+  width: 18px;
+  height: 18px;
+  background: #f46b6b;
+  position: absolute;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  top: 52%;
+}
