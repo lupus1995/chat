@@ -1,0 +1,52 @@
+.audioMessageWrapper {
+  width: 296px;
+  height: 63px;
+  background: #3674ff;
+  border-radius: 12px 12px 12px 0px;
+  position: relative;
+}
+
+.audioMessageContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 12px 12px 12px 0px;
+  z-index: 1;
+}
+
+.audioMessageSeekbar {
+  display: block;
+  height: 100%;
+  position: absolute;
+  background-color: #418fff;
+  position: absolute;
+  top: 0;
+  border-radius: 12px 12px 12px 0px;
+}
+
+.audioMessageButton {
+  left: 18px;
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: #0f3997;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.audioMessageTime {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  color: #ffffff;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  position: absolute;
+  right: 18px;
+}

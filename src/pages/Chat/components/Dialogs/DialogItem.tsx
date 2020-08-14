@@ -20,7 +20,7 @@ const DialogItem: FC<{
         <p className="dialogItemName">Ян Борисович Кум</p>
         <p
           className={classNames('dialogItemMessage', {
-            dialogItemMessageUnreadMessage: unreadMessage,
+            dialogItemMessageUnreadMessage: unreadMessage || send || read,
           })}
         >
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat

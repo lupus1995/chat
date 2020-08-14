@@ -6,12 +6,19 @@ import Attachment from './Attachment';
 import Typing from '../Typing/Typing';
 import AttachmentOneImage from './AttachmentOneImage';
 import Time from '../../../../components/Time/Time';
+import AudioMessage from '../AudioMessage/AudioMessage';
 
 const ChatMessage: FC<{
   right?: boolean;
   typing?: boolean;
   imgMessage?: boolean;
-}> = ({ right = false, typing = false, imgMessage = false }) => {
+  audioMessage?: boolean;
+}> = ({
+  right = false,
+  typing = false,
+  imgMessage = false,
+  audioMessage = false,
+}) => {
   return (
     <section className="chatMessageWrapper">
       <div
@@ -27,24 +34,27 @@ const ChatMessage: FC<{
           })}
         >
           <Avatar right={right} />
-          <div
-            className={classNames('chatMessage', {
-              chatMesageLeft: !right && !typing && !imgMessage,
-              chatMessageRight: right,
-              chatMessagePadding: !imgMessage,
-            })}
-          >
-            {!typing &&
-              !imgMessage &&
-              `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
+          {!audioMessage && (
+            <div
+              className={classNames('chatMessage', {
+                chatMesageLeft: !right && !typing && !imgMessage,
+                chatMessageRight: right,
+                chatMessagePadding: !imgMessage,
+              })}
+            >
+              {!typing &&
+                !imgMessage &&
+                `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
             impedit dicta expedita nostrum recusandae consectetur culpa
             quibusdam vitae voluptates assumenda rem necessitatibus nam
             doloribus illum, cupiditate itaque, accusamus, corrupti deserunt!`}
-            {typing && <Typing />}
-            {imgMessage && <AttachmentOneImage />}
-          </div>
+              {typing && <Typing />}
+              {imgMessage && <AttachmentOneImage />}
+            </div>
+          )}
         </div>
-        {!right && !typing && !imgMessage && <Attachment />}
+        {!right && !typing && !imgMessage && !audioMessage && <Attachment />}
+        {audioMessage && <AudioMessage />}
       </div>
       <Time />
     </section>
