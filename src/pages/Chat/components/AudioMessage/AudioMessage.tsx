@@ -7,7 +7,7 @@ const AudioMessage = () => {
   const [audio] = useState<HTMLAudioElement>(new Audio());
   const [play, setPlay] = useState<boolean>(false);
   const [time, setTime] = useState<string>('');
-  const [widthContainer, setWidthContainer] = useState<string>(0);
+  const [widthContainer, setWidthContainer] = useState<string>('0%');
   const ref: MutableRefObject<HTMLDivElement | null> = useRef(null);
   const handleClick = () => {
     setPlay(!play);
