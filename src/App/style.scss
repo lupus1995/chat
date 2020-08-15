@@ -5,10 +5,14 @@
   box-sizing: border-box;
 }
 
+input,
 button {
   background: none;
   border: none;
   outline: none;
+}
+
+button {
   cursor: pointer;
 }
 
