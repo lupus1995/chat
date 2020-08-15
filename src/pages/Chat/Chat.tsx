@@ -1,18 +1,22 @@
 import React from 'react';
 import ChatMessage from './components/ChatMessage/ChatMessage';
 import Dialogs from './components/Dialogs/Dialogs';
-import AudioMessage from './components/AudioMessage/AudioMessage';
+import ChatWrapper from './wrappers/ChatWrapper/ChatWrapper';
+import SidebarChat from './wrappers/SidebarChat/SidebarChat';
 
 const Chat = () => {
   return (
-    <>
-      {/* <Dialogs /> */}
-      <ChatMessage />
+    <ChatWrapper>
+      <SidebarChat>
+        <Dialogs />
+      </SidebarChat>
+
+      {/* <ChatMessage />
       <ChatMessage right />
       <ChatMessage imgMessage />
       <ChatMessage typing />
-      <ChatMessage audioMessage />
-    </>
+      <ChatMessage audioMessage /> */}
+    </ChatWrapper>
   );
 };
 

@@ -1,0 +1,33 @@
+.sidebarHeader {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #202020;
+  mix-blend-mode: normal;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  background-color: #ffffff;
+}
+
+.sidebarHeaderContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebarHeaderTitle {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #202020;
+  mix-blend-mode: normal;
+  opacity: 0.65;
+  display: flex;
+  align-items: center;
+
+  span {
+    padding-left: 7px;
+  }
+}
