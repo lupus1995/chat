@@ -1,17 +1,16 @@
 import React from 'react';
 import './style.scss';
 import DialogItem from './DialogItem';
+import DialogWrapper from '../../wrappers/DialogWrapper/DialogWrapper';
 
 const Dialogs = () => {
   return (
-    <section className="dialogWrapper">
-      <ul>
-        <DialogItem />
-        <DialogItem unreadMessage />
-        <DialogItem read />
-        <DialogItem send />
-      </ul>
-    </section>
+    <DialogWrapper>
+      <DialogItem />
+      <DialogItem unreadMessage />
+      <DialogItem read />
+      <DialogItem send />
+    </DialogWrapper>
   );
 };
 

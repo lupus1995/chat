@@ -29,7 +29,7 @@ const ChatMessage: FC<{
         })}
       >
         <div
-          className={classNames('d-flex chatWrapper', {
+          className={classNames('d-flex chatItemWrapper', {
             'flex-direction-row-reverse': right,
           })}
         >

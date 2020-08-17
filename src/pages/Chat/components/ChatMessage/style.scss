@@ -1,5 +1,8 @@
 .chatMessageWrapper {
   margin-bottom: 15px;
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
 }
 
 .chatContentLeft {
@@ -39,7 +42,7 @@
 
 .attachmentContent {
   max-width: 400px;
-  margin-left: 45px;
+  margin-left: 55px;
   margin-top: 8px;
 }
 
