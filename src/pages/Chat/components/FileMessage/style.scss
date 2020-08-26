@@ -1,0 +1,51 @@
+.fileMessageWrapper {
+  background: #eff4ff;
+  border-radius: 12px 12px 12px 0px;
+  width: 296px;
+  height: 126px;
+  padding: 20px;
+}
+
+.fileMessageTop {
+  display: flex;
+  flex-direction: column;
+  height: 56px;
+}
+
+.fileMessageBottom {
+  margin: 0 -20px;
+  background: #3674ff;
+  height: 50px;
+  display: flex;
+}
+
+.fileName {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: #202020;
+  margin-bottom: 4px;
+}
+
+.fileSize {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: #202020;
+  mix-blend-mode: normal;
+  opacity: 0.6;
+}
+
+.uploadFile {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  color: #fafcff;
+  text-transform: uppercase;
+  span {
+    margin: 0 10px 0 20px;
+  }
+}

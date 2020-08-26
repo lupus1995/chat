@@ -7,17 +7,20 @@ import Typing from '../Typing/Typing';
 import AttachmentOneImage from './AttachmentOneImage';
 import Time from '../../../../components/Time/Time';
 import AudioMessage from '../AudioMessage/AudioMessage';
+import FileMessage from '../FileMessage/FileMessage';
 
 const ChatMessage: FC<{
   right?: boolean;
   typing?: boolean;
   imgMessage?: boolean;
   audioMessage?: boolean;
+  fileMessage?: boolean;
 }> = ({
   right = false,
   typing = false,
   imgMessage = false,
   audioMessage = false,
+  fileMessage = false,
 }) => {
   return (
     <section className="chatMessageWrapper">
@@ -34,7 +37,7 @@ const ChatMessage: FC<{
           })}
         >
           <Avatar right={right} />
-          {!audioMessage && (
+          {!audioMessage && !fileMessage && (
             <div
               className={classNames('chatMessage', {
                 chatMesageLeft: !right && !typing && !imgMessage,
@@ -53,8 +56,11 @@ const ChatMessage: FC<{
             </div>
           )}
         </div>
-        {!right && !typing && !imgMessage && !audioMessage && <Attachment />}
+        {!right && !typing && !imgMessage && !audioMessage && !fileMessage && (
+          <Attachment />
+        )}
         {audioMessage && <AudioMessage />}
+        {fileMessage && <FileMessage />}
       </div>
       <Time />
     </section>

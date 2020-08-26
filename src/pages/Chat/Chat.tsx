@@ -17,6 +17,7 @@ const Chat = () => {
         <ChatMessage imgMessage />
         <ChatMessage typing />
         <ChatMessage audioMessage />
+        <ChatMessage fileMessage />
       </MessageWrapper>
     </ChatWrapper>
   );
