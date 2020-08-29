@@ -1,0 +1,84 @@
+{
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" },
+  "chats": [
+    {
+      "_id": "5f46e1bd42583971dd456317",
+      "name": "Eyeris",
+      "userId": "5f46e0bc29cd65f7f74b3b3f"
+    },
+    {
+      "_id": "5f46e21b1fac424e3eefc285",
+      "name": "Interfind",
+      "userId": "5f46e0bc62a657ed6a74e71a"
+    },
+    {
+      "_id": "5f46e23e18b8254bfb98a8d2",
+      "name": "Moreganic",
+      "userId": "5f46e0bc788ec7ae311e61c4"
+    }
+  ],
+  "users": [
+    {
+      "_id": "5f46e0bc29cd65f7f74b3b3f",
+      "name": "Francisca Sawyer",
+      "email": "undefined.undefined@undefined.biz",
+      "password": "5f46e0bc3a3ac090e181461d"
+    },
+    {
+      "_id": "5f46e0bc62a657ed6a74e71a",
+      "name": "Cardenas Norton",
+      "email": "undefined.undefined@undefined.ca",
+      "password": "5f46e0bc6e678a729e9fa351"
+    },
+    {
+      "_id": "5f46e0bc788ec7ae311e61c4",
+      "name": "Massey Cabrera",
+      "email": "undefined.undefined@undefined.us",
+      "password": "5f46e0bc04e19450774400e0"
+    },
+    {
+      "_id": "5f46e0bcbbedcac045dbb446",
+      "name": "Tammi Harding",
+      "email": "undefined.undefined@undefined.me",
+      "password": "5f46e0bce4f9ae1bc2749ff9"
+    },
+    {
+      "_id": "5f46e0bcbd08af2e6118f168",
+      "name": "Jenkins Dominguez",
+      "email": "undefined.undefined@undefined.name",
+      "password": "5f46e0bc7dbc60686d6e1ed0"
+    },
+    {
+      "_id": "5f46e0bcb8ea3d299788fcea",
+      "name": "Guadalupe Merritt",
+      "email": "undefined.undefined@undefined.info",
+      "password": "5f46e0bc4b593dc1729fa590"
+    },
+    {
+      "_id": "5f46e0bccfc4d5aaff653b3c",
+      "name": "Tammy Lee",
+      "email": "undefined.undefined@undefined.io",
+      "password": "5f46e0bc8c8581e78bb92140"
+    },
+    {
+      "_id": "5f46e0bcefa8c41bf856b982",
+      "name": "Robbins Eaton",
+      "email": "undefined.undefined@undefined.org",
+      "password": "5f46e0bc9fb2afb3fda8cdbc"
+    },
+    {
+      "_id": "5f46e0bce45533b04b44b2ee",
+      "name": "Hobbs Buchanan",
+      "email": "undefined.undefined@undefined.co.uk",
+      "password": "5f46e0bc67a18acecceca81c"
+    },
+    {
+      "_id": "5f46e0bcbf00cbbf3ddc51a6",
+      "name": "Blankenship Cherry",
+      "email": "undefined.undefined@undefined.biz",
+      "password": "5f46e0bc76ded835dd903fef"
+    }
+  ]
+}

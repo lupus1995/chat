@@ -5,19 +5,22 @@ import ReadMessage from '../ReadMessage/ReadMessage';
 import SendMessage from '../SendMessage/SendMessage';
 import UnreadMessage from '../UnreadMessage/UnreadMessage';
 import classNames from 'classnames';
+import DialogItemWrapper from '../../../../wrappers/ChatWrappers/DialogItemWrapper/DialogItemWrapper';
+import { Users } from '../../../../interfaces/users/Users';
 
 const DialogItem: FC<{
+  item: Users;
   send?: boolean;
   read?: boolean;
   unreadMessage?: boolean;
-}> = ({ send = false, read = false, unreadMessage = false }) => {
+}> = ({ send = false, read = false, unreadMessage = false, item }) => {
   return (
-    <li className="d-flex align-items-center position-relative dialogItemWrapper">
+    <DialogItemWrapper>
       <div>
-        <Avatar dialogItem />
+        <Avatar name={item.name} dialogItem />
       </div>
       <div>
-        <p className="dialogItemName">Ян Борисович Кум</p>
+        <p className="dialogItemName">{item.name}</p>
         <p
           className={classNames('dialogItemMessage', {
             dialogItemMessageUnreadMessage: unreadMessage || send || read,
@@ -33,7 +36,7 @@ const DialogItem: FC<{
       {send && <SendMessage dialogItem />}
       {unreadMessage && <UnreadMessage />}
       <Time timeDialog />
-    </li>
+    </DialogItemWrapper>
   );
 };
 

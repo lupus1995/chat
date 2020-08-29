@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './style.scss';
-import icons from '../../../../../resourse/icons';
+import icons from '../../../../resourse/icons';
 
 const SidebarHeader: FC = ({ children }) => (
   <div className="sidebarHeader">

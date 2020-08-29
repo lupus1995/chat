@@ -1,6 +1,6 @@
 import React, { FormEvent, useRef, MutableRefObject } from 'react';
 import './style.scss';
-import icons from '../../../../../resourse/icons';
+import icons from '../../../../resourse/icons';
 
 const ChatTextarea = () => {
   const ref: MutableRefObject<null | HTMLTextAreaElement> = useRef(null);

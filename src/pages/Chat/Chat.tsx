@@ -1,9 +1,9 @@
 import React from 'react';
 import ChatMessage from './components/ChatMessage/ChatMessage';
 import Dialogs from './components/Dialogs/Dialogs';
-import ChatWrapper from './wrappers/ChatWrapper/ChatWrapper';
-import SidebarChat from './wrappers/SidebarChat/SidebarChat';
-import MessageWrapper from './wrappers/MessagesWrapper/MessagesWrapper';
+import ChatWrapper from '../../wrappers/ChatWrappers/ChatWrapper/ChatWrapper';
+import SidebarChat from '../../wrappers/ChatWrappers/SidebarChat/SidebarChat';
+import MessageWrapper from '../../wrappers/ChatWrappers/MessagesWrapper/MessagesWrapper';
 
 const Chat = () => {
   return (

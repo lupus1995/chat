@@ -1,24 +1,27 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import './style.scss';
 import className from 'classnames';
-import getRandomString from '../../helpers/getRandomString';
 
 const Avatar: FC<{
   right?: boolean;
   dialogItem?: boolean;
   url?: string;
-}> = ({ right = false, dialogItem = false, url = '' }) => {
-  const [avatar] = useState<string>(getRandomString());
-  const generateAvatar = () => {
-    const [r, g, b] = avatar
+  name?: string;
+}> = ({ right = false, dialogItem = false, url = '', name }) => {
+  const generateAvatar = (name: string) => {
+    const [r, g, b] = name
       .split('')
       .map((item) => (item.charCodeAt(0) > 255 ? 255 : item.charCodeAt(0)));
     return [r, g, b];
   };
 
+  useEffect(() => {
+    console.log(name);
+  }, [name]);
+
   return (
     <div
-      className={className('avatar avatarOnline', {
+      className={className('avatar', {
         avatarLeft: !right,
         avatarRight: right,
         avatarDialog: dialogItem,
@@ -28,12 +31,12 @@ const Avatar: FC<{
         <img className={className('avatarPhoto')} src={url} alt="avatar" />
       )}
 
-      {!url && (
+      {!url && name && (
         <span
           className="avatarPhoto avatar"
-          style={{ background: `rgb(${[...generateAvatar()]})` }}
+          style={{ background: `rgb(${[...generateAvatar(name)]})` }}
         >
-          {avatar[0]}
+          {name[0]}
         </span>
       )}
     </div>

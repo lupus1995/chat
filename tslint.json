@@ -8,6 +8,7 @@
     "import-name": [false],
     "object-literal-shorthand": false,
     "no-boolean-literal-compare": false,
-    "ter-arrow-parens": [true, "always"]
+    "ter-arrow-parens": [true, "always"],
+    "prefer-array-literal": [true, { "allow-size-argument": true }]
   }
 }
