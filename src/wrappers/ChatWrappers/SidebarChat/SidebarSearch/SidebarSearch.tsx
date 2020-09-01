@@ -12,8 +12,9 @@ const SidebarSearch = () => {
     e.persist();
     clearTimeout(debounceTimeoutId);
     debounceTimeoutId = window.setTimeout(() => {
-      setValue(e.target.value.substring(0, 255));
-      // dispatch(setSearchInputUsers(e.target.value.substring(0, 255)));
+      const val = e.target.value.substring(0, 255);
+      setValue(val);
+      dispatch(setSearchInputUsers(val));
     }, 100);
   };
   return (

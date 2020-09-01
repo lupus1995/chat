@@ -1,4 +1,4 @@
-export default interface Dialogs {
+export default interface DialogsInterface {
   _id: string;
   name: string;
   user: {
