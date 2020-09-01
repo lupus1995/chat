@@ -4,9 +4,11 @@
   "description": "",
   "dependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/lodash": "^4.14.161",
     "@types/react-router-dom": "^5.1.5",
     "babel-loader": "^8.1.0",
     "classnames": "^2.2.6",
+    "lodash": "^4.17.20",
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

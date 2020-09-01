@@ -3,7 +3,7 @@ import './style.scss';
 
 const DialogWrapper: FC = ({ children }) => (
   <section className="dialogWrapper">
-    <ul>{children}</ul>
+    <ul className="dialogList">{children}</ul>
   </section>
 );
 

@@ -15,9 +15,7 @@ const Avatar: FC<{
     return [r, g, b];
   };
 
-  useEffect(() => {
-    console.log(name);
-  }, [name]);
+  useEffect(() => {}, [name]);
 
   return (
     <div

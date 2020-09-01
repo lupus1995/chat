@@ -4,16 +4,16 @@ import { RootReducerInterface } from '../../../../../root.reducer';
 import DialogItem from './DialogItem';
 
 const DialogList = () => {
-  const { users } = useSelector((state: RootReducerInterface) => ({
-    users: state.users.users,
+  const { dialogs } = useSelector((state: RootReducerInterface) => ({
+    dialogs: state.dialogs.dialogs,
   }));
 
   return (
     <>
-      {users.length === 0 && <h2>Нет диалогов</h2>}
-      {users.length > 0 &&
-        users.map((item) => {
-          return <DialogItem item={item} key={item.id} />;
+      {dialogs.length === 0 && <h2>Нет диалогов</h2>}
+      {dialogs.length > 0 &&
+        dialogs.map((item) => {
+          return <DialogItem item={item} key={item._id} />;
         })}
     </>
   );

@@ -3,3 +3,8 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.04204);
   margin: 0 -17px;
 }
+
+.dialogList {
+  height: calc(100vh - 140px);
+  overflow: auto;
+}

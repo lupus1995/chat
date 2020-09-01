@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
-import { UsersReducerInterface, usersReducer } from './src/redux/users/reducer';
+import {
+  DialogsReducerInterface,
+  dialogsReducer,
+} from './src/redux/dialogs/reducer';
 
 export interface RootReducerInterface {
-  users: UsersReducerInterface;
+  dialogs: DialogsReducerInterface;
 }
 
 const rootReducer = combineReducers({
-  users: usersReducer,
+  dialogs: dialogsReducer,
 });
 
 export default rootReducer;

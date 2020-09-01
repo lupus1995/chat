@@ -1,84 +1,229 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" },
-  "chats": [
+  "dialogs": [
     {
-      "_id": "5f46e1bd42583971dd456317",
-      "name": "Eyeris",
-      "userId": "5f46e0bc29cd65f7f74b3b3f"
+      "_id": "5f4b40b0846ff82698efb273",
+      "name": "Corepan",
+      "user": {
+        "name": "Blevins Holder",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b09b27f2d52e30a745",
+          "text": "Amet sit enim amet excepteur adipisicing cupidatat exercitation dolore.",
+          "createdAt": "Mon Jul 28 2003 04:40:51 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e21b1fac424e3eefc285",
-      "name": "Interfind",
-      "userId": "5f46e0bc62a657ed6a74e71a"
+      "_id": "5f4b40b064f0521272eea9c6",
+      "name": "Kiosk",
+      "user": {
+        "name": "Lorene Holman",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b0e1441243bc8e6fb7",
+          "text": "Cupidatat consectetur est ut ipsum excepteur aliqua minim nisi dolor duis.",
+          "createdAt": "Sun Jan 03 2016 21:22:16 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e23e18b8254bfb98a8d2",
-      "name": "Moreganic",
-      "userId": "5f46e0bc788ec7ae311e61c4"
-    }
-  ],
-  "users": [
-    {
-      "_id": "5f46e0bc29cd65f7f74b3b3f",
-      "name": "Francisca Sawyer",
-      "email": "undefined.undefined@undefined.biz",
-      "password": "5f46e0bc3a3ac090e181461d"
+      "_id": "5f4b40b0d4f0af403f71eee2",
+      "name": "Centice",
+      "user": {
+        "name": "Marci Fitzpatrick",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b02b71968bbeeee949",
+          "text": "Veniam eu voluptate proident aliquip.",
+          "createdAt": "Fri Aug 24 2012 20:01:53 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bc62a657ed6a74e71a",
-      "name": "Cardenas Norton",
-      "email": "undefined.undefined@undefined.ca",
-      "password": "5f46e0bc6e678a729e9fa351"
+      "_id": "5f4b40b0cd8c0b37d977d204",
+      "name": "Cosmosis",
+      "user": {
+        "name": "Snyder Strong",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b03ec852b8a09047e0",
+          "text": "Officia occaecat minim nulla voluptate amet consequat eu nulla ipsum esse ut.",
+          "createdAt": "Sun Feb 15 1998 10:45:03 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bc788ec7ae311e61c4",
-      "name": "Massey Cabrera",
-      "email": "undefined.undefined@undefined.us",
-      "password": "5f46e0bc04e19450774400e0"
+      "_id": "5f4b40b061770d8edb61dd6d",
+      "name": "Elemantra",
+      "user": {
+        "name": "Etta Bryan",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b0bf816f10de38ea9a",
+          "text": "Pariatur cillum ad eu cupidatat aute labore minim.",
+          "createdAt": "Fri Dec 07 1973 13:43:22 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bcbbedcac045dbb446",
-      "name": "Tammi Harding",
-      "email": "undefined.undefined@undefined.me",
-      "password": "5f46e0bce4f9ae1bc2749ff9"
+      "_id": "5f4b40b02a09e0728b87c619",
+      "name": "Eschoir",
+      "user": {
+        "name": "Kirby Knight",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b04bf6d418bd00d021",
+          "text": "Incididunt ipsum sit consequat non labore.",
+          "createdAt": "Tue Feb 12 2008 13:04:02 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bcbd08af2e6118f168",
-      "name": "Jenkins Dominguez",
-      "email": "undefined.undefined@undefined.name",
-      "password": "5f46e0bc7dbc60686d6e1ed0"
+      "_id": "5f4b40b081de2fd7e3ae1555",
+      "name": "Roughies",
+      "user": {
+        "name": "Aurelia Fox",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b0b6a9a4525521fed9",
+          "text": "Sint ea commodo eiusmod ut magna nostrud minim pariatur.",
+          "createdAt": "Sun Aug 06 2006 06:20:40 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bcb8ea3d299788fcea",
-      "name": "Guadalupe Merritt",
-      "email": "undefined.undefined@undefined.info",
-      "password": "5f46e0bc4b593dc1729fa590"
+      "_id": "5f4b40b0e08904739c7d9386",
+      "name": "Songbird",
+      "user": {
+        "name": "Delia Lott",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b08d17b383f50cea67",
+          "text": "In ut sit reprehenderit pariatur excepteur eu Lorem.",
+          "createdAt": "Sun Nov 30 2003 16:26:31 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bccfc4d5aaff653b3c",
-      "name": "Tammy Lee",
-      "email": "undefined.undefined@undefined.io",
-      "password": "5f46e0bc8c8581e78bb92140"
+      "_id": "5f4b40b0a82d8614932aa9e7",
+      "name": "Buzzworks",
+      "user": {
+        "name": "Carol Mendoza",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b024ce210aa433d551",
+          "text": "Et laboris aliqua ea laborum elit exercitation.",
+          "createdAt": "Sat Dec 15 2001 06:43:59 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bcefa8c41bf856b982",
-      "name": "Robbins Eaton",
-      "email": "undefined.undefined@undefined.org",
-      "password": "5f46e0bc9fb2afb3fda8cdbc"
+      "_id": "5f4b40b0b7864f61905821a9",
+      "name": "Zoid",
+      "user": {
+        "name": "Harding Roman",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b08ce2a888cbfc8c05",
+          "text": "Est laborum ex elit pariatur quis in pariatur adipisicing nisi sunt.",
+          "createdAt": "Thu May 12 1988 22:24:07 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bce45533b04b44b2ee",
-      "name": "Hobbs Buchanan",
-      "email": "undefined.undefined@undefined.co.uk",
-      "password": "5f46e0bc67a18acecceca81c"
+      "_id": "5f4b40b0cd17e8c37eebe814",
+      "name": "Beadzza",
+      "user": {
+        "name": "Witt Clark",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b05070f403e62885fa",
+          "text": "Laboris do sunt officia id incididunt.",
+          "createdAt": "Sat Mar 02 2002 11:55:36 GMT+0000 (UTC)"
+        }
+      ]
     },
     {
-      "_id": "5f46e0bcbf00cbbf3ddc51a6",
-      "name": "Blankenship Cherry",
-      "email": "undefined.undefined@undefined.biz",
-      "password": "5f46e0bc76ded835dd903fef"
+      "_id": "5f4b40b0dd2735a50ecddac4",
+      "name": "Urbanshee",
+      "user": {
+        "name": "Roxanne Frederick",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b02f5839023ece2001",
+          "text": "Nostrud reprehenderit amet nisi aliquip.",
+          "createdAt": "Fri Dec 15 1978 07:55:25 GMT+0000 (UTC)"
+        }
+      ]
+    },
+    {
+      "_id": "5f4b40b017df3f7c8be0edae",
+      "name": "Proflex",
+      "user": {
+        "name": "Lynn Mclean",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b0985c946475cf00e0",
+          "text": "Irure officia fugiat est aliquip deserunt.",
+          "createdAt": "Fri Sep 29 1989 08:12:34 GMT+0000 (UTC)"
+        }
+      ]
+    },
+    {
+      "_id": "5f4b40b05786132323074298",
+      "name": "Snacktion",
+      "user": {
+        "name": "Patti Kidd",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b0ae958825b470d173",
+          "text": "Proident et non nostrud cupidatat anim esse commodo.",
+          "createdAt": "Sun Aug 30 2020 16:43:30 GMT+0000 (UTC)"
+        }
+      ]
+    },
+    {
+      "_id": "5f4b40b0c1b678a86df87342",
+      "name": "Datacator",
+      "user": {
+        "name": "Morales Jacobson",
+        "avatar": null
+      },
+      "messages": [
+        {
+          "_id": "5f4b40b0e5e5676119a75c29",
+          "text": "Enim commodo mollit quis eu dolor elit nisi.",
+          "createdAt": "Sut Aug 29 2020 16:43:30 GMT+0000 (UTC)"
+        }
+      ]
     }
   ]
 }

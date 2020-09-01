@@ -6,10 +6,10 @@ import SendMessage from '../SendMessage/SendMessage';
 import UnreadMessage from '../UnreadMessage/UnreadMessage';
 import classNames from 'classnames';
 import DialogItemWrapper from '../../../../wrappers/ChatWrappers/DialogItemWrapper/DialogItemWrapper';
-import { Users } from '../../../../interfaces/users/Users';
+import Dialogs from '../../../../interfaces/dialogs/Dialogs';
 
 const DialogItem: FC<{
-  item: Users;
+  item: Dialogs;
   send?: boolean;
   read?: boolean;
   unreadMessage?: boolean;
@@ -17,25 +17,22 @@ const DialogItem: FC<{
   return (
     <DialogItemWrapper>
       <div>
-        <Avatar name={item.name} dialogItem />
+        <Avatar name={item.user.name} dialogItem />
       </div>
       <div>
-        <p className="dialogItemName">{item.name}</p>
+        <p className="dialogItemName">{item.user.name}</p>
         <p
           className={classNames('dialogItemMessage', {
             dialogItemMessageUnreadMessage: unreadMessage || send || read,
           })}
         >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat
-          odio, maxime provident nihil quas impedit nam voluptatem aspernatur
-          necessitatibus possimus rem cupiditate, suscipit sint, aut eaque
-          officia ab illo optio!
+          {item.messages[0].text}
         </p>
       </div>
       {read && <ReadMessage dialogItem />}
       {send && <SendMessage dialogItem />}
       {unreadMessage && <UnreadMessage />}
-      <Time timeDialog />
+      <Time date={item.messages[0].createdAt} timeDialog />
     </DialogItemWrapper>
   );
 };
