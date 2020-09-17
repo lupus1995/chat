@@ -1,7 +1,7 @@
-const path = 'http://localhost:3004';
+import consts from '../resourse/consts';
 
 export async function getDialogs(signal: AbortSignal) {
-  const request = await fetch(`${path}/dialogs`, {
+  const request = await fetch(`${consts.path}/dialogs`, {
     method: 'GET',
     signal,
   });
