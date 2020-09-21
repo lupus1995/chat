@@ -20,6 +20,7 @@ const Input: FC<{
   rules: RulesValidationInterface;
   name?: string;
   defaultValue?: string;
+  errorMessage?: string;
 }> = ({
   type = 'text',
   classNames = '',
@@ -27,13 +28,22 @@ const Input: FC<{
   rules,
   name = '',
   defaultValue = '',
+  errorMessage = '',
 }) => {
   const { fields, setFields, submit } = useContext(FormContext);
   const typePassword = type === consts.typeInputPassword;
   const [readonly, setReadonly] = useState<boolean>(typePassword);
-  const [message, setMessage] = useState<string>('');
+  const [message, setMessage] = useState<string>(errorMessage);
   const [error, setError] = useState<boolean>(false);
   const input: MutableRefObject<HTMLInputElement | null> = useRef(null);
+
+  useEffect(() => {
+    if (errorMessage.length > 0) {
+      setMessage(errorMessage);
+      setError(true);
+    }
+  }, [errorMessage]);
+
   const handleFocus = () => {
     if (typePassword && readonly) {
       setReadonly(false);

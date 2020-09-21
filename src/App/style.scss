@@ -67,3 +67,8 @@ img {
 .placeholder {
   background-color: #ccc;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

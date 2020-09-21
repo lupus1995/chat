@@ -6,8 +6,8 @@ export function lineLengthRules({
   string: string;
 }): RuleValidationInterface {
   return {
-    rule: string.length < 5,
-    message: 'Длинна строки должна быть от 5 знаков.',
+    rule: string.length < 2,
+    message: 'Длинна строки должна быть от 2 знаков.',
   };
 }
 

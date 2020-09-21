@@ -5,5 +5,5 @@ export default {
     chat: '/chat',
   },
   typeInputPassword: 'password',
-  path: 'http://localhost:3004',
+  path: 'http://localhost:4000',
 };

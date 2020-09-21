@@ -1,3 +1,5 @@
+import { FieldsInterface } from '../interfaces/FieldsInterface';
+import { FieldInterface } from '../interfaces/FieldInterface';
 import {
   RulesValidationInterface,
   RuleValidationInterface,
@@ -14,8 +16,8 @@ export function validation({
   setError: (error: boolean) => void;
   setMessage: (message: string) => void;
   rules: RulesValidationInterface;
-  fields?: any;
-}): { value: string; error: boolean } {
+  fields?: FieldsInterface;
+}): FieldInterface {
   let rule: RuleValidationInterface | undefined;
   const {
     requiredInputRules,

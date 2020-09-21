@@ -1,5 +1,5 @@
-import React, { FC, useEffect } from 'react';
-import { useHistory, Switch, Route } from 'react-router-dom';
+import React, { FC } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import consts from '../resourse/consts';
 import Loadeble from 'react-loadable';
 const Register = Loadeble({

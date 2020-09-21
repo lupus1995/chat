@@ -1,19 +1,22 @@
-import React, { FC, useRef, useState, createContext } from 'react';
+import React, { FC, useRef, useState, createContext, useEffect } from 'react';
 import './style.scss';
 import Button from '../Button/Button';
 import FormWrapper from './FormWrapper';
+import { FieldsInterface } from './interfaces/FieldsInterface';
+import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
+import { first } from 'lodash';
 
 // интерфейс для описания полей в форме
 export interface KeyForm {
   [key: string]: {
-    defaultValue: string | number;
+    defaultValue: string;
     defaultError: boolean;
   };
 }
 
 export interface FormContextInterface {
   submit: boolean;
-  fields: any;
+  fields: FieldsInterface;
   setFields: ({
     name,
     value,
@@ -25,8 +28,8 @@ export interface FormContextInterface {
   }) => void;
 }
 
-const initFields = (data: KeyForm[]): object => {
-  const fields: any = {};
+const initFields = (data: KeyForm[]): FieldsInterface => {
+  const fields: FieldsInterface = {};
   data.forEach((element) => {
     const name = Object.keys(element)[0];
     fields[name] = {
@@ -45,15 +48,36 @@ const Form: FC<{
   className?: string;
   buttonText?: string;
   data: KeyForm[];
-}> = ({ children, className = '', buttonText = 'ВОЙТИ В АККАУНТ', data }) => {
-  const [fields, setFields] = useState<any>(initFields(data));
+  onSubmit: (fields: any) => void;
+}> = ({
+  children,
+  className = '',
+  buttonText = 'ВОЙТИ В АККАУНТ',
+  data,
+  onSubmit,
+}) => {
+  const [fields, setFields] = useState<FieldsInterface>(initFields(data));
   const [submit, setSubmit] = useState<boolean>(false);
   const ref = useRef(null);
+
+  // useEffect(() => {
+  //   if (errors.length > 0) {
+  //     errors.forEach((itemError) => {
+  //       if (fields[itemError.field]) {
+  //         fields[itemError.field].error = true;
+  //       }
+  //     });
+
+  //     setFields(fields);
+  //   }
+  // }, [errors]);
+
   return (
     <form
       onSubmit={(e: any) => {
-        setSubmit(true);
         e.preventDefault();
+        onSubmit(fields);
+        setSubmit(true);
         return false;
       }}
       ref={ref}
@@ -78,12 +102,11 @@ const Form: FC<{
               value,
               error,
             };
-            console.log(fields);
             setFields(fields);
           },
         }}
       >
-        <FormWrapper form={data}>{children}</FormWrapper>
+        {children}
       </FormContext.Provider>
       <Button type="submit" primary className="text-uppercase">
         {buttonText}
