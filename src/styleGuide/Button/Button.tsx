@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './style';
+import './style.scss';
 
 const Button: FC<{
   type?: JSX.IntrinsicElements['button']['type'];

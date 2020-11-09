@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -14,8 +15,36 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          eslintPath: 'eslint',
+          fix: true,
+          quiet: true,
+          cache: true,
+        },
         exclude: /(node_modules)/,
-        use: ['babel-loader', 'awesome-typescript-loader', 'tslint-loader'],
+      },
+
+      { parser: { requireEnsure: false } },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+            },
+          },
+          {
+            loader: 'ts-loader', options: {
+              transpileOnly: true,
+              happyPackMode: true
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -86,17 +115,17 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.html'] },
+  resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.html'], modules: ['node_modules'] },
   output: {
     path: `${__dirname}/public`,
-    filename: 'app.js',
+    // filename: 'app.js',
     publicPath: '/hmr/',
     chunkFilename: '[name].js',
   },
   // devtool: 'source-map',
   optimization: {
     runtimeChunk: {
-      name: 'test',
+      name: 'app',
     },
     splitChunks: {
       cacheGroups: {
@@ -124,6 +153,16 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+      async: true,
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     // new ExtractTextPlugin('style.css'),
   ],
 };
