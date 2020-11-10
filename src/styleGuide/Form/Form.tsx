@@ -1,10 +1,7 @@
-import React, { FC, useRef, useState, createContext, useEffect } from 'react';
+import React, { FC, useRef, useState, createContext } from 'react';
 import './style.scss';
 import Button from '../Button/Button';
-import FormWrapper from './FormWrapper';
 import { FieldsInterface } from './interfaces/FieldsInterface';
-import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
-import { first } from 'lodash';
 
 // интерфейс для описания полей в форме
 export interface KeyForm {
