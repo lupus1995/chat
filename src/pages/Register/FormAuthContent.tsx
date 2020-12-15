@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import consts from '../../resourse/consts';
-import Link from '../../styleGuide/CustomLink/CustomLink';
+import { CustomLink } from 'styleguide-panfilov';
 import { CreateUserFormInterface } from '../../interfaces/users/CreateUserFormInterface';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserRequest as createUserRequestFunc } from '../../redux/users/actions';
@@ -106,7 +106,7 @@ const FormAuthContent = () => {
         </FormWrapper>
       </Form>
       <LinkAuthWrapper>
-        <Link to={consts.pages.auth}>Войти в аккаунт</Link>
+        <CustomLink to={consts.pages.auth}>Войти в аккаунт</CustomLink>
       </LinkAuthWrapper>
     </>
   );

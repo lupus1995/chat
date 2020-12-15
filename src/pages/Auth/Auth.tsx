@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import './style.scss';
-import Text from '../../styleGuide/Text/Text';
-import Link from '../../styleGuide/CustomLink/CustomLink';
+import { Typography, Text, CustomLink as Link } from 'styleguide-panfilov';
 import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
-import Typography from '../../styleGuide/Typography/Typography';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducerInterface } from '../../../root.reducer';

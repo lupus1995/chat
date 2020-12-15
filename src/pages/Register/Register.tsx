@@ -1,9 +1,7 @@
 import React from 'react';
+import { Typography, Text } from 'styleguide-panfilov';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
-import Typography from '../../styleGuide/Typography/Typography';
-import Text from '../../styleGuide/Text/Text';
 import FormAuthContent from './FormAuthContent';
-import RegisterSuccessMessage from './RegisterSuccessMessage';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 
 const Register = () => {
