@@ -1,13 +1,6 @@
 import React, { useContext } from 'react';
 import './style.scss';
 import Text from '../../styleGuide/Text/Text';
-import Form, { KeyForm } from '../../styleGuide/Form/Form';
-import Input from '../../styleGuide/Form/Input/Input';
-import {
-  lineLengthRules,
-  requiredInputRules,
-  emailRules,
-} from '../../styleGuide/Form/rulesValidation/rules';
 import Link from '../../styleGuide/CustomLink/CustomLink';
 import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
@@ -20,10 +13,18 @@ import classNames from 'classnames';
 import { AuthUserFormInterface } from '../../interfaces/users/AuthUserFormInterface';
 import { authRequest as authRequestFunc } from '../../redux/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
-import MessageError from '../../components/MessageError/MessageError';
-import FormWrapper from '../../styleGuide/Form/FormWrapper';
+import {
+  Form,
+  FormWrapper,
+  Input,
+  KeyFormInterface,
+  requiredInputRules,
+  MessageErrorForm,
+  lineLengthRules,
+  emailRules,
+} from 'form-panfilov';
 
-const defaultValue: KeyForm[] = [
+const defaultValue: KeyFormInterface[] = [
   {
     email: {
       defaultValue: '',
@@ -87,7 +88,9 @@ const Auth = () => {
             />
           </FormWrapper>
 
-          {authError && <MessageError text={'Email или пароль не валидны'} />}
+          {authError && (
+            <MessageErrorForm text={'Email или пароль не валидны'} />
+          )}
         </Form>
         <LinkAuthWrapper>
           <Link to={consts.pages.register}>Зарегистрироваться</Link>

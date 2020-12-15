@@ -1,24 +1,25 @@
 import React, { useContext } from 'react';
-import Form, { KeyForm } from '../../styleGuide/Form/Form';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import consts from '../../resourse/consts';
 import Link from '../../styleGuide/CustomLink/CustomLink';
-import Input from '../../styleGuide/Form/Input/Input';
-import {
-  requiredInputRules,
-  emailRules,
-  lineLengthRules,
-  checkPassword,
-} from '../../styleGuide/Form/rulesValidation/rules';
 import { CreateUserFormInterface } from '../../interfaces/users/CreateUserFormInterface';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUserRequest as createUserRequestFunc } from '../../redux/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
 import { RootReducerInterface } from '../../../root.reducer';
 import classNames from 'classnames';
-import FormWrapper from '../../styleGuide/Form/FormWrapper';
+import {
+  KeyFormInterface,
+  Form,
+  FormWrapper,
+  Input,
+  requiredInputRules,
+  emailRules,
+  lineLengthRules,
+  checkPassword,
+} from 'form-panfilov';
 
-const defaultValue: KeyForm[] = [
+const defaultValue: KeyFormInterface[] = [
   {
     email: {
       defaultValue: '',

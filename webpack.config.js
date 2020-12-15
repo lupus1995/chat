@@ -23,28 +23,26 @@ module.exports = {
           quiet: true,
           cache: true,
         },
-        exclude: /(node_modules)/,
       },
 
       { parser: { requireEnsure: false } },
       {
         test: /\.(ts|tsx)$/,
-        exclude: /(node_modules)/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-              cacheCompression: false,
-            },
-          },
-          {
-            loader: 'ts-loader', options: {
-              transpileOnly: true,
-              happyPackMode: true
-            },
-          },
-        ],
+        exclude: path.resolve(__dirname, "node_modules"),
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: true,
+          cacheCompression: false,
+        },
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: path.resolve(__dirname, "node_modules"),
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+          happyPackMode: true
+        },
       },
       {
         test: /\.scss$/,
@@ -86,19 +84,19 @@ module.exports = {
       //     use: ['css-loader', 'less-loader'],
       //   }),
       // },
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     {
-      //       // creates style nodes from JS strings
-      //       loader: 'style-loader',
-      //     },
-      //     {
-      //       // translates CSS into CommonJS
-      //       loader: 'css-loader',
-      //     },
-      //   ],
-      // },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            // creates style nodes from JS strings
+            loader: 'style-loader',
+          },
+          {
+            // translates CSS into CommonJS
+            loader: 'css-loader',
+          },
+        ],
+      },
       {
         test: /\.svg/,
         use: {
@@ -138,6 +136,12 @@ module.exports = {
     },
     minimize: true,
   },
+  // resolve: {
+  //   alias: {
+  //     react: path.resolve('./node_modules/react'),
+  //     'react-dom': path.resolve('./node_modules/react-dom')
+  //   },
+  // },
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'src'),
@@ -162,7 +166,7 @@ module.exports = {
       },
       async: true,
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/, /node_modules$/),
     // new ExtractTextPlugin('style.css'),
   ],
 };

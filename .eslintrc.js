@@ -38,8 +38,11 @@ module.exports = {
     '@typescript-eslint/tslint',
     'import',
     'prettier',
+    'react-hooks'
   ],
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     'import/no-named-as-default': 0,
     'import/no-cycle': 0,
     'no-new': 0,

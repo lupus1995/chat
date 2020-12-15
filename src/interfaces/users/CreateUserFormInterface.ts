@@ -1,4 +1,4 @@
-import { FieldInterface } from '../../styleGuide/Form/interfaces/FieldInterface';
+import { FieldInterface } from 'form-panfilov';
 
 export interface CreateUserFormInterface {
   email: FieldInterface;
