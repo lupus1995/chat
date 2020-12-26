@@ -1,6 +1,7 @@
 import { ErrorResponse } from './../../interfaces/reducer/ErrorResponse';
 import { put, takeEvery } from 'redux-saga/effects';
 import { auth, createUser } from '../../api/user';
+import { set } from 'local-storage';
 import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
 import { CreateUserInterface } from '../../interfaces/users/CreateUserInterface';
 import {
@@ -36,7 +37,7 @@ function* authRequestWorker({
 }) {
   try {
     const accessToken = yield auth(payload);
-    console.log(accessToken);
+    set('accessToken', accessToken.accessToken);
     yield put(authSuccess(accessToken));
   } catch (e) {
     console.log(e);

@@ -12,6 +12,7 @@ const Chat = () => {
   const { abortController } = useContext(FetchCancelContext);
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log('chat');
     dispatch(getMessagesRequest(abortController.signal));
   }, []);
   return (

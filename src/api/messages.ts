@@ -1,4 +1,5 @@
 import consts from '../resourse/consts';
+import get from 'local-storage';
 
 export async function getMessages({ signal }: { signal: AbortSignal }) {
   const request = await fetch(

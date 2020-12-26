@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './style.scss';
 import { Typography, Text, CustomLink as Link } from 'styleguide-panfilov';
 import consts from '../../resourse/consts';
@@ -21,6 +21,7 @@ import {
   lineLengthRules,
   emailRules,
 } from 'form-panfilov';
+import { useHistory } from 'react-router-dom';
 
 const defaultValue: KeyFormInterface[] = [
   {
@@ -39,14 +40,23 @@ const defaultValue: KeyFormInterface[] = [
 
 const Auth = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { abortController } = useContext(FetchCancelContext);
-  const { errors, authRequest, authError } = useSelector(
+  const { errors, authRequest, authError, authSuccess } = useSelector(
     (state: RootReducerInterface) => ({
       errors: state.users.errors,
       authRequest: state.users.fetchData.authRequest,
       authError: state.users.fetchData.authError,
+      authSuccess: state.users.fetchData.authSuccess,
     }),
   );
+
+  useEffect(() => {
+    if (authSuccess) {
+      history.push(consts.pages.chat);
+    }
+  }, [authSuccess]);
+
   return (
     <MainAuthWrapper>
       <Typography className="text-center" tag="h1">
