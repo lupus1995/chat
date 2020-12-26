@@ -3,7 +3,7 @@ import './style.scss';
 
 const AvatarPlaceholder = () => {
   return (
-    <div className="avatar avatarLeft avatarPhoto avatarDialog placeholder"></div>
+    <div className="avatar avatarLeft avatarPhoto avatarDialog placeholder" />
   );
 };
 

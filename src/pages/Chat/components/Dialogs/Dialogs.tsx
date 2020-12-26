@@ -1,19 +1,15 @@
-import React, { useEffect, useContext, Suspense } from 'react';
+import React, { useEffect, useContext, lazy, Suspense } from 'react';
 import './style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { FetchCancelContext } from '../../../../wrappers/FetchCancel/FetchCancel';
 import DialogWrapper from '../../../../wrappers/ChatWrappers/DialogWrapper/DialogWrapper';
 import { RootReducerInterface } from '../../../../../root.reducer';
 import DialogPlaceholders from './DialogPlaceholders';
-import Loadeble from 'react-loadable';
 import { getDialogsRequest as getDialogsRequestFunction } from '../../../../redux/dialogs/actions';
 
-const DialogList = Loadeble({
-  loader: () => import('./DialogList'),
-  loading: () => null,
-});
+const DialogList = lazy(() => import('./DialogList'));
 
-const Dialogs = () => {
+const Dialogs = (): JSX.Element => {
   const dispatch = useDispatch();
   const { abortController } = useContext(FetchCancelContext);
   const { getDialogsRequest, getDialogsSuccess } = useSelector(
@@ -24,11 +20,20 @@ const Dialogs = () => {
   );
 
   useEffect(() => {
-    dispatch(getDialogsRequestFunction(abortController.signal));
+    dispatch(
+      getDialogsRequestFunction({
+        signal: abortController.signal,
+        id: '5fe251b307941833081e7f16',
+      }),
+    );
   }, []);
   return (
     <DialogWrapper>
-      {getDialogsSuccess && <DialogList />}
+      {getDialogsSuccess && (
+        <Suspense fallback={null}>
+          <DialogList />
+        </Suspense>
+      )}
       {getDialogsRequest && <DialogPlaceholders />}
     </DialogWrapper>
   );

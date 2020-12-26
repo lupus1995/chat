@@ -65,7 +65,6 @@ const ChatMessage: FC<{
       <Time />
     </section>
   );
-  0;
 };
 
 export default ChatMessage;

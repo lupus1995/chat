@@ -1,10 +1,12 @@
+import IdAndSignal from '../interfaces/commons/IdAndSignal';
 import consts from '../resourse/consts';
 
-export async function getDialogs(signal: AbortSignal) {
-  const request = await fetch(`${consts.path}/dialogs`, {
+export default async function getDialogs({ signal, id }: IdAndSignal) {
+  const request = await fetch(`${consts.path}/dialogs/${id}`, {
     method: 'GET',
     signal,
   });
 
-  return await request.json();
+  const result = await request.json();
+  return result;
 }

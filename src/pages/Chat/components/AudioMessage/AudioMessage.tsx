@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, MutableRefObject } from 'react';
 import './style.scss';
-import icons from '../../../../resourse/icons';
 import moment from 'moment';
+import icons from '../../../../resourse/icons';
 
 const AudioMessage = () => {
   const [audio] = useState<HTMLAudioElement>(new Audio());
@@ -18,7 +18,8 @@ const AudioMessage = () => {
       return;
     }
     if (!play) {
-      audio.play();
+      // eslint-disable-next-line no-void
+      void audio.play();
     } else {
       audio.pause();
     }
@@ -26,6 +27,7 @@ const AudioMessage = () => {
   const handleLoadeddata = () => {
     console.log(audio.duration);
     setTime(moment.utc(audio.duration * 1000).format('mm:ss'));
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     audio.play();
   };
   const handleTimeUpdate = () => {
@@ -55,10 +57,7 @@ const AudioMessage = () => {
         {icons.player}
         <span className="audioMessageTime">{time}</span>
       </div>
-      <div
-        style={{ width: widthContainer }}
-        className="audioMessageSeekbar"
-      ></div>
+      <div style={{ width: widthContainer }} className="audioMessageSeekbar" />
     </section>
   );
 };

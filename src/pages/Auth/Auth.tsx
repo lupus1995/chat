@@ -1,16 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import './style.scss';
 import { Typography, Text, CustomLink as Link } from 'styleguide-panfilov';
-import consts from '../../resourse/consts';
-import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
-import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
-import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootReducerInterface } from '../../../root.reducer';
 import classNames from 'classnames';
-import { AuthUserFormInterface } from '../../interfaces/users/AuthUserFormInterface';
-import { authRequest as authRequestFunc } from '../../redux/users/actions';
-import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
 import {
   Form,
   FormWrapper,
@@ -22,6 +14,14 @@ import {
   emailRules,
 } from 'form-panfilov';
 import { useHistory } from 'react-router-dom';
+import consts from '../../resourse/consts';
+import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
+import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
+import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
+import { RootReducerInterface } from '../../../root.reducer';
+import { AuthUserFormInterface } from '../../interfaces/users/AuthUserFormInterface';
+import { authRequest as authRequestFunc } from '../../redux/users/actions';
+import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
 
 const defaultValue: KeyFormInterface[] = [
   {
@@ -97,7 +97,7 @@ const Auth = () => {
           </FormWrapper>
 
           {authError && (
-            <MessageErrorForm text={'Email или пароль не валидны'} />
+            <MessageErrorForm text="Email или пароль не валидны" />
           )}
         </Form>
         <LinkAuthWrapper>

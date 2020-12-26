@@ -1,8 +1,7 @@
-import { ErrorResponse } from './../../interfaces/reducer/ErrorResponse';
 import { put, takeEvery } from 'redux-saga/effects';
-import { auth, createUser } from '../../api/user';
 import { set } from 'local-storage';
-import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
+import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
+import { auth, createUser } from '../../api/user';
 import { CreateUserInterface } from '../../interfaces/users/CreateUserInterface';
 import {
   authError,
@@ -45,7 +44,7 @@ function* authRequestWorker({
   }
 }
 
-export function* userSaga() {
+export default function* userSaga() {
   yield takeEvery(CREATE_USER_REQUEST, createUserWorker);
   yield takeEvery(AUTH_REQUEST, authRequestWorker);
 }

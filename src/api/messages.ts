@@ -1,7 +1,6 @@
 import consts from '../resourse/consts';
-import get from 'local-storage';
 
-export async function getMessages({ signal }: { signal: AbortSignal }) {
+export default async function getMessages({ signal }: { signal: AbortSignal }) {
   const request = await fetch(
     `${consts.path}/messages?_sort=createdAt_order=asc`,
     {
@@ -10,5 +9,6 @@ export async function getMessages({ signal }: { signal: AbortSignal }) {
     },
   );
 
-  return await request.json();
+  const result = await request.json();
+  return result;
 }

@@ -1,5 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import { getDialogs } from '../../api/dialogs';
+import _ from 'lodash';
+import getDialogs from '../../api/dialogs';
 import 'regenerator-runtime/runtime';
 import {
   GET_DIALOGS_REQUESTS,
@@ -7,12 +8,12 @@ import {
   getDialogsError,
 } from './actions';
 import Dialogs from '../../interfaces/dialogs/Dialogs';
-import _ from 'lodash';
+import IdAndSignal from '../../interfaces/commons/IdAndSignal';
 
 function* getDialogsWorker({
   payload,
 }: {
-  payload: AbortSignal;
+  payload: IdAndSignal;
   type: string;
 }) {
   try {
@@ -28,6 +29,6 @@ function* getDialogsWorker({
   }
 }
 
-export function* dialogsSaga() {
+export default function* dialogsSaga() {
   yield takeEvery(GET_DIALOGS_REQUESTS, getDialogsWorker);
 }

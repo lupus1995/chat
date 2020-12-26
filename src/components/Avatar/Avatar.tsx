@@ -8,8 +8,8 @@ const Avatar: FC<{
   url?: string;
   name?: string;
 }> = ({ right = false, dialogItem = false, url = '', name }) => {
-  const generateAvatar = (name: string) => {
-    const [r, g, b] = name
+  const generateAvatar = (userName: string) => {
+    const [r, g, b] = userName
       .split('')
       .map((item) => (item.charCodeAt(0) > 255 ? 255 : item.charCodeAt(0)));
     return [r, g, b];

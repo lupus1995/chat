@@ -1,3 +1,4 @@
+import IdAndSignal from '../../interfaces/commons/IdAndSignal';
 import Dialogs from '../../interfaces/dialogs/Dialogs';
 
 export const GET_DIALOGS_REQUESTS = '@users/GET_DIALOGS_REQUESTS';
@@ -5,7 +6,7 @@ export const GET_DIALOGS_SUCCESS = '@users/GET_DIALOGS_SUCCESS';
 export const GET_DIALOGS_ERROR = '@users/GET_DIALOGS_ERROR';
 export const SET_SEARCH_INPUT_USERS = '@users/SET_SEARCH_INPUT_USERS';
 
-export const getDialogsRequest = (payload: AbortSignal) => ({
+export const getDialogsRequest = (payload: IdAndSignal) => ({
   type: GET_DIALOGS_REQUESTS,
   payload,
 });

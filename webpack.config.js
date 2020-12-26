@@ -18,31 +18,33 @@ module.exports = {
         enforce: 'pre',
         loader: 'eslint-loader',
         options: {
-          eslintPath: 'eslint',
+          configFile: '.eslintrc.js',
           fix: true,
           quiet: true,
           cache: true,
         },
+        // exclude: /(node_modules)/,
       },
 
       { parser: { requireEnsure: false } },
       {
         test: /\.(ts|tsx)$/,
-        exclude: path.resolve(__dirname, "node_modules"),
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true,
-          cacheCompression: false,
-        },
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: path.resolve(__dirname, "node_modules"),
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true,
-          happyPackMode: true
-        },
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+            },
+          },
+          {
+            loader: 'ts-loader', options: {
+              transpileOnly: true,
+              happyPackMode: true
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,

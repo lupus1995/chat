@@ -1,9 +1,8 @@
 import React from 'react';
-import Typography from '../../styleGuide/Typography/Typography';
-import Text from '../../styleGuide/Text/Text';
+import { Typography, Text } from 'styleguide-panfilov';
 import icons from '../../resourse/icons';
 
-const RegisterSuccessMessage = () => {
+const RegisterSuccessMessage = (): JSX.Element => {
   return (
     <>
       <div className="text-center">

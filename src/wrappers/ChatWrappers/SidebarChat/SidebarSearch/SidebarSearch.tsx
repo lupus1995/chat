@@ -3,7 +3,7 @@ import './style.scss';
 import { useDispatch } from 'react-redux';
 import { setSearchInputUsers } from '../../../../redux/dialogs/actions';
 
-let debounceTimeoutId: number = 0;
+let debounceTimeoutId = 0;
 
 const SidebarSearch = () => {
   const dispatch = useDispatch();

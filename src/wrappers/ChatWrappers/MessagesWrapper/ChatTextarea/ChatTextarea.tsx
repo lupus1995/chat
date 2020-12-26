@@ -2,11 +2,13 @@ import React, { FormEvent, useRef, MutableRefObject } from 'react';
 import './style.scss';
 import icons from '../../../../resourse/icons';
 
-const ChatTextarea = () => {
+const ChatTextarea = (): JSX.Element => {
   const ref: MutableRefObject<null | HTMLTextAreaElement> = useRef(null);
   return (
     <section className="chatMessageinputContet">
-      <button className="chatIcons">{icons.smile}</button>
+      <button type="button" className="chatIcons">
+        {icons.smile}
+      </button>
       <form
         className="chatMessageForm"
         onSubmit={(e: any) => {
@@ -28,9 +30,15 @@ const ChatTextarea = () => {
           name="message"
         />
       </form>
-      <button className="chatIcons">{icons.camera}</button>
-      <button className="chatIcons">{icons.microphone}</button>
-      <button className="chatIcons">{icons.telegramm}</button>
+      <button type="button" className="chatIcons">
+        {icons.camera}
+      </button>
+      <button type="button" className="chatIcons">
+        {icons.microphone}
+      </button>
+      <button type="button" className="chatIcons">
+        {icons.telegramm}
+      </button>
     </section>
   );
 };

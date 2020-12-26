@@ -1,12 +1,6 @@
 import React, { useContext } from 'react';
-import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
-import consts from '../../resourse/consts';
 import { CustomLink } from 'styleguide-panfilov';
-import { CreateUserFormInterface } from '../../interfaces/users/CreateUserFormInterface';
 import { useDispatch, useSelector } from 'react-redux';
-import { createUserRequest as createUserRequestFunc } from '../../redux/users/actions';
-import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
-import { RootReducerInterface } from '../../../root.reducer';
 import classNames from 'classnames';
 import {
   KeyFormInterface,
@@ -18,6 +12,12 @@ import {
   lineLengthRules,
   checkPassword,
 } from 'form-panfilov';
+import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
+import consts from '../../resourse/consts';
+import { CreateUserFormInterface } from '../../interfaces/users/CreateUserFormInterface';
+import { createUserRequest as createUserRequestFunc } from '../../redux/users/actions';
+import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
+import { RootReducerInterface } from '../../../root.reducer';
 
 const defaultValue: KeyFormInterface[] = [
   {

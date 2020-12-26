@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
+import classNames from 'classnames';
 import Avatar from '../../../../components/Avatar/Avatar';
 import Time from '../../../../components/Time/Time';
 import ReadMessage from '../ReadMessage/ReadMessage';
 import SendMessage from '../SendMessage/SendMessage';
 import UnreadMessage from '../UnreadMessage/UnreadMessage';
-import classNames from 'classnames';
 import DialogItemWrapper from '../../../../wrappers/ChatWrappers/DialogItemWrapper/DialogItemWrapper';
 import Dialogs from '../../../../interfaces/dialogs/Dialogs';
 

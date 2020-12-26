@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import icons from '../../../../resourse/icons';
 
-const FileMessage = () => {
+const FileMessage = (): JSX.Element => {
   return (
     <section className="fileMessageWrapper">
       <div className="fileMessageTop">
@@ -10,7 +10,7 @@ const FileMessage = () => {
         <span className="fileSize">Размер: 13 kb.</span>
       </div>
       <div className="fileMessageBottom">
-        <button className="uploadFile">
+        <button type="button" className="uploadFile">
           <span>{icons.upload}</span>
           Скачать
         </button>

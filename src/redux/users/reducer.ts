@@ -1,4 +1,4 @@
-import { ErrorMessages } from './../../interfaces/reducer/ErrorMessages';
+import { ErrorMessages } from "../../interfaces/reducer/ErrorMessages";
 import ActionInterface from '../../interfaces/reducer/Action';
 import {
   CREATE_USER_REQUEST,

@@ -5,7 +5,7 @@ const length = 10;
 const placeholders: JSX.Element[] = Array.from({ length }, (e, i) => (
   <DialogItemPlaceholder key={i} />
 ));
-const DialogPlaceholders = () => {
+const DialogPlaceholders = (): JSX.Element => {
   return <>{placeholders.map((item) => item)}</>;
 };
 

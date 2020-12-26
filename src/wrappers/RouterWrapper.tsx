@@ -1,21 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import consts from '../resourse/consts';
-import Loadeble from 'react-loadable';
-const Register = Loadeble({
-  loader: () => import('../pages/Register/Register'),
-  loading: () => <div>Loading...</div>,
-});
 
-const Auth = Loadeble({
-  loader: () => import('../pages/Auth/Auth'),
-  loading: () => <div>Loading...</div>,
-});
+const RegisterLoader = lazy(() => import('../pages/Register/Register'));
+const RegisterPage = () => (
+  <Suspense fallback={null}>
+    <RegisterLoader />
+  </Suspense>
+);
 
-const Chat = Loadeble({
-  loader: () => import('../pages/Chat/Chat'),
-  loading: () => <div>Loading...</div>,
-});
+const AuthLoader = lazy(() => import('../pages/Auth/Auth'));
+const AuthPage = () => (
+  <Suspense fallback={null}>
+    <AuthLoader />
+  </Suspense>
+);
+
+const ChatLoader = lazy(() => import('../pages/Chat/Chat'));
+const ChatPage = () => (
+  <Suspense fallback={null}>
+    <ChatLoader />
+  </Suspense>
+);
 
 const RouterWrapper: FC = () => {
   // const history = useHistory();
@@ -24,9 +30,9 @@ const RouterWrapper: FC = () => {
   // }, []);
   return (
     <Switch>
-      <Route path={consts.pages.auth} component={Auth} />
-      <Route path={consts.pages.register} component={Register} />
-      <Route path={consts.pages.chat} component={Chat} />
+      <Route path={consts.pages.auth} component={AuthPage} />
+      <Route path={consts.pages.register} component={RegisterPage} />
+      <Route path={consts.pages.chat} component={ChatPage} />
     </Switch>
   );
 };

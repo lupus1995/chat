@@ -9,7 +9,7 @@ const SidebarHeader: FC = ({ children }) => (
         {icons.users}
         <span>Список диалогов</span>
       </p>
-      <button>{icons.createItem}</button>
+      <button type="button">{icons.createItem}</button>
     </div>
   </div>
 );

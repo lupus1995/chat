@@ -38,11 +38,9 @@ module.exports = {
     '@typescript-eslint/tslint',
     'import',
     'prettier',
-    'react-hooks'
   ],
   rules: {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    'react/jsx-props-no-spreading': 'off',
     'import/no-named-as-default': 0,
     'import/no-cycle': 0,
     'no-new': 0,
@@ -142,7 +140,7 @@ module.exports = {
     'no-multiple-empty-lines': 'off',
     'no-new-wrappers': 'error',
     'no-trailing-spaces': 'off',
-    'no-underscore-dangle': 'error',
+    'no-underscore-dangle': 1,
     'no-var': 'error',
     'object-shorthand': 'off',
     'one-var': ['error', 'never'],

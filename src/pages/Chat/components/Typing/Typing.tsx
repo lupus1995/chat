@@ -4,9 +4,9 @@ import './style.scss';
 const Typing = () => {
   return (
     <div className="typing-indicator">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span />
+      <span />
+      <span />
     </div>
   );
 };
