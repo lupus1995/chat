@@ -48,10 +48,7 @@ export async function editDialog({
     method: 'PUT',
     signal,
     body: JSON.stringify({ type, members }),
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
+    ...consts.headers,
   });
 
   const result = await request.json();

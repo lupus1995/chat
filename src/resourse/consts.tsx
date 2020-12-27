@@ -6,4 +6,8 @@ export default {
   },
   typeInputPassword: 'password',
   path: 'http://localhost:4000',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
 };

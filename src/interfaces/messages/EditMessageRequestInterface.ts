@@ -1,9 +1,6 @@
 import CreateMessageRequestInterface from './CreateMessageRequestInterface';
 
-export default interface MessagesInterface
+export default interface EditMessageRequestInterface
   extends CreateMessageRequestInterface {
   _id: string;
-  read: boolean;
-  createdAt: number;
-  updatedAt: number;
 }
