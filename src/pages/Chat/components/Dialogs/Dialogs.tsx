@@ -5,7 +5,7 @@ import { FetchCancelContext } from '../../../../wrappers/FetchCancel/FetchCancel
 import DialogWrapper from '../../../../wrappers/ChatWrappers/DialogWrapper/DialogWrapper';
 import { RootReducerInterface } from '../../../../../root.reducer';
 import DialogPlaceholders from './DialogPlaceholders';
-import { getDialogsRequest as getDialogsRequestFunction } from '../../../../redux/dialogs/actions';
+import { getDialogsRequest as getDialogsRequestFunction } from '../../../../redux/dialogs/dialogs/actions';
 
 const DialogList = lazy(() => import('./DialogList'));
 
@@ -14,8 +14,8 @@ const Dialogs = (): JSX.Element => {
   const { abortController } = useContext(FetchCancelContext);
   const { getDialogsRequest, getDialogsSuccess } = useSelector(
     (state: RootReducerInterface) => ({
-      getDialogsRequest: state.dialogs.fetchData.getDialogsRequest,
-      getDialogsSuccess: state.dialogs.fetchData.getDialogsSuccess,
+      getDialogsRequest: state.dialogs.dialogs.fetchData.getDialogsRequest,
+      getDialogsSuccess: state.dialogs.dialogs.fetchData.getDialogsSuccess,
     }),
   );
 

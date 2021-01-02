@@ -13,8 +13,8 @@ import {
   DELETE_DIALOG_REQUESTS,
   DELETE_DIALOG_SUCCESS,
 } from './actions';
-import ActionInterface from '../../interfaces/reducer/Action';
-import Dialogs from '../../interfaces/dialogs/Dialogs';
+import ActionInterface from '../../../interfaces/reducer/Action';
+import Dialogs from '../../../interfaces/dialogs/Dialogs';
 
 export interface DialogsReducerInterface {
   fetchData: {

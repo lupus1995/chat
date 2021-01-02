@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style.scss';
 import { useDispatch } from 'react-redux';
-import { setSearchInputUsers } from '../../../../redux/dialogs/actions';
+import { setSearchInputUsers } from '../../../../redux/dialogs/dialogs/actions';
 
 let debounceTimeoutId = 0;
 

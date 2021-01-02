@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import lodash from 'lodash';
 import { RootReducerInterface } from '../../../../../root.reducer';
 import DialogItem from './DialogItem';
 import DialogsInterface from '../../../../interfaces/dialogs/Dialogs';
@@ -8,8 +7,8 @@ import DialogsInterface from '../../../../interfaces/dialogs/Dialogs';
 const DialogList = (): JSX.Element => {
   const { dialogs, searchInputUsers } = useSelector(
     (state: RootReducerInterface) => ({
-      dialogs: state.dialogs.dialogs,
-      searchInputUsers: state.dialogs.searchInputUsers,
+      dialogs: state.dialogs.dialogs.dialogs,
+      searchInputUsers: state.dialogs.dialogs.searchInputUsers,
     }),
   );
 

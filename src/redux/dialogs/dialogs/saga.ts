@@ -5,7 +5,7 @@ import {
   deleteDialog,
   editDialog,
   getDialogs,
-} from '../../api/dialogs';
+} from '../../../api/dialogs';
 import 'regenerator-runtime/runtime';
 import {
   GET_DIALOGS_REQUESTS,
@@ -21,12 +21,12 @@ import {
   deleteDialogError,
   deleteDialogSuccess,
 } from './actions';
-import Dialogs from '../../interfaces/dialogs/Dialogs';
-import IdAndSignal from '../../interfaces/commons/IdAndSignal';
-import CreateRequestDialogInterface from '../../interfaces/dialogs/CreateRequestDialogInterface';
-import SignalInterface from '../../interfaces/reducer/Signal';
-import Dialog from '../../interfaces/dialogs/Dialog';
-import EditRequestDialogInterface from '../../interfaces/dialogs/EditRequestDialogInterface';
+import Dialogs from '../../../interfaces/dialogs/Dialogs';
+import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
+import CreateRequestDialogInterface from '../../../interfaces/dialogs/CreateRequestDialogInterface';
+import SignalInterface from '../../../interfaces/reducer/Signal';
+import Dialog from '../../../interfaces/dialogs/Dialog';
+import EditRequestDialogInterface from '../../../interfaces/dialogs/EditRequestDialogInterface';
 
 function* getDialogsWorker({
   payload,

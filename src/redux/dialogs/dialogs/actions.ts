@@ -1,11 +1,11 @@
-import IdAndSignal from '../../interfaces/commons/IdAndSignal';
-import Dialog from '../../interfaces/dialogs/Dialog';
-import Dialogs from '../../interfaces/dialogs/Dialogs';
-import RequestDialog from '../../interfaces/dialogs/CreateRequestDialogInterface';
-import ActionInterface from '../../interfaces/reducer/Action';
-import SignalInterface from '../../interfaces/reducer/Signal';
-import TypeInterface from '../../interfaces/reducer/Type';
-import EditRequestDialogInterface from '../../interfaces/dialogs/EditRequestDialogInterface';
+import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
+import Dialog from '../../../interfaces/dialogs/Dialog';
+import Dialogs from '../../../interfaces/dialogs/Dialogs';
+import RequestDialog from '../../../interfaces/dialogs/CreateRequestDialogInterface';
+import ActionInterface from '../../../interfaces/reducer/Action';
+import SignalInterface from '../../../interfaces/reducer/Signal';
+import TypeInterface from '../../../interfaces/reducer/Type';
+import EditRequestDialogInterface from '../../../interfaces/dialogs/EditRequestDialogInterface';
 
 export const GET_DIALOGS_REQUESTS = '@users/GET_DIALOGS_REQUESTS';
 export const GET_DIALOGS_SUCCESS = '@users/GET_DIALOGS_SUCCESS';

@@ -6,7 +6,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import reduxSaga from 'redux-saga';
 import rootReducer from './root.reducer';
-import dialogsSaga from './src/redux/dialogs/saga';
+import dialogsSaga from './src/redux/dialogs/dialogs/saga';
 import messagesSaga from './src/redux/messages/saga';
 import userSaga from './src/redux/users/saga';
 
