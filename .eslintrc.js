@@ -140,7 +140,7 @@ module.exports = {
     'no-multiple-empty-lines': 'off',
     'no-new-wrappers': 'error',
     'no-trailing-spaces': 'off',
-    'no-underscore-dangle': 1,
+    'no-underscore-dangle': 'off',
     'no-var': 'error',
     'object-shorthand': 'off',
     'one-var': ['error', 'never'],

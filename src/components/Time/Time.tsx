@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import './style.scss';
 import classNames from 'classnames';
-import moment from 'moment';
+import { fromUnixTime, format } from 'date-fns';
 
-const Time: FC<{ right?: boolean; timeDialog?: boolean; date?: string }> = ({
+const Time: FC<{ right?: boolean; timeDialog?: boolean; date?: number }> = ({
   right = false,
   timeDialog = false,
   date,
@@ -15,13 +15,7 @@ const Time: FC<{ right?: boolean; timeDialog?: boolean; date?: string }> = ({
         timeDialog,
       })}
     >
-      {date &&
-        moment(date).calendar(null, {
-          sameDay: 'Сегодня, в HH:mm',
-          lastDay: 'Вчера, в HH:mm',
-          lastWeek: 'DD.MM.YYYY',
-          sameElse: 'DD.MM.YYYY',
-        })}
+      {date && format(fromUnixTime(date), 'dd.MM.Y')}
     </span>
   );
 };

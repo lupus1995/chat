@@ -1,7 +1,7 @@
 export default interface DialogsInterface {
   company: {
     fullname: string;
-    _id: string;
+    dialogId: string;
   };
   message: string;
   date: number;

@@ -18,15 +18,14 @@ const DialogList = (): JSX.Element => {
   useEffect(() => {
     if (searchInputUsers.length === 0) {
       setFilterDialogs(dialogs);
-      return;
     }
-    setFilterDialogs(
-      lodash.filter(
-        dialogs,
-        (dialog: DialogsInterface) =>
-          dialog.user.name.search(searchInputUsers) !== -1,
-      ),
-    );
+    // setFilterDialogs(
+    //   lodash.filter(
+    //     dialogs,
+    //     (dialog: DialogsInterface) =>
+    //       dialog.user.name.search(searchInputUsers) !== -1,
+    //   ),
+    // );
   }, [searchInputUsers]);
 
   return (
@@ -34,7 +33,7 @@ const DialogList = (): JSX.Element => {
       {filterDialogs.length === 0 && <h2>Нет диалогов</h2>}
       {filterDialogs.length > 0 &&
         filterDialogs.map((item) => {
-          return <DialogItem item={item} key={item._id} />;
+          return <DialogItem item={item} key={item.company.dialogId} />;
         })}
     </>
   );

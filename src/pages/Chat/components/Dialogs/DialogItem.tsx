@@ -17,22 +17,22 @@ const DialogItem: FC<{
   return (
     <DialogItemWrapper>
       <div>
-        <Avatar name={item.user.name} dialogItem />
+        <Avatar name={item.company.fullname} dialogItem />
       </div>
       <div>
-        <p className="dialogItemName">{item.user.name}</p>
+        <p className="dialogItemName">{item.company.fullname}</p>
         <p
           className={classNames('dialogItemMessage', {
             dialogItemMessageUnreadMessage: unreadMessage || send || read,
           })}
         >
-          {item.messages[0].text}
+          {item.message}
         </p>
       </div>
       {read && <ReadMessage dialogItem />}
       {send && <SendMessage dialogItem />}
       {unreadMessage && <UnreadMessage />}
-      <Time date={item.messages[0].createdAt} timeDialog />
+      <Time date={item.date} timeDialog />
     </DialogItemWrapper>
   );
 };

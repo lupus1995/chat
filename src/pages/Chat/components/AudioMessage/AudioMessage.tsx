@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, MutableRefObject } from 'react';
 import './style.scss';
-import moment from 'moment';
 import icons from '../../../../resourse/icons';
 
 const AudioMessage = () => {
@@ -26,7 +25,7 @@ const AudioMessage = () => {
   };
   const handleLoadeddata = () => {
     console.log(audio.duration);
-    setTime(moment.utc(audio.duration * 1000).format('mm:ss'));
+    // setTime(moment.utc(audio.duration * 1000).format('mm:ss'));
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     audio.play();
   };
