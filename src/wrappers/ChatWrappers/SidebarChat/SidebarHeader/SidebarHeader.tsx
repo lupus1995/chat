@@ -1,9 +1,13 @@
-import React, { memo, useState } from 'react';
+import React, { lazy, memo, Suspense, useState } from 'react';
 import './style.scss';
 import icons from '../../../../resourse/icons';
 import disableBody from '../../../../helpers/disableBody';
 import enabledBody from '../../../../helpers/enabledBody';
-import CreateDialogs from '../../../../pages/Chat/modals/dialogs/CreateDialogs/CreateDialogs';
+
+const CreateDialogs = lazy(
+  () =>
+    import('../../../../pages/Chat/modals/dialogs/CreateDialogs/CreateDialogs'),
+);
 
 const SidebarHeader = memo(
   (): JSX.Element => {
@@ -27,7 +31,11 @@ const SidebarHeader = memo(
             {icons.createItem}
           </button>
         </div>
-        <CreateDialogs open={open} setOpen={setOpen} />
+        {open && (
+          <Suspense fallback={null}>
+            <CreateDialogs open={open} setOpen={setOpen} />
+          </Suspense>
+        )}
       </div>
     );
   },

@@ -1,5 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { set } from 'local-storage';
+import { UsersInterface } from "../../interfaces/users/Users";
 import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
 import { auth, createUser } from '../../api/user';
 import { CreateUserInterface } from '../../interfaces/users/CreateUserInterface';
@@ -10,8 +11,13 @@ import {
   createUserError,
   createUserSuccess,
   CREATE_USER_REQUEST,
+  getMembersError,
+  getMembersSuccess,
+  GET_MEMBERS_REQUEST,
 } from './actions';
 import { AuthUserRequestInterface } from '../../interfaces/users/AuthUserRequestInterface';
+import IdAndSignal from '../../interfaces/commons/IdAndSignal';
+import { getMembers } from '../../api/dialogs';
 
 function* createUserWorker({
   payload,
@@ -44,7 +50,23 @@ function* authRequestWorker({
   }
 }
 
+function* getMembersWorker({
+  payload,
+}: {
+  payload: IdAndSignal;
+  type: string;
+}) {
+  try {
+    const members: UsersInterface[] = yield getMembers(payload);
+    yield put(getMembersSuccess(members));
+  } catch (e) {
+    console.log(e);
+    yield put(getMembersError());
+  }
+}
+
 export default function* userSaga() {
   yield takeEvery(CREATE_USER_REQUEST, createUserWorker);
   yield takeEvery(AUTH_REQUEST, authRequestWorker);
+  yield takeEvery(GET_MEMBERS_REQUEST, getMembersWorker);
 }

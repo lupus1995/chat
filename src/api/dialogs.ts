@@ -1,3 +1,4 @@
+import { UsersInterface } from "../interfaces/users/Users";
 import IdAndSignal from '../interfaces/commons/IdAndSignal';
 import Dialog from '../interfaces/dialogs/Dialog';
 import Dialogs from '../interfaces/dialogs/Dialogs';
@@ -61,6 +62,29 @@ export async function deleteDialog({
 }: IdAndSignal): Promise<Dialog> {
   const request = await fetch(`${consts.path}/dialogs/${id}`, {
     method: 'DELETE',
+    signal,
+  });
+
+  const result = await request.json();
+  return result;
+}
+
+export async function getTypes(signal: AbortSignal): Promise<string[]> {
+  const request = await fetch(`${consts.path}/types`, {
+    method: 'GET',
+    signal,
+  });
+
+  const result = await request.json();
+  return result;
+}
+
+export async function getMembers({
+  id,
+  signal,
+}: IdAndSignal): Promise<UsersInterface[]> {
+  const request = await fetch(`${consts.path}/dialogs/members/${id}`, {
+    method: 'GET',
     signal,
   });
 
