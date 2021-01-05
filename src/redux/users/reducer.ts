@@ -144,7 +144,7 @@ export function usersReducer(state = initState, action: ActionInterface) {
         ...state,
         fetchData: {
           ...state.fetchData,
-          getMembersRequest: false,
+          getMembersRequest: true,
           getMembersSuccess: false,
           getMembersError: false,
         },
@@ -158,7 +158,7 @@ export function usersReducer(state = initState, action: ActionInterface) {
         fetchData: {
           ...state.fetchData,
           getMembersRequest: false,
-          getMembersSuccess: false,
+          getMembersSuccess: true,
           getMembersError: false,
         },
         members: payload,
@@ -172,7 +172,7 @@ export function usersReducer(state = initState, action: ActionInterface) {
           ...state.fetchData,
           getMembersRequest: false,
           getMembersSuccess: false,
-          getMembersError: false,
+          getMembersError: true,
         },
       };
     }

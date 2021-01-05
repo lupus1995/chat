@@ -1,7 +1,7 @@
-import { UsersInterface } from "../interfaces/users/Users";
+import { UsersInterface } from '../interfaces/users/Users';
 import IdAndSignal from '../interfaces/commons/IdAndSignal';
 import Dialog from '../interfaces/dialogs/Dialog';
-import Dialogs from '../interfaces/dialogs/Dialogs';
+import Dialogs from '../interfaces/dialogs/DialogsInterface';
 import CreateRequestDialogInterface from '../interfaces/dialogs/CreateRequestDialogInterface';
 import SignalInterface from '../interfaces/reducer/Signal';
 import consts from '../resourse/consts';

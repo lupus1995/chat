@@ -14,7 +14,7 @@ import {
   DELETE_DIALOG_SUCCESS,
 } from './actions';
 import ActionInterface from '../../../interfaces/reducer/Action';
-import Dialogs from '../../../interfaces/dialogs/Dialogs';
+import Dialogs from '../../../interfaces/dialogs/DialogsInterface';
 
 export interface DialogsReducerInterface {
   fetchData: {
@@ -125,6 +125,7 @@ export function dialogsReducer(
           createDialogSuccess: true,
           createDialogError: false,
         },
+        dialogs: [payload, ...state.dialogs],
       };
     }
 

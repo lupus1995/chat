@@ -67,7 +67,7 @@ export default function typesReducer(
       };
     }
     default: {
-      return { ...initState };
+      return { ...state };
     }
   }
 }

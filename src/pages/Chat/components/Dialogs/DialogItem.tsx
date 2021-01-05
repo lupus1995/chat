@@ -6,7 +6,7 @@ import ReadMessage from '../ReadMessage/ReadMessage';
 import SendMessage from '../SendMessage/SendMessage';
 import UnreadMessage from '../UnreadMessage/UnreadMessage';
 import DialogItemWrapper from '../../../../wrappers/ChatWrappers/DialogItemWrapper/DialogItemWrapper';
-import Dialogs from '../../../../interfaces/dialogs/Dialogs';
+import Dialogs from '../../../../interfaces/dialogs/DialogsInterface';
 
 const DialogItem: FC<{
   item: Dialogs;

@@ -1,11 +1,11 @@
 import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
 import Dialog from '../../../interfaces/dialogs/Dialog';
-import Dialogs from '../../../interfaces/dialogs/Dialogs';
 import RequestDialog from '../../../interfaces/dialogs/CreateRequestDialogInterface';
 import ActionInterface from '../../../interfaces/reducer/Action';
 import SignalInterface from '../../../interfaces/reducer/Signal';
 import TypeInterface from '../../../interfaces/reducer/Type';
 import EditRequestDialogInterface from '../../../interfaces/dialogs/EditRequestDialogInterface';
+import DialogsInterface from '../../../interfaces/dialogs/DialogsInterface';
 
 export const GET_DIALOGS_REQUESTS = '@users/GET_DIALOGS_REQUESTS';
 export const GET_DIALOGS_SUCCESS = '@users/GET_DIALOGS_SUCCESS';
@@ -31,7 +31,9 @@ export const getDialogsRequest = (payload: IdAndSignal): ActionInterface => ({
   payload,
 });
 
-export const getDialogsSuccess = (payload: Dialogs[]): ActionInterface => ({
+export const getDialogsSuccess = (
+  payload: DialogsInterface[],
+): ActionInterface => ({
   type: GET_DIALOGS_SUCCESS,
   payload,
 });
@@ -48,7 +50,9 @@ export const createDialogRequest = (
   payload,
 });
 
-export const createDialogSuccess = (payload: Dialog): ActionInterface => ({
+export const createDialogSuccess = (
+  payload: DialogsInterface,
+): ActionInterface => ({
   type: СREATE_DIALOG_SUCCESS,
   payload,
 });

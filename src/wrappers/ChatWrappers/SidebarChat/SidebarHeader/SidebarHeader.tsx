@@ -3,6 +3,7 @@ import './style.scss';
 import icons from '../../../../resourse/icons';
 import disableBody from '../../../../helpers/disableBody';
 import enabledBody from '../../../../helpers/enabledBody';
+import ModalWrapper from '../../../ModalWrapper/ModalWrapper';
 
 const CreateDialogs = lazy(
   () =>
@@ -33,7 +34,9 @@ const SidebarHeader = memo(
         </div>
         {open && (
           <Suspense fallback={null}>
-            <CreateDialogs open={open} setOpen={setOpen} />
+            <ModalWrapper open={open} setOpen={setOpen}>
+              <CreateDialogs />
+            </ModalWrapper>
           </Suspense>
         )}
       </div>

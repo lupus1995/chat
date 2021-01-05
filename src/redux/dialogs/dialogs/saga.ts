@@ -21,12 +21,12 @@ import {
   deleteDialogError,
   deleteDialogSuccess,
 } from './actions';
-import Dialogs from '../../../interfaces/dialogs/Dialogs';
 import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
 import CreateRequestDialogInterface from '../../../interfaces/dialogs/CreateRequestDialogInterface';
 import SignalInterface from '../../../interfaces/reducer/Signal';
 import Dialog from '../../../interfaces/dialogs/Dialog';
 import EditRequestDialogInterface from '../../../interfaces/dialogs/EditRequestDialogInterface';
+import DialogsInterface from '../../../interfaces/dialogs/DialogsInterface';
 
 function* getDialogsWorker({
   payload,
@@ -35,7 +35,7 @@ function* getDialogsWorker({
   type: string;
 }) {
   try {
-    const dialogs: Dialogs[] = yield getDialogs(payload);
+    const dialogs: DialogsInterface[] = yield getDialogs(payload);
     yield put(getDialogsSuccess(dialogs));
   } catch (e) {
     console.log(e);
@@ -50,7 +50,7 @@ function* createDialogWorker({
   type: string;
 }) {
   try {
-    const dialog: Dialog = yield createDialog(payload);
+    const dialog: DialogsInterface = yield createDialog(payload);
     yield put(createDialogSuccess(dialog));
   } catch (e) {
     yield put(createDialogError());
