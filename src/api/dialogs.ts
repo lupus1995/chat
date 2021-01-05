@@ -1,6 +1,6 @@
 import { UsersInterface } from '../interfaces/users/Users';
 import IdAndSignal from '../interfaces/commons/IdAndSignal';
-import Dialog from '../interfaces/dialogs/Dialog';
+import Dialog from '../interfaces/dialogs/DialogInterface';
 import Dialogs from '../interfaces/dialogs/DialogsInterface';
 import CreateRequestDialogInterface from '../interfaces/dialogs/CreateRequestDialogInterface';
 import SignalInterface from '../interfaces/reducer/Signal';
@@ -48,6 +48,7 @@ export async function editDialog({
   const request = await fetch(`${consts.path}/dialogs/${_id}`, {
     method: 'PUT',
     signal,
+    headers: consts.headers,
     body: JSON.stringify({ type, members }),
     ...consts.headers,
   });

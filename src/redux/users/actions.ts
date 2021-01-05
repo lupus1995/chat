@@ -11,6 +11,10 @@ export const CREATE_USER_REQUEST = '@users/CREATE_USER_REQUEST';
 export const CREATE_USER_SUCCESS = '@users/CREATE_USER_SUCCESS';
 export const CREATE_USER_ERROR = '@users/CREATE_USER_ERROR';
 
+export const GET_USER_REQUEST = '@users/GET_USER_REQUEST';
+export const GET_USER_SUCCESS = '@users/GET_USER_SUCCESS';
+export const GET_USER_ERROR = '@users/GET_USER_ERROR';
+
 export const AUTH_REQUEST = '@users/AUTH_REQUEST';
 export const AUTH_SUCCESS = '@users/AUTH_SUCCESS';
 export const AUTH_ERROR = '@users/AUTH_ERROR';
@@ -18,6 +22,8 @@ export const AUTH_ERROR = '@users/AUTH_ERROR';
 export const GET_MEMBERS_REQUEST = '@users/GET_MEMBERS_REQUEST';
 export const GET_MEMBERS_SUCCESS = '@users/GET_MEMBERS_SUCCESS';
 export const GET_MEMBERS_ERROR = '@users/GET_MEMBERS_ERROR';
+
+export const SET_USER_FROM_EDIT_DIALOG = '@users/SET_USER_FROM_EDIT_DIALOG';
 
 // создание пользователя
 export const createUserRequest = (
@@ -34,6 +40,21 @@ export const createUserSuccess = (): TypeInterface => ({
 export const createUserError = (payload: ErrorMessages[]): ActionInterface => ({
   type: CREATE_USER_ERROR,
   payload,
+});
+
+// получение юзера
+export const getUserRequest = (payload: IdAndSignal): ActionInterface => ({
+  type: GET_USER_REQUEST,
+  payload,
+});
+
+export const getUserSuccess = (payload: UsersInterface): ActionInterface => ({
+  type: GET_USER_REQUEST,
+  payload,
+});
+
+export const getUserError = (): TypeInterface => ({
+  type: GET_USER_REQUEST,
 });
 
 // авторизация пользователя

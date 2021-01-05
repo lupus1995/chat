@@ -7,16 +7,17 @@ import consts from '../../../../../resourse/consts';
 import CreateDialogForm from './CreateDialogForm';
 
 const CreateDialogs = memo(() => {
-  const { toggleModalCreateDialog } = useSelector(
+  const { toggleModalCreateDialog, toggleModalEditdialog } = useSelector(
     (state: RootReducerInterface) => ({
       toggleModalCreateDialog: state.dialogs.dialogs.toggleModalCreateDialog,
+      toggleModalEditdialog: state.dialogs.dialogs.toggleModalEditDialog,
     }),
     shallowEqual,
   );
   return (
     <Modal
       ariaHideApp={false}
-      isOpen={toggleModalCreateDialog}
+      isOpen={toggleModalCreateDialog || toggleModalEditdialog}
       style={consts.modalStyles}
       contentLabel="Example Modal"
     >

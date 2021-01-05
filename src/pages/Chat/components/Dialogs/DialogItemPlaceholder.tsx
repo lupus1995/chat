@@ -4,7 +4,7 @@ import AvatarPlaceholder from '../../../../components/Avatar/AvatarPlaceholder';
 
 const DialogItemPlaceholder = () => {
   return (
-    <DialogItemWrapper>
+    <DialogItemWrapper dialog={null}>
       <div>
         <AvatarPlaceholder />
       </div>

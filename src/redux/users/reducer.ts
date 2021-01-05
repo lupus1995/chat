@@ -11,6 +11,9 @@ import {
   GET_MEMBERS_ERROR,
   GET_MEMBERS_REQUEST,
   GET_MEMBERS_SUCCESS,
+  GET_USER_ERROR,
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
 } from './actions';
 import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
 
@@ -19,6 +22,10 @@ export interface UserReducerInterface extends AccessTokenInterface {
     createUserRequest: boolean;
     createUserSuccess: boolean;
     createUserError: boolean;
+
+    getUserRequest: boolean;
+    getUserSuccess: boolean;
+    getUserError: boolean;
 
     authRequest: boolean;
     authSuccess: boolean;
@@ -41,6 +48,10 @@ const initState: UserReducerInterface = {
     createUserSuccess: false,
     createUserError: false,
 
+    getUserRequest: false,
+    getUserSuccess: false,
+    getUserError: false,
+
     authRequest: false,
     authSuccess: false,
     authError: false,
@@ -55,7 +66,10 @@ const initState: UserReducerInterface = {
   members: [],
 };
 
-export function usersReducer(state = initState, action: ActionInterface) {
+export function usersReducer(
+  state = initState,
+  action: ActionInterface,
+): UserReducerInterface {
   const { type, payload } = action;
 
   switch (type) {
@@ -95,6 +109,43 @@ export function usersReducer(state = initState, action: ActionInterface) {
           createUserError: true,
         },
         errors: payload,
+      };
+    }
+
+    // получение пользователя
+    case GET_USER_REQUEST: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          getUserRequest: true,
+          getUserSuccess: false,
+          getUserError: false,
+        },
+      };
+    }
+
+    case GET_USER_SUCCESS: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          getUserRequest: false,
+          getUserSuccess: true,
+          getUserError: false,
+        },
+      };
+    }
+
+    case GET_USER_ERROR: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          getUserRequest: false,
+          getUserSuccess: false,
+          getUserError: true,
+        },
       };
     }
 

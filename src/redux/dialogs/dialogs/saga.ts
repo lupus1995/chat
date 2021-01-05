@@ -24,7 +24,7 @@ import {
 import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
 import CreateRequestDialogInterface from '../../../interfaces/dialogs/CreateRequestDialogInterface';
 import SignalInterface from '../../../interfaces/reducer/Signal';
-import Dialog from '../../../interfaces/dialogs/Dialog';
+import Dialog from '../../../interfaces/dialogs/DialogInterface';
 import EditRequestDialogInterface from '../../../interfaces/dialogs/EditRequestDialogInterface';
 import DialogsInterface from '../../../interfaces/dialogs/DialogsInterface';
 

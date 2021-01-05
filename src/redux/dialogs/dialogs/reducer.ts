@@ -13,9 +13,11 @@ import {
   DELETE_DIALOG_REQUESTS,
   DELETE_DIALOG_SUCCESS,
   SET_TOGGLE_MODAL_CREATE_DIALOG,
+  SET_ACTIVE_DIALOG,
+  SET_TOGGLE_MODAL_EDIT_DIALOG,
 } from './actions';
 import ActionInterface from '../../../interfaces/reducer/Action';
-import Dialogs from '../../../interfaces/dialogs/DialogsInterface';
+import DialogsInterface from '../../../interfaces/dialogs/DialogsInterface';
 
 export interface DialogsReducerInterface {
   fetchData: {
@@ -35,9 +37,11 @@ export interface DialogsReducerInterface {
     deleteDialogSuccess: boolean;
     deleteDialogError: boolean;
   };
-  dialogs: Dialogs[];
+  dialogs: DialogsInterface[];
   searchInputUsers: string;
   toggleModalCreateDialog: boolean;
+  toggleModalEditDialog: boolean;
+  activeDialog: DialogsInterface | null;
 }
 
 const initState: DialogsReducerInterface = {
@@ -61,6 +65,8 @@ const initState: DialogsReducerInterface = {
   dialogs: [],
   searchInputUsers: '',
   toggleModalCreateDialog: false,
+  toggleModalEditDialog: false,
+  activeDialog: null,
 };
 
 export function dialogsReducer(
@@ -166,6 +172,17 @@ export function dialogsReducer(
           editDialogError: false,
           editDialogSuccess: true,
         },
+        dialogs: [
+          ...state.dialogs.map((dialog) => {
+            let newDialog = { ...dialog };
+            if (
+              dialog.company.dialogId === state.activeDialog?.company.dialogId
+            ) {
+              newDialog = { ...payload };
+            }
+            return newDialog;
+          }),
+        ],
       };
     }
 
@@ -226,6 +243,7 @@ export function dialogsReducer(
       };
     }
 
+    // модальные окна
     case SET_TOGGLE_MODAL_CREATE_DIALOG: {
       return {
         ...state,
@@ -233,7 +251,20 @@ export function dialogsReducer(
       };
     }
 
-    // модальные окна
+    case SET_TOGGLE_MODAL_EDIT_DIALOG: {
+      return {
+        ...state,
+        toggleModalEditDialog: payload,
+      };
+    }
+
+    // активный диалог
+    case SET_ACTIVE_DIALOG: {
+      return {
+        ...state,
+        activeDialog: payload,
+      };
+    }
     default: {
       return {
         ...state,

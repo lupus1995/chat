@@ -24,4 +24,6 @@ export default {
       backgroundColor: 'rgba(0,0,0,0.6)',
     },
   },
+
+  testUserId: '5fe251b307941833081e7f16',
 };

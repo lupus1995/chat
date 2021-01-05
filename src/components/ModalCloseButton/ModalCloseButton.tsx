@@ -3,12 +3,16 @@ import './style.scss';
 import { useDispatch } from 'react-redux';
 import icons from '../../resourse/icons';
 import enabledBody from '../../helpers/enabledBody';
-import { setToggleModalCreateDialog } from '../../redux/dialogs/dialogs/actions';
+import {
+  setToggleModaEditModalDialog,
+  setToggleModalCreateDialog,
+} from '../../redux/dialogs/dialogs/actions';
 
 const ModalCloseButton = memo(() => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(setToggleModalCreateDialog(false));
+    dispatch(setToggleModaEditModalDialog(false));
     enabledBody();
   };
   return (

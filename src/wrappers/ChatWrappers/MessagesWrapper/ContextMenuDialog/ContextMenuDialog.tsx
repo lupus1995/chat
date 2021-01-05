@@ -2,7 +2,7 @@ import React, { MutableRefObject, useRef, useState } from 'react';
 import './style.scss';
 import { useDispatch } from 'react-redux';
 import icons from '../../../../resourse/icons';
-import { setToggleModalCreateDialog } from '../../../../redux/dialogs/dialogs/actions';
+import { setToggleModaEditModalDialog } from '../../../../redux/dialogs/dialogs/actions';
 import disableBody from '../../../../helpers/disableBody';
 
 const ContextMenuDialog = (): JSX.Element => {
@@ -24,7 +24,7 @@ const ContextMenuDialog = (): JSX.Element => {
   const handleClick = () => setShowMenu(!showMenu);
   const handleClcikEdit = () => {
     setShowMenu(!showMenu);
-    dispatch(setToggleModalCreateDialog(true));
+    dispatch(setToggleModaEditModalDialog(true));
     disableBody();
   };
 

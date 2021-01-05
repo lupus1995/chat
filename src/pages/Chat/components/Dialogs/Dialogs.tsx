@@ -6,6 +6,7 @@ import DialogWrapper from '../../../../wrappers/ChatWrappers/DialogWrapper/Dialo
 import { RootReducerInterface } from '../../../../../root.reducer';
 import DialogPlaceholders from './DialogPlaceholders';
 import { getDialogsRequest as getDialogsRequestFunction } from '../../../../redux/dialogs/dialogs/actions';
+import consts from '../../../../resourse/consts';
 
 const DialogList = lazy(() => import('./DialogList'));
 
@@ -23,7 +24,7 @@ const Dialogs = (): JSX.Element => {
     dispatch(
       getDialogsRequestFunction({
         signal: abortController.signal,
-        id: '5fe251b307941833081e7f16',
+        id: consts.testUserId,
       }),
     );
   }, []);

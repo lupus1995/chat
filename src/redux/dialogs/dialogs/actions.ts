@@ -1,5 +1,5 @@
 import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
-import Dialog from '../../../interfaces/dialogs/Dialog';
+import DialogInterface from '../../../interfaces/dialogs/DialogInterface';
 import RequestDialog from '../../../interfaces/dialogs/CreateRequestDialogInterface';
 import ActionInterface from '../../../interfaces/reducer/Action';
 import SignalInterface from '../../../interfaces/reducer/Signal';
@@ -19,14 +19,18 @@ export const EDIT_DIALOG_REQUESTS = '@dialogs/EDIT_DIALOG_REQUESTS';
 export const EDIT_DIALOG_SUCCESS = '@dialogs/EDIT_DIALOG_SUCCESS';
 export const EDIT_DIALOG_ERROR = '@dialogs/EDIT_DIALOG_ERROR';
 
-export const DELETE_DIALOG_REQUESTS = '@dialogs/EDIT_DIALOG_REQUESTS';
-export const DELETE_DIALOG_SUCCESS = '@dialogs/EDIT_DIALOG_SUCCESS';
-export const DELETE_DIALOG_ERROR = '@dialogs/EDIT_DIALOG_ERROR';
+export const DELETE_DIALOG_REQUESTS = '@dialogs/DELETE_DIALOG_REQUESTS';
+export const DELETE_DIALOG_SUCCESS = '@dialogs/DELETE_DIALOG_SUCCESS';
+export const DELETE_DIALOG_ERROR = '@dialogs/DELETE_DIALOG_ERROR';
 
 export const SET_SEARCH_INPUT_USERS = '@dialogs/SET_SEARCH_INPUT_USERS';
 
 export const SET_TOGGLE_MODAL_CREATE_DIALOG =
   '@dialogs/SET_TOGGLE_MODAL_CREATE_DIALOG';
+export const SET_TOGGLE_MODAL_EDIT_DIALOG =
+  '@dialogs/SET_TOGGLE_MODAL_EDIT_DIALOG';
+
+export const SET_ACTIVE_DIALOG = '@dialogs/SET_ACTIVE_DIALOG';
 
 // получение информации об диалогах
 export const getDialogsRequest = (payload: IdAndSignal): ActionInterface => ({
@@ -72,7 +76,9 @@ export const editDialogRequest = (
   payload,
 });
 
-export const editDialogSuccess = (payload: Dialog): ActionInterface => ({
+export const editDialogSuccess = (
+  payload: DialogInterface,
+): ActionInterface => ({
   type: EDIT_DIALOG_SUCCESS,
   payload,
 });
@@ -87,7 +93,9 @@ export const deleteDialogRequest = (payload: IdAndSignal): ActionInterface => ({
   payload,
 });
 
-export const deleteDialogSuccess = (payload: Dialog): ActionInterface => ({
+export const deleteDialogSuccess = (
+  payload: DialogInterface,
+): ActionInterface => ({
   type: DELETE_DIALOG_SUCCESS,
   payload,
 });
@@ -107,5 +115,20 @@ export const setToggleModalCreateDialog = (
   payload: boolean,
 ): ActionInterface => ({
   type: SET_TOGGLE_MODAL_CREATE_DIALOG,
+  payload,
+});
+
+export const setToggleModaEditModalDialog = (
+  payload: boolean,
+): ActionInterface => ({
+  type: SET_TOGGLE_MODAL_EDIT_DIALOG,
+  payload,
+});
+
+// активный диалог
+export const setActiveDialog = (
+  payload: DialogsInterface | null,
+): ActionInterface => ({
+  type: SET_ACTIVE_DIALOG,
   payload,
 });
