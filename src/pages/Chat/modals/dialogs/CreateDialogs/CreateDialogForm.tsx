@@ -5,20 +5,19 @@ import {
   Select,
   KeyFormInterface,
   requiredInputRules,
-  Input,
-  emailRules,
 } from 'form-panfilov';
 import React, { memo, useContext, useEffect, useMemo } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { RootReducerInterface } from '../../../../../../root.reducer';
 import enabledBody from '../../../../../helpers/enabledBody';
-import CreateRequestDialogInterface from '../../../../../interfaces/dialogs/CreateRequestDialogInterface';
-import { createDialogRequest as createDialogRequestFunc } from '../../../../../redux/dialogs/dialogs/actions';
+import {
+  createDialogRequest as createDialogRequestFunc,
+  setToggleModalCreateDialog,
+} from '../../../../../redux/dialogs/dialogs/actions';
 import { getTypesRequest } from '../../../../../redux/dialogs/types/actions';
 import { getMembersRequest } from '../../../../../redux/users/actions';
 import AuthFormContent from '../../../../../wrappers/AuthFormContent/AuthFormContent';
 import { FetchCancelContext } from '../../../../../wrappers/FetchCancel/FetchCancel';
-import { ModalWrapperContext } from '../../../../../wrappers/ModalWrapper/ModalWrapper';
 
 const defaultValue: KeyFormInterface[] = [
   {
@@ -38,7 +37,6 @@ const defaultValue: KeyFormInterface[] = [
 const CreateDialogForm = memo(() => {
   const dispatch = useDispatch();
   const { abortController } = useContext(FetchCancelContext);
-  const { setOpen } = useContext(ModalWrapperContext);
   const {
     createDialogRequest,
     createDialogSuccess,
@@ -74,7 +72,7 @@ const CreateDialogForm = memo(() => {
 
   useEffect(() => {
     if (createDialogSuccess) {
-      setOpen(false);
+      dispatch(setToggleModalCreateDialog(false));
       enabledBody();
     }
   }, [createDialogSuccess]);

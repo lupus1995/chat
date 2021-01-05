@@ -1,25 +1,16 @@
 import React, { lazy, memo, Suspense, useState } from 'react';
 import './style.scss';
+import { useDispatch } from 'react-redux';
 import icons from '../../../../resourse/icons';
 import disableBody from '../../../../helpers/disableBody';
-import enabledBody from '../../../../helpers/enabledBody';
-import ModalWrapper from '../../../ModalWrapper/ModalWrapper';
-
-const CreateDialogs = lazy(
-  () =>
-    import('../../../../pages/Chat/modals/dialogs/CreateDialogs/CreateDialogs'),
-);
+import { setToggleModalCreateDialog } from '../../../../redux/dialogs/dialogs/actions';
 
 const SidebarHeader = memo(
   (): JSX.Element => {
-    const [open, setOpen] = useState<boolean>(false);
+    const dispatch = useDispatch();
     const handleClick = () => {
-      setOpen(!open);
-      if (!open) {
-        disableBody();
-      } else {
-        enabledBody();
-      }
+      dispatch(setToggleModalCreateDialog(true));
+      disableBody();
     };
     return (
       <div className="sidebarHeader">
@@ -32,13 +23,6 @@ const SidebarHeader = memo(
             {icons.createItem}
           </button>
         </div>
-        {open && (
-          <Suspense fallback={null}>
-            <ModalWrapper open={open} setOpen={setOpen}>
-              <CreateDialogs />
-            </ModalWrapper>
-          </Suspense>
-        )}
       </div>
     );
   },

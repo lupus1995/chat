@@ -1,16 +1,22 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, memo, useContext, useEffect } from 'react';
 import Modal from 'react-modal';
+import { useSelector, shallowEqual } from 'react-redux';
+import { RootReducerInterface } from '../../../../../../root.reducer';
 import ModalCloseButton from '../../../../../components/ModalCloseButton/ModalCloseButton';
 import consts from '../../../../../resourse/consts';
-import { ModalWrapperContext } from '../../../../../wrappers/ModalWrapper/ModalWrapper';
 import CreateDialogForm from './CreateDialogForm';
 
-const CreateDialogs = () => {
-  const { open, setOpen } = useContext(ModalWrapperContext);
+const CreateDialogs = memo(() => {
+  const { toggleModalCreateDialog } = useSelector(
+    (state: RootReducerInterface) => ({
+      toggleModalCreateDialog: state.dialogs.dialogs.toggleModalCreateDialog,
+    }),
+    shallowEqual,
+  );
   return (
     <Modal
       ariaHideApp={false}
-      isOpen={open}
+      isOpen={toggleModalCreateDialog}
       style={consts.modalStyles}
       contentLabel="Example Modal"
     >
@@ -18,6 +24,6 @@ const CreateDialogs = () => {
       <CreateDialogForm />
     </Modal>
   );
-};
+});
 
 export default CreateDialogs;

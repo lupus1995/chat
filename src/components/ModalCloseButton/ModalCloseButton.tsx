@@ -1,13 +1,14 @@
 import React, { FC, memo, useContext } from 'react';
 import './style.scss';
+import { useDispatch } from 'react-redux';
 import icons from '../../resourse/icons';
 import enabledBody from '../../helpers/enabledBody';
-import { ModalWrapperContext } from '../../wrappers/ModalWrapper/ModalWrapper';
+import { setToggleModalCreateDialog } from '../../redux/dialogs/dialogs/actions';
 
 const ModalCloseButton = memo(() => {
-  const { setOpen } = useContext(ModalWrapperContext);
+  const dispatch = useDispatch();
   const handleClick = () => {
-    setOpen(false);
+    dispatch(setToggleModalCreateDialog(false));
     enabledBody();
   };
   return (

@@ -12,6 +12,7 @@ import {
   DELETE_DIALOG_ERROR,
   DELETE_DIALOG_REQUESTS,
   DELETE_DIALOG_SUCCESS,
+  SET_TOGGLE_MODAL_CREATE_DIALOG,
 } from './actions';
 import ActionInterface from '../../../interfaces/reducer/Action';
 import Dialogs from '../../../interfaces/dialogs/DialogsInterface';
@@ -36,6 +37,7 @@ export interface DialogsReducerInterface {
   };
   dialogs: Dialogs[];
   searchInputUsers: string;
+  toggleModalCreateDialog: boolean;
 }
 
 const initState: DialogsReducerInterface = {
@@ -58,6 +60,7 @@ const initState: DialogsReducerInterface = {
   },
   dialogs: [],
   searchInputUsers: '',
+  toggleModalCreateDialog: false,
 };
 
 export function dialogsReducer(
@@ -215,12 +218,22 @@ export function dialogsReducer(
       };
     }
 
+    // поиск диалогов
     case SET_SEARCH_INPUT_USERS: {
       return {
         ...state,
         searchInputUsers: payload,
       };
     }
+
+    case SET_TOGGLE_MODAL_CREATE_DIALOG: {
+      return {
+        ...state,
+        toggleModalCreateDialog: payload,
+      };
+    }
+
+    // модальные окна
     default: {
       return {
         ...state,

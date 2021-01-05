@@ -7,23 +7,26 @@ import TypeInterface from '../../../interfaces/reducer/Type';
 import EditRequestDialogInterface from '../../../interfaces/dialogs/EditRequestDialogInterface';
 import DialogsInterface from '../../../interfaces/dialogs/DialogsInterface';
 
-export const GET_DIALOGS_REQUESTS = '@users/GET_DIALOGS_REQUESTS';
-export const GET_DIALOGS_SUCCESS = '@users/GET_DIALOGS_SUCCESS';
-export const GET_DIALOGS_ERROR = '@users/GET_DIALOGS_ERROR';
+export const GET_DIALOGS_REQUESTS = '@dialogs/GET_DIALOGS_REQUESTS';
+export const GET_DIALOGS_SUCCESS = '@dialogs/GET_DIALOGS_SUCCESS';
+export const GET_DIALOGS_ERROR = '@dialogs/GET_DIALOGS_ERROR';
 
-export const СREATE_DIALOG_REQUESTS = '@users/СREATE_DIALOG_REQUESTS';
-export const СREATE_DIALOG_SUCCESS = '@users/СREATE_DIALOG_SUCCESS';
-export const СREATE_DIALOG_ERROR = '@users/СREATE_DIALOG_ERROR';
+export const СREATE_DIALOG_REQUESTS = '@dialogs/СREATE_DIALOG_REQUESTS';
+export const СREATE_DIALOG_SUCCESS = '@dialogs/СREATE_DIALOG_SUCCESS';
+export const СREATE_DIALOG_ERROR = '@dialogs/СREATE_DIALOG_ERROR';
 
-export const EDIT_DIALOG_REQUESTS = '@users/EDIT_DIALOG_REQUESTS';
-export const EDIT_DIALOG_SUCCESS = '@users/EDIT_DIALOG_SUCCESS';
-export const EDIT_DIALOG_ERROR = '@users/EDIT_DIALOG_ERROR';
+export const EDIT_DIALOG_REQUESTS = '@dialogs/EDIT_DIALOG_REQUESTS';
+export const EDIT_DIALOG_SUCCESS = '@dialogs/EDIT_DIALOG_SUCCESS';
+export const EDIT_DIALOG_ERROR = '@dialogs/EDIT_DIALOG_ERROR';
 
-export const DELETE_DIALOG_REQUESTS = '@users/EDIT_DIALOG_REQUESTS';
-export const DELETE_DIALOG_SUCCESS = '@users/EDIT_DIALOG_SUCCESS';
-export const DELETE_DIALOG_ERROR = '@users/EDIT_DIALOG_ERROR';
+export const DELETE_DIALOG_REQUESTS = '@dialogs/EDIT_DIALOG_REQUESTS';
+export const DELETE_DIALOG_SUCCESS = '@dialogs/EDIT_DIALOG_SUCCESS';
+export const DELETE_DIALOG_ERROR = '@dialogs/EDIT_DIALOG_ERROR';
 
-export const SET_SEARCH_INPUT_USERS = '@users/SET_SEARCH_INPUT_USERS';
+export const SET_SEARCH_INPUT_USERS = '@dialogs/SET_SEARCH_INPUT_USERS';
+
+export const SET_TOGGLE_MODAL_CREATE_DIALOG =
+  '@dialogs/SET_TOGGLE_MODAL_CREATE_DIALOG';
 
 // получение информации об диалогах
 export const getDialogsRequest = (payload: IdAndSignal): ActionInterface => ({
@@ -93,7 +96,16 @@ export const deleteDialogError = (): TypeInterface => ({
   type: DELETE_DIALOG_ERROR,
 });
 
+// поиск диалога
 export const setSearchInputUsers = (payload: string): ActionInterface => ({
   type: SET_SEARCH_INPUT_USERS,
+  payload,
+});
+
+// модальные окна
+export const setToggleModalCreateDialog = (
+  payload: boolean,
+): ActionInterface => ({
+  type: SET_TOGGLE_MODAL_CREATE_DIALOG,
   payload,
 });
