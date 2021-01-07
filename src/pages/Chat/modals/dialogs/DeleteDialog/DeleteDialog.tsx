@@ -5,13 +5,16 @@ import { RootReducerInterface } from '../../../../../../root.reducer';
 import consts from '../../../../../resourse/consts';
 import ModalCloseButton from '../../../../../components/ModalCloseButton/ModalCloseButton';
 import {
-  deleteDialogRequest,
+  deleteDialogRequest as deleteDialogRequestFunc,
   setActiveDialog,
   setToggleModalDeleteDialog,
 } from '../../../../../redux/dialogs/dialogs/actions';
 import DeleteModalWrapper from '../../../../../wrappers/DeleteModalWrapper/DeleteModalWrapper';
 import ModalCloseButtons from '../../../../../components/ModalCloseButtons/ModalCloseButtons';
 import { FetchCancelContext } from '../../../../../wrappers/FetchCancel/FetchCancel';
+import Typing from '../../../components/Typing/Typing';
+import AuthFormContent from '../../../../../wrappers/AuthFormContent/AuthFormContent';
+import enabledBody from '../../../../../helpers/enabledBody';
 
 const DeleteDialog = memo(() => {
   const { abortController, updateAbort } = useContext(FetchCancelContext);
@@ -21,23 +24,26 @@ const DeleteDialog = memo(() => {
     activeDialog,
 
     deleteDialogSuccess,
+    deleteDialogRequest,
   } = useSelector((state: RootReducerInterface) => ({
     toggleModalDeleteDialog: state.dialogs.dialogs.toggleModalDeleteDialog,
     activeDialog: state.dialogs.dialogs.activeDialog,
 
     deleteDialogSuccess: state.dialogs.dialogs.fetchData.deleteDialogSuccess,
+    deleteDialogRequest: state.dialogs.dialogs.fetchData.deleteDialogRequest,
   }));
 
   const handleClick = () => {
     dispatch(setToggleModalDeleteDialog(false));
     abortController.abort();
     updateAbort();
+    enabledBody();
   };
 
   const handleClickDelete = () => {
     if (activeDialog) {
       dispatch(
-        deleteDialogRequest({
+        deleteDialogRequestFunc({
           id: activeDialog?.company.dialogId,
           signal: abortController.signal,
         }),
@@ -60,13 +66,22 @@ const DeleteDialog = memo(() => {
       contentLabel="Example Modal"
     >
       <ModalCloseButton onClick={handleClick} />
-      <DeleteModalWrapper
-        text={`Вы действительно хотите удалить диалог с ${activeDialog?.company.fullname}`}
-      />
-      <ModalCloseButtons
-        handleClickCancel={handleClick}
-        handleClickDelete={handleClickDelete}
-      />
+      {deleteDialogRequest && (
+        <AuthFormContent>
+          <Typing />
+        </AuthFormContent>
+      )}
+      {!deleteDialogRequest && !deleteDialogSuccess && (
+        <>
+          <DeleteModalWrapper
+            text={`Вы действительно хотите удалить диалог с ${activeDialog?.company.fullname}`}
+          />
+          <ModalCloseButtons
+            handleClickCancel={handleClick}
+            handleClickDelete={handleClickDelete}
+          />
+        </>
+      )}
     </Modal>
   );
 });

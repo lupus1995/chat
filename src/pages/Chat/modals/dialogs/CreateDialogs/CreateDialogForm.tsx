@@ -21,6 +21,7 @@ import { getMembersRequest } from '../../../../../redux/users/actions';
 import consts from '../../../../../resourse/consts';
 import AuthFormContent from '../../../../../wrappers/AuthFormContent/AuthFormContent';
 import { FetchCancelContext } from '../../../../../wrappers/FetchCancel/FetchCancel';
+import Typing from '../../../components/Typing/Typing';
 
 const defaultValue: KeyFormInterface[] = [
   {
@@ -180,10 +181,42 @@ const CreateDialogForm = memo(() => {
     }
   };
 
+  const showPreloader = useMemo(() => {
+    return (
+      !getTypesSuccess ||
+      !getMembersSuccess ||
+      createDialogRequest ||
+      editDialogRequest
+    );
+  }, [
+    getTypesSuccess,
+    getMembersSuccess,
+    createDialogRequest,
+    editDialogRequest,
+  ]);
+
+  const showContent = useMemo(() => {
+    return (
+      getTypesSuccess &&
+      getMembersSuccess &&
+      !createDialogRequest &&
+      !editDialogRequest
+    );
+  }, [
+    getTypesSuccess,
+    getMembersSuccess,
+    createDialogRequest,
+    editDialogRequest,
+  ]);
+
   return (
     <>
-      {(!getTypesSuccess || !getMembersSuccess) && <div>Загрузка</div>}
-      {getTypesSuccess && getMembersSuccess && (
+      {showPreloader && (
+        <AuthFormContent>
+          <Typing />
+        </AuthFormContent>
+      )}
+      {showContent && (
         <AuthFormContent>
           <Form
             buttonText="Создать диалог"

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './style.scss';
 
-const Typing = () => {
+const Typing = memo(() => {
   return (
     <div className="typing-indicator">
       <span />
@@ -9,6 +9,6 @@ const Typing = () => {
       <span />
     </div>
   );
-};
+});
 
 export default Typing;
