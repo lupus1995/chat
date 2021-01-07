@@ -1,18 +1,11 @@
-import React, { FC, memo, useContext } from 'react';
+import React, { FC, memo } from 'react';
 import './style.scss';
-import { useDispatch } from 'react-redux';
 import icons from '../../resourse/icons';
 import enabledBody from '../../helpers/enabledBody';
-import {
-  setToggleModaEditModalDialog,
-  setToggleModalCreateDialog,
-} from '../../redux/dialogs/dialogs/actions';
 
-const ModalCloseButton = memo(() => {
-  const dispatch = useDispatch();
+const ModalCloseButton: FC<{ onClick: () => void }> = memo(({ onClick }) => {
   const handleClick = () => {
-    dispatch(setToggleModalCreateDialog(false));
-    dispatch(setToggleModaEditModalDialog(false));
+    onClick();
     enabledBody();
   };
   return (

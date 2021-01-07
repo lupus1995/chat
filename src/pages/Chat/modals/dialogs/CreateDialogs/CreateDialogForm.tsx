@@ -13,7 +13,7 @@ import enabledBody from '../../../../../helpers/enabledBody';
 import {
   createDialogRequest as createDialogRequestFunc,
   editDialogRequest as editDialogRequestFunc,
-  setToggleModaEditModalDialog,
+  setToggleModaEditDialog,
   setToggleModalCreateDialog,
 } from '../../../../../redux/dialogs/dialogs/actions';
 import { getTypesRequest } from '../../../../../redux/dialogs/types/actions';
@@ -94,7 +94,7 @@ const CreateDialogForm = memo(() => {
   useEffect(() => {
     if (createDialogSuccess || editDialogSuccess) {
       dispatch(setToggleModalCreateDialog(false));
-      dispatch(setToggleModaEditModalDialog(false));
+      dispatch(setToggleModaEditDialog(false));
       enabledBody();
     }
   }, [createDialogSuccess, editDialogSuccess]);

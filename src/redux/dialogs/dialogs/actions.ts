@@ -29,6 +29,8 @@ export const SET_TOGGLE_MODAL_CREATE_DIALOG =
   '@dialogs/SET_TOGGLE_MODAL_CREATE_DIALOG';
 export const SET_TOGGLE_MODAL_EDIT_DIALOG =
   '@dialogs/SET_TOGGLE_MODAL_EDIT_DIALOG';
+export const SET_TOGGLE_MODAL_DELETE_DIALOG =
+  '@dialogs/SET_TOGGLE_MODAL_DELETE_DIALOG';
 
 export const SET_ACTIVE_DIALOG = '@dialogs/SET_ACTIVE_DIALOG';
 
@@ -93,9 +95,7 @@ export const deleteDialogRequest = (payload: IdAndSignal): ActionInterface => ({
   payload,
 });
 
-export const deleteDialogSuccess = (
-  payload: DialogInterface,
-): ActionInterface => ({
+export const deleteDialogSuccess = (payload: string): ActionInterface => ({
   type: DELETE_DIALOG_SUCCESS,
   payload,
 });
@@ -118,10 +118,15 @@ export const setToggleModalCreateDialog = (
   payload,
 });
 
-export const setToggleModaEditModalDialog = (
+export const setToggleModaEditDialog = (payload: boolean): ActionInterface => ({
+  type: SET_TOGGLE_MODAL_EDIT_DIALOG,
+  payload,
+});
+
+export const setToggleModalDeleteDialog = (
   payload: boolean,
 ): ActionInterface => ({
-  type: SET_TOGGLE_MODAL_EDIT_DIALOG,
+  type: SET_TOGGLE_MODAL_DELETE_DIALOG,
   payload,
 });
 

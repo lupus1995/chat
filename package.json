@@ -23,7 +23,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.1.3",
     "regenerator-runtime": "^0.13.7",
-    "styleguide-panfilov": "^1.0.3"
+    "styleguide-panfilov": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",

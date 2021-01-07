@@ -5,6 +5,7 @@ import ChatWrapper from '../../wrappers/ChatWrappers/ChatWrapper/ChatWrapper';
 import SidebarChat from '../../wrappers/ChatWrappers/SidebarChat/SidebarChat';
 import MessageWrapper from '../../wrappers/ChatWrappers/MessagesWrapper/MessagesWrapper';
 import ModalCreateDialog from '../../modals/ModalCreateDialog';
+import ModalDeleteDialog from '../../modals/ModalDeleteDialog';
 
 const Chat = memo(() => {
   return (
@@ -23,6 +24,7 @@ const Chat = memo(() => {
         </MessageWrapper>
       </ChatWrapper>
       <ModalCreateDialog />
+      <ModalDeleteDialog />
     </>
   );
 });

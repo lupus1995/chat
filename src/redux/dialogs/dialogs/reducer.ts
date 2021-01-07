@@ -15,6 +15,7 @@ import {
   SET_TOGGLE_MODAL_CREATE_DIALOG,
   SET_ACTIVE_DIALOG,
   SET_TOGGLE_MODAL_EDIT_DIALOG,
+  SET_TOGGLE_MODAL_DELETE_DIALOG,
 } from './actions';
 import ActionInterface from '../../../interfaces/reducer/Action';
 import DialogsInterface from '../../../interfaces/dialogs/DialogsInterface';
@@ -41,6 +42,7 @@ export interface DialogsReducerInterface {
   searchInputUsers: string;
   toggleModalCreateDialog: boolean;
   toggleModalEditDialog: boolean;
+  toggleModalDeleteDialog: boolean;
   activeDialog: DialogsInterface | null;
 }
 
@@ -66,6 +68,7 @@ const initState: DialogsReducerInterface = {
   searchInputUsers: '',
   toggleModalCreateDialog: false,
   toggleModalEditDialog: false,
+  toggleModalDeleteDialog: false,
   activeDialog: null,
 };
 
@@ -220,6 +223,11 @@ export function dialogsReducer(
           deleteDialogSuccess: true,
           deleteDialogError: false,
         },
+        dialogs: [
+          ...state.dialogs.filter((dialog) => {
+            return dialog.company.dialogId !== payload;
+          }),
+        ],
       };
     }
 
@@ -255,6 +263,13 @@ export function dialogsReducer(
       return {
         ...state,
         toggleModalEditDialog: payload,
+      };
+    }
+
+    case SET_TOGGLE_MODAL_DELETE_DIALOG: {
+      return {
+        ...state,
+        toggleModalDeleteDialog: payload,
       };
     }
 

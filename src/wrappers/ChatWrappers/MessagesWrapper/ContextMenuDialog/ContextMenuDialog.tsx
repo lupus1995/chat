@@ -2,7 +2,10 @@ import React, { MutableRefObject, useRef, useState } from 'react';
 import './style.scss';
 import { useDispatch } from 'react-redux';
 import icons from '../../../../resourse/icons';
-import { setToggleModaEditModalDialog } from '../../../../redux/dialogs/dialogs/actions';
+import {
+  setToggleModaEditDialog,
+  setToggleModalDeleteDialog,
+} from '../../../../redux/dialogs/dialogs/actions';
 import disableBody from '../../../../helpers/disableBody';
 
 const ContextMenuDialog = (): JSX.Element => {
@@ -22,9 +25,16 @@ const ContextMenuDialog = (): JSX.Element => {
   });
 
   const handleClick = () => setShowMenu(!showMenu);
+
   const handleClcikEdit = () => {
     setShowMenu(!showMenu);
-    dispatch(setToggleModaEditModalDialog(true));
+    dispatch(setToggleModaEditDialog(true));
+    disableBody();
+  };
+
+  const handleClickDelete = () => {
+    setShowMenu(!showMenu);
+    dispatch(setToggleModalDeleteDialog(true));
     disableBody();
   };
 
@@ -41,7 +51,9 @@ const ContextMenuDialog = (): JSX.Element => {
             </button>
           </li>
           <li>
-            <button type="button">Удалить</button>
+            <button onClick={handleClickDelete} type="button">
+              Удалить
+            </button>
           </li>
         </ul>
       )}

@@ -80,8 +80,8 @@ function* deleteDialogWorker({
   type: string;
 }) {
   try {
-    const deletedDialog = yield deleteDialog(payload);
-    yield put(deleteDialogSuccess(deletedDialog));
+    yield deleteDialog(payload);
+    yield put(deleteDialogSuccess(payload.id));
   } catch (e) {
     console.log(e);
     yield put(deleteDialogError());
