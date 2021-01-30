@@ -1,4 +1,4 @@
-import { UsersInterface } from '../interfaces/users/Users';
+import { UsersInterface } from '../interfaces/users/UsersInterface';
 import IdAndSignal from '../interfaces/commons/IdAndSignal';
 import Dialog from '../interfaces/dialogs/DialogInterface';
 import Dialogs from '../interfaces/dialogs/DialogsInterface';

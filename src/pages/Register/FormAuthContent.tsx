@@ -33,6 +33,12 @@ const defaultValue: KeyFormInterface[] = [
     },
   },
   {
+    login: {
+      defaultValue: '',
+      defaultError: true,
+    },
+  },
+  {
     password: {
       defaultValue: '',
       defaultError: true,
@@ -67,6 +73,7 @@ const FormAuthContent = () => {
         onSubmit={(fields: CreateUserFormInterface) => {
           if (
             !fields.email.error &&
+            !fields.login.error &&
             !fields.name.error &&
             !fields.password.error &&
             !fields.repeatPassword.error
@@ -75,6 +82,7 @@ const FormAuthContent = () => {
               createUserRequestFunc({
                 name: fields.name.value,
                 email: fields.email.value,
+                login: fields.login.value,
                 password: fields.password.value,
                 signal: abortController.signal,
               }),
@@ -90,7 +98,12 @@ const FormAuthContent = () => {
           />
           <Input
             rules={{ requiredInputRules, lineLengthRules }}
-            placeholder="Ваше имя"
+            placeholder="Имя"
+            type="text"
+          />
+          <Input
+            rules={{ requiredInputRules, lineLengthRules }}
+            placeholder="Логин"
             type="text"
           />
           <Input

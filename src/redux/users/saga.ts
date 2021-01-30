@@ -1,11 +1,12 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { set } from 'local-storage';
-import { UsersInterface } from "../../interfaces/users/Users";
+import { UsersInterface } from '../../interfaces/users/UsersInterface';
 import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
 import { auth, createUser } from '../../api/user';
 import { CreateUserInterface } from '../../interfaces/users/CreateUserInterface';
 import {
   authError,
+  authRequest,
   authSuccess,
   AUTH_REQUEST,
   createUserError,
@@ -28,6 +29,7 @@ function* createUserWorker({
   try {
     const user = yield createUser(payload);
     yield put(createUserSuccess());
+    yield put(authRequest({}));
   } catch (e) {
     const error: ErrorResponse = e;
     yield put(createUserError(error.message));

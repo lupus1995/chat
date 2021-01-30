@@ -14,12 +14,13 @@ export const createUser = async ({
   signal,
   name,
   password,
+  login,
   email,
 }: CreateUserInterface) => {
   const request = await fetch(`${consts.path}/users`, {
     ...initFetch,
     signal,
-    body: JSON.stringify({ name, password, email }),
+    body: JSON.stringify({ name, password, email, login }),
   });
 
   const result = await request.json();

@@ -1,4 +1,4 @@
-import { UsersInterface } from '../../interfaces/users/Users';
+import { UsersInterface } from '../../interfaces/users/UsersInterface';
 import IdAndSignal from '../../interfaces/commons/IdAndSignal';
 import ActionInterface from '../../interfaces/reducer/Action';
 import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
