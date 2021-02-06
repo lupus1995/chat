@@ -103,7 +103,7 @@ const CreateDialogForm = memo(() => {
   const dataMembers = useMemo(() => {
     const data = members.map((item) => ({
       value: item._id,
-      label: `${item.name} ${item.surname}`,
+      label: `${item.name}`,
     }));
 
     if (toggleModalEditDialog && activeDialog) {

@@ -1,5 +1,5 @@
-import { AuthUserRequestInterface } from '../interfaces/users/AuthUserRequestInterface';
-import { CreateUserInterface } from '../interfaces/users/CreateUserInterface';
+import { AuthUserRequestInterface } from '../interfaces/users/auth/AuthUserRequestInterface';
+import { CreateUserInterface } from '../interfaces/users/create/CreateUserInterface';
 import consts from '../resourse/consts';
 
 const initFetch = {

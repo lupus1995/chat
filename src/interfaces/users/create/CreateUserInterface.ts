@@ -1,4 +1,4 @@
-import { Signal } from '../reducer/AbortSignal';
+import { Signal } from '../../reducer/AbortSignal';
 
 export interface CreateUserInterface extends Signal {
   name: string;

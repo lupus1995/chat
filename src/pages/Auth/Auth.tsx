@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { memo, useContext, useEffect } from 'react';
 import './style.scss';
 import { Typography, Text, CustomLink as Link } from 'styleguide-panfilov';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,9 +19,10 @@ import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 import { RootReducerInterface } from '../../../root.reducer';
-import { AuthUserFormInterface } from '../../interfaces/users/AuthUserFormInterface';
+import { AuthUserFormInterface } from '../../interfaces/users/auth/AuthUserFormInterface';
 import { authRequest as authRequestFunc } from '../../redux/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
+import RegisterSuccessMessage from '../Register/RegisterSuccessMessage';
 
 const defaultValue: KeyFormInterface[] = [
   {
@@ -38,7 +39,7 @@ const defaultValue: KeyFormInterface[] = [
   },
 ];
 
-const Auth = () => {
+const Auth = memo(() => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { abortController } = useContext(FetchCancelContext);
@@ -95,10 +96,7 @@ const Auth = () => {
               type="password"
             />
           </FormWrapper>
-
-          {authError && (
-            <MessageErrorForm text="Email или пароль не валидны" />
-          )}
+          {authError && <MessageErrorForm text="Email или пароль не валидны" />}
         </Form>
         <LinkAuthWrapper>
           <Link to={consts.pages.register}>Зарегистрироваться</Link>
@@ -106,6 +104,6 @@ const Auth = () => {
       </AuthFormContent>
     </MainAuthWrapper>
   );
-};
+});
 
 export default Auth;

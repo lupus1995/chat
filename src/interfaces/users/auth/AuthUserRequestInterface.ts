@@ -1,4 +1,4 @@
-import { Signal } from '../reducer/AbortSignal';
+import { Signal } from '../../reducer/AbortSignal';
 
 export interface AuthUserRequestInterface extends Signal {
   email: string;

@@ -1,9 +1,8 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { set } from 'local-storage';
-import { UsersInterface } from '../../interfaces/users/UsersInterface';
+
 import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
 import { auth, createUser } from '../../api/user';
-import { CreateUserInterface } from '../../interfaces/users/CreateUserInterface';
 import {
   authError,
   authRequest,
@@ -16,9 +15,11 @@ import {
   getMembersSuccess,
   GET_MEMBERS_REQUEST,
 } from './actions';
-import { AuthUserRequestInterface } from '../../interfaces/users/AuthUserRequestInterface';
 import IdAndSignal from '../../interfaces/commons/IdAndSignal';
 import { getMembers } from '../../api/dialogs';
+import { AuthUserRequestInterface } from '../../interfaces/users/auth/AuthUserRequestInterface';
+import { CreateUserInterface } from '../../interfaces/users/create/CreateUserInterface';
+import { UsersInterface } from '../../interfaces/users/UsersInterface';
 
 function* createUserWorker({
   payload,
@@ -27,9 +28,8 @@ function* createUserWorker({
   type: string;
 }) {
   try {
-    const user = yield createUser(payload);
-    yield put(createUserSuccess());
-    yield put(authRequest({}));
+    const user: UsersInterface = yield call(createUser, payload);
+    yield put(createUserSuccess(user));
   } catch (e) {
     const error: ErrorResponse = e;
     yield put(createUserError(error.message));

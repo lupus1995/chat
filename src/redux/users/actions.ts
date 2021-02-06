@@ -4,12 +4,13 @@ import ActionInterface from '../../interfaces/reducer/Action';
 import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
 import TypeInterface from '../../interfaces/reducer/Type';
 import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
-import { AuthUserRequestInterface } from '../../interfaces/users/AuthUserRequestInterface';
-import { CreateUserInterface } from '../../interfaces/users/CreateUserInterface';
+import { CreateUserInterface } from '../../interfaces/users/create/CreateUserInterface';
+import { AuthUserRequestInterface } from '../../interfaces/users/auth/AuthUserRequestInterface';
 
 export const CREATE_USER_REQUEST = '@users/CREATE_USER_REQUEST';
 export const CREATE_USER_SUCCESS = '@users/CREATE_USER_SUCCESS';
 export const CREATE_USER_ERROR = '@users/CREATE_USER_ERROR';
+export const CLEAR_FETCH_CREATE_USER = '@users/CLEAR_FETCH_CREATE_USER';
 
 export const GET_USER_REQUEST = '@users/GET_USER_REQUEST';
 export const GET_USER_SUCCESS = '@users/GET_USER_SUCCESS';
@@ -33,13 +34,20 @@ export const createUserRequest = (
   payload,
 });
 
-export const createUserSuccess = (): TypeInterface => ({
+export const createUserSuccess = (
+  payload: UsersInterface,
+): ActionInterface => ({
   type: CREATE_USER_SUCCESS,
+  payload,
 });
 
 export const createUserError = (payload: ErrorMessages[]): ActionInterface => ({
   type: CREATE_USER_ERROR,
   payload,
+});
+
+export const clearFetchCreateUser = (): TypeInterface => ({
+  type: CLEAR_FETCH_CREATE_USER,
 });
 
 // получение юзера

@@ -15,7 +15,6 @@ const Register = memo(() => {
       </Text>
       <AuthFormContent>
         <FormAuthContent />
-        {/* <RegisterSuccessMessage /> */}
       </AuthFormContent>
     </MainAuthWrapper>
   );

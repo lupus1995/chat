@@ -1,4 +1,3 @@
-import { UsersInterface } from '../../interfaces/users/UsersInterface';
 import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
 import ActionInterface from '../../interfaces/reducer/Action';
 import {
@@ -14,8 +13,10 @@ import {
   GET_USER_ERROR,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
+  CLEAR_FETCH_CREATE_USER,
 } from './actions';
 import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
+import { UsersInterface } from '../../interfaces/users/UsersInterface';
 
 export interface UserReducerInterface extends AccessTokenInterface {
   fetchData: {
@@ -38,7 +39,7 @@ export interface UserReducerInterface extends AccessTokenInterface {
 
   errors: ErrorMessages[];
 
-  user: any;
+  user: UsersInterface | null;
   members: UsersInterface[];
 }
 
@@ -96,6 +97,7 @@ export function usersReducer(
           createUserSuccess: true,
           createUserError: false,
         },
+        user: payload,
       };
     }
 
@@ -109,6 +111,18 @@ export function usersReducer(
           createUserError: true,
         },
         errors: payload,
+      };
+    }
+
+    case CLEAR_FETCH_CREATE_USER: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          createUserRequest: false,
+          createUserSuccess: false,
+          createUserError: false,
+        },
       };
     }
 
