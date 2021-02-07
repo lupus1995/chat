@@ -1,6 +1,7 @@
-import { ErrorMessages } from './ErrorMessages';
+import ErrorsResponseMessage from '../commons/ErrorsResponse';
+
 export interface ErrorResponse {
   status: number;
-  message: ErrorMessages[];
+  message: ErrorsResponseMessage[];
   error: string;
 }

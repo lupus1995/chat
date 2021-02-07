@@ -123,6 +123,7 @@ export function usersReducer(
           createUserSuccess: false,
           createUserError: false,
         },
+        errors: [],
       };
     }
 

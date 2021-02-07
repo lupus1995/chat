@@ -25,7 +25,7 @@ export const createUser = async ({
 
   const result = await request.json();
 
-  if (request.status === 400) {
+  if (request.status === 400 || result.statusCode === 400) {
     throw result;
   }
 

@@ -12,7 +12,6 @@ import {
   lineLengthRules,
   checkPassword,
 } from 'form-panfilov';
-import { useHistory } from 'react-router-dom';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import consts from '../../resourse/consts';
 import { CreateUserFormInterface } from '../../interfaces/users/create/CreateUserFormInterface';

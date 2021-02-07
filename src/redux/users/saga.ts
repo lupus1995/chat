@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { set } from 'local-storage';
+import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
 
-import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
 import { auth, createUser } from '../../api/user';
 import {
   authError,
@@ -20,6 +20,8 @@ import { getMembers } from '../../api/dialogs';
 import { AuthUserRequestInterface } from '../../interfaces/users/auth/AuthUserRequestInterface';
 import { CreateUserInterface } from '../../interfaces/users/create/CreateUserInterface';
 import { UsersInterface } from '../../interfaces/users/UsersInterface';
+import ErrorsResponseMessage from '../../interfaces/commons/ErrorsResponse';
+import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
 
 function* createUserWorker({
   payload,
@@ -32,7 +34,21 @@ function* createUserWorker({
     yield put(createUserSuccess(user));
   } catch (e) {
     const error: ErrorResponse = e;
-    yield put(createUserError(error.message));
+    const errorMessages: ErrorsResponseMessage[] = error.message;
+    let messages: ErrorMessages[] = [];
+
+    errorMessages.forEach((item) => {
+      const errorString: string[] = Object.values<string>(item.constraints);
+
+      messages = [
+        ...messages,
+        {
+          field: item.property,
+          message: errorString,
+        },
+      ];
+    });
+    yield put(createUserError(messages));
   }
 }
 
