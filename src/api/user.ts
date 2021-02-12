@@ -1,3 +1,5 @@
+import IdAndSignal from '../interfaces/commons/IdAndSignal';
+import SignalInterface from '../interfaces/reducer/Signal';
 import { AuthUserRequestInterface } from '../interfaces/users/auth/AuthUserRequestInterface';
 import { CreateUserInterface } from '../interfaces/users/create/CreateUserInterface';
 import consts from '../resourse/consts';
@@ -41,6 +43,24 @@ export const auth = async ({
     ...initFetch,
     signal,
     body: JSON.stringify({ password, email }),
+  });
+
+  const result = await request.json();
+
+  if (request.status > 400) {
+    throw result;
+  }
+
+  return result;
+};
+
+export const verifyEmail = async ({
+  signal,
+  id,
+}: IdAndSignal): Promise<boolean> => {
+  const request = await fetch(`${consts.path}/users/verify/${id}`, {
+    method: 'GET',
+    signal,
   });
 
   const result = await request.json();
