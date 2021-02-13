@@ -18,7 +18,7 @@ import { CreateUserFormInterface } from '../../interfaces/users/create/CreateUse
 import {
   clearFetchCreateUser,
   createUserRequest as createUserRequestFunc,
-} from '../../redux/users/actions';
+} from '../../redux/users/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
 import { RootReducerInterface } from '../../../root.reducer';
 import RegisterSuccessMessage from './RegisterSuccessMessage';
@@ -61,9 +61,9 @@ const FormAuthContent = memo(() => {
   const { abortController } = useContext(FetchCancelContext);
   const { createUserRequest, createUserSuccess, errors } = useSelector(
     (state: RootReducerInterface) => ({
-      createUserRequest: state.users.fetchData.createUserRequest,
-      createUserSuccess: state.users.fetchData.createUserSuccess,
-      errors: state.users.errors,
+      createUserRequest: state.users.users.fetchData.createUserRequest,
+      createUserSuccess: state.users.users.fetchData.createUserSuccess,
+      errors: state.users.users.errors,
     }),
     shallowEqual,
   );

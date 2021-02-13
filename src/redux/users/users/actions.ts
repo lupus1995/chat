@@ -1,11 +1,11 @@
-import { UsersInterface } from '../../interfaces/users/UsersInterface';
-import IdAndSignal from '../../interfaces/commons/IdAndSignal';
-import ActionInterface from '../../interfaces/reducer/Action';
-import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
-import TypeInterface from '../../interfaces/reducer/Type';
-import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
-import { CreateUserInterface } from '../../interfaces/users/create/CreateUserInterface';
-import { AuthUserRequestInterface } from '../../interfaces/users/auth/AuthUserRequestInterface';
+import { UsersInterface } from '../../../interfaces/users/UsersInterface';
+import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
+import ActionInterface from '../../../interfaces/reducer/Action';
+import { ErrorMessages } from '../../../interfaces/reducer/ErrorMessages';
+import TypeInterface from '../../../interfaces/reducer/Type';
+import { AccessTokenInterface } from '../../../interfaces/users/AccessTokenInterface';
+import { CreateUserInterface } from '../../../interfaces/users/create/CreateUserInterface';
+import { AuthUserRequestInterface } from '../../../interfaces/users/auth/AuthUserRequestInterface';
 
 export const CREATE_USER_REQUEST = '@users/CREATE_USER_REQUEST';
 export const CREATE_USER_SUCCESS = '@users/CREATE_USER_SUCCESS';

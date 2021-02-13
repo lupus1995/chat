@@ -23,6 +23,15 @@ const ChatPage = () => (
   </Suspense>
 );
 
+const VerifyEmailLoader = lazy(
+  () => import('../pages/VerifyEmail/VerifyEmail'),
+);
+const VerifyEmailPage = () => (
+  <Suspense fallback={null}>
+    <VerifyEmailLoader />
+  </Suspense>
+);
+
 const RouterWrapper: FC = () => {
   // const history = useHistory();
   // useEffect(() => {
@@ -33,6 +42,7 @@ const RouterWrapper: FC = () => {
       <Route path={consts.pages.auth} component={AuthPage} />
       <Route path={consts.pages.register} component={RegisterPage} />
       <Route path={consts.pages.chat} component={ChatPage} />
+      <Route path={consts.pages.verifyEmail} component={VerifyEmailPage} />
     </Switch>
   );
 };

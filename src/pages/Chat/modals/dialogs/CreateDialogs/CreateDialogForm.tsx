@@ -17,7 +17,7 @@ import {
   setToggleModalCreateDialog,
 } from '../../../../../redux/dialogs/dialogs/actions';
 import { getTypesRequest } from '../../../../../redux/dialogs/types/actions';
-import { getMembersRequest } from '../../../../../redux/users/actions';
+import { getMembersRequest } from '../../../../../redux/users/users/actions';
 import consts from '../../../../../resourse/consts';
 import AuthFormContent from '../../../../../wrappers/AuthFormContent/AuthFormContent';
 import { FetchCancelContext } from '../../../../../wrappers/FetchCancel/FetchCancel';
@@ -73,8 +73,8 @@ const CreateDialogForm = memo(() => {
       editDialogRequest: state.dialogs.dialogs.fetchData.editDialogRequest,
       editDialogSuccess: state.dialogs.dialogs.fetchData.editDialogSuccess,
 
-      members: state.users.members,
-      getMembersSuccess: state.users.fetchData.getMembersSuccess,
+      members: state.users.users.members,
+      getMembersSuccess: state.users.users.fetchData.getMembersSuccess,
 
       types: state.dialogs.types.types,
       getTypesSuccess: state.dialogs.types.fetchData.getTypesSuccess,

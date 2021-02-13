@@ -3,6 +3,7 @@ export default {
     auth: '/auth',
     register: '/register',
     chat: '/chat',
+    verifyEmail: '/verify/:id',
   },
   typeInputPassword: 'password',
   path: 'http://localhost:4000',

@@ -1,4 +1,4 @@
-import ActionInterface from '../../interfaces/reducer/Action';
+import ActionInterface from '../../../interfaces/reducer/Action';
 import {
   VERIFY_EMAIL_ERROR,
   VERIFY_EMAIL_REQUEST,

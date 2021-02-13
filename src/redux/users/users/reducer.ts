@@ -1,22 +1,22 @@
-import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
-import ActionInterface from '../../interfaces/reducer/Action';
+import ActionInterface from '../../../interfaces/reducer/Action';
+import { ErrorMessages } from '../../../interfaces/reducer/ErrorMessages';
+import { AccessTokenInterface } from '../../../interfaces/users/AccessTokenInterface';
+import { UsersInterface } from '../../../interfaces/users/UsersInterface';
 import {
   CREATE_USER_REQUEST,
   CREATE_USER_SUCCESS,
   CREATE_USER_ERROR,
+  CLEAR_FETCH_CREATE_USER,
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
+  GET_USER_ERROR,
   AUTH_REQUEST,
   AUTH_SUCCESS,
   AUTH_ERROR,
-  GET_MEMBERS_ERROR,
   GET_MEMBERS_REQUEST,
   GET_MEMBERS_SUCCESS,
-  GET_USER_ERROR,
-  GET_USER_REQUEST,
-  GET_USER_SUCCESS,
-  CLEAR_FETCH_CREATE_USER,
+  GET_MEMBERS_ERROR,
 } from './actions';
-import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
-import { UsersInterface } from '../../interfaces/users/UsersInterface';
 
 export interface UserReducerInterface extends AccessTokenInterface {
   fetchData: {
@@ -38,7 +38,7 @@ export interface UserReducerInterface extends AccessTokenInterface {
   };
 
   errors: ErrorMessages[];
-
+  accessToken: string;
   user: UsersInterface | null;
   members: UsersInterface[];
 }

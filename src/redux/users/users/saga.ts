@@ -1,27 +1,25 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { set } from 'local-storage';
-import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
-
-import { auth, createUser } from '../../api/user';
+import { getMembers } from '../../../api/dialogs';
+import { createUser, auth } from '../../../api/user';
+import ErrorsResponseMessage from '../../../interfaces/commons/ErrorsResponse';
+import IdAndSignal from '../../../interfaces/commons/IdAndSignal';
+import { ErrorMessages } from '../../../interfaces/reducer/ErrorMessages';
+import { ErrorResponse } from '../../../interfaces/reducer/ErrorResponse';
+import { AuthUserRequestInterface } from '../../../interfaces/users/auth/AuthUserRequestInterface';
+import { CreateUserInterface } from '../../../interfaces/users/create/CreateUserInterface';
+import { UsersInterface } from '../../../interfaces/users/UsersInterface';
 import {
-  authError,
-  authRequest,
-  authSuccess,
-  AUTH_REQUEST,
-  createUserError,
   createUserSuccess,
-  CREATE_USER_REQUEST,
-  getMembersError,
+  createUserError,
+  authSuccess,
+  authError,
   getMembersSuccess,
+  getMembersError,
+  CREATE_USER_REQUEST,
+  AUTH_REQUEST,
   GET_MEMBERS_REQUEST,
 } from './actions';
-import IdAndSignal from '../../interfaces/commons/IdAndSignal';
-import { getMembers } from '../../api/dialogs';
-import { AuthUserRequestInterface } from '../../interfaces/users/auth/AuthUserRequestInterface';
-import { CreateUserInterface } from '../../interfaces/users/create/CreateUserInterface';
-import { UsersInterface } from '../../interfaces/users/UsersInterface';
-import ErrorsResponseMessage from '../../interfaces/commons/ErrorsResponse';
-import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
 
 function* createUserWorker({
   payload,
