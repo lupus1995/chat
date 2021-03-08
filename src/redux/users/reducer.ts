@@ -14,6 +14,10 @@ import {
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   CLEAR_FETCH_CREATE_USER,
+  VERIFY_EMAIL_ERROR_ACTION,
+  VERIFY_EMAIL_REQUEST_ACTION,
+  VERIFY_EMAIL_SUCCESS_ACTION,
+  SET_USER,
 } from './actions';
 import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
 import { UsersInterface } from '../../interfaces/users/UsersInterface';
@@ -35,6 +39,10 @@ export interface UserReducerInterface extends AccessTokenInterface {
     getMembersRequest: boolean;
     getMembersSuccess: boolean;
     getMembersError: boolean;
+
+    verifyEmailRequest: boolean;
+    verifyEmailSuccess: boolean;
+    verifyEmailError: boolean;
   };
 
   errors: ErrorMessages[];
@@ -60,6 +68,10 @@ const initState: UserReducerInterface = {
     getMembersRequest: false,
     getMembersSuccess: false,
     getMembersError: false,
+
+    verifyEmailRequest: false,
+    verifyEmailSuccess: false,
+    verifyEmailError: false,
   },
   errors: [],
   accessToken: '',
@@ -74,6 +86,12 @@ export function usersReducer(
   const { type, payload } = action;
 
   switch (type) {
+    case SET_USER: {
+      return {
+        ...state,
+        user: payload,
+      };
+    }
     // создание пользователя
     case CREATE_USER_REQUEST: {
       return {
@@ -239,6 +257,42 @@ export function usersReducer(
           getMembersRequest: false,
           getMembersSuccess: false,
           getMembersError: true,
+        },
+      };
+    }
+
+    case VERIFY_EMAIL_REQUEST_ACTION: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          verifyEmailRequest: true,
+          verifyEmailSuccess: false,
+          verifyEmailError: false,
+        },
+      };
+    }
+
+    case VERIFY_EMAIL_SUCCESS_ACTION: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          verifyEmailRequest: false,
+          verifyEmailSuccess: true,
+          verifyEmailError: false,
+        },
+      };
+    }
+
+    case VERIFY_EMAIL_ERROR_ACTION: {
+      return {
+        ...state,
+        fetchData: {
+          ...state.fetchData,
+          verifyEmailRequest: false,
+          verifyEmailSuccess: false,
+          verifyEmailError: true,
         },
       };
     }

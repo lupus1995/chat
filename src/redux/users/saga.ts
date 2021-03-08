@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { set } from 'local-storage';
 import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
 
-import { auth, createUser } from '../../api/user';
+import { auth, createUser, verifyUserEmail } from '../../api/user';
 import {
   authError,
   authRequest,
@@ -14,6 +14,10 @@ import {
   getMembersError,
   getMembersSuccess,
   GET_MEMBERS_REQUEST,
+  setUser,
+  verifyEmailErrorAction,
+  verifyEmailSuccessAction,
+  VERIFY_EMAIL_REQUEST_ACTION,
 } from './actions';
 import IdAndSignal from '../../interfaces/commons/IdAndSignal';
 import { getMembers } from '../../api/dialogs';
@@ -22,6 +26,7 @@ import { CreateUserInterface } from '../../interfaces/users/create/CreateUserInt
 import { UsersInterface } from '../../interfaces/users/UsersInterface';
 import ErrorsResponseMessage from '../../interfaces/commons/ErrorsResponse';
 import { ErrorResponse } from '../../interfaces/reducer/ErrorResponse';
+import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
 
 function* createUserWorker({
   payload,
@@ -59,11 +64,10 @@ function* authRequestWorker({
   type: string;
 }) {
   try {
-    const accessToken = yield auth(payload);
+    const accessToken: AccessTokenInterface = yield auth(payload);
     set('accessToken', accessToken.accessToken);
     yield put(authSuccess(accessToken));
   } catch (e) {
-    console.log(e);
     yield put(authError());
   }
 }
@@ -83,8 +87,25 @@ function* getMembersWorker({
   }
 }
 
+function* verifyEmailWorker({
+  payload,
+}: {
+  payload: IdAndSignal;
+  type: string;
+}) {
+  try {
+    const user: UsersInterface = yield call(verifyUserEmail, payload);
+    console.log('user', user);
+    yield put(setUser(user));
+    yield put(verifyEmailSuccessAction());
+  } catch (e) {
+    yield put(verifyEmailErrorAction());
+  }
+}
+
 export default function* userSaga() {
   yield takeEvery(CREATE_USER_REQUEST, createUserWorker);
   yield takeEvery(AUTH_REQUEST, authRequestWorker);
   yield takeEvery(GET_MEMBERS_REQUEST, getMembersWorker);
+  yield takeEvery(VERIFY_EMAIL_REQUEST_ACTION, verifyEmailWorker);
 }

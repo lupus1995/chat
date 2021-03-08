@@ -8,6 +8,14 @@ const RegisterPage = () => (
     <RegisterLoader />
   </Suspense>
 );
+const VerifyEmailLoader = lazy(
+  () => import('../pages/VerifyEmail/VerifyEmail'),
+);
+const VerifyEmailPage = () => (
+  <Suspense fallback={null}>
+    <VerifyEmailLoader />
+  </Suspense>
+);
 
 const AuthLoader = lazy(() => import('../pages/Auth/Auth'));
 const AuthPage = () => (
@@ -24,15 +32,12 @@ const ChatPage = () => (
 );
 
 const RouterWrapper: FC = () => {
-  // const history = useHistory();
-  // useEffect(() => {
-  // history.push(consts.pages.chat);
-  // }, []);
   return (
     <Switch>
-      <Route path={consts.pages.auth} component={AuthPage} />
       <Route path={consts.pages.register} component={RegisterPage} />
       <Route path={consts.pages.chat} component={ChatPage} />
+      <Route path="/verify/:id" component={VerifyEmailPage} />
+      <Route path="/" component={AuthPage} />
     </Switch>
   );
 };

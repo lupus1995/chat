@@ -24,7 +24,16 @@ export const GET_MEMBERS_REQUEST = '@users/GET_MEMBERS_REQUEST';
 export const GET_MEMBERS_SUCCESS = '@users/GET_MEMBERS_SUCCESS';
 export const GET_MEMBERS_ERROR = '@users/GET_MEMBERS_ERROR';
 
-export const SET_USER_FROM_EDIT_DIALOG = '@users/SET_USER_FROM_EDIT_DIALOG';
+export const VERIFY_EMAIL_REQUEST_ACTION = '@users/VERIFY_EMAIL_REQUEST_ACTION';
+export const VERIFY_EMAIL_SUCCESS_ACTION = '@users/VERIFY_EMAIL_SUCCESS_ACTION';
+export const VERIFY_EMAIL_ERROR_ACTION = '@users/VERIFY_EMAIL_ERROR_ACTION';
+
+export const SET_USER = '@users/SET_USER';
+
+export const setUser = (payload: UsersInterface | null): ActionInterface => ({
+  type: SET_USER,
+  payload,
+});
 
 // создание пользователя
 export const createUserRequest = (
@@ -99,4 +108,19 @@ export const getMembersSuccess = (
 
 export const getMembersError = (): TypeInterface => ({
   type: GET_MEMBERS_ERROR,
+});
+
+export const verifyEmailRequestAction = (
+  payload: IdAndSignal,
+): ActionInterface => ({
+  type: VERIFY_EMAIL_REQUEST_ACTION,
+  payload,
+});
+
+export const verifyEmailSuccessAction = (): TypeInterface => ({
+  type: VERIFY_EMAIL_SUCCESS_ACTION,
+});
+
+export const verifyEmailErrorAction = (): TypeInterface => ({
+  type: VERIFY_EMAIL_ERROR_ACTION,
 });

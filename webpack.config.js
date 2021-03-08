@@ -18,7 +18,7 @@ module.exports = {
         enforce: 'pre',
         loader: 'eslint-loader',
         options: {
-          configFile: '.eslintrc.js',
+          configFile: './.eslintrc.js',
           fix: true,
           quiet: true,
           cache: true,

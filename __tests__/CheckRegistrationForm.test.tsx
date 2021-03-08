@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { createStore } from 'redux';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import fetchMock from 'fetch-mock-jest';
