@@ -22,7 +22,8 @@ import { RootReducerInterface } from '../../../root.reducer';
 import { AuthUserFormInterface } from '../../interfaces/users/auth/AuthUserFormInterface';
 import { authRequest as authRequestFunc } from '../../redux/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
-import RegisterSuccessMessage from '../Register/RegisterSuccessMessage';
+import useNotification from '../../components/Notification/useNotification';
+import getRandomString from '../../helpers/getRandomString';
 
 const defaultValue: KeyFormInterface[] = [
   {
@@ -40,6 +41,7 @@ const defaultValue: KeyFormInterface[] = [
 ];
 
 const Auth = memo(() => {
+  const { addNotification } = useNotification();
   const dispatch = useDispatch();
   const history = useHistory();
   const { abortController } = useContext(FetchCancelContext);
@@ -102,6 +104,20 @@ const Auth = memo(() => {
           <Link to={consts.pages.register}>Зарегистрироваться</Link>
         </LinkAuthWrapper>
       </AuthFormContent>
+
+      <button
+        type="button"
+        onClick={() => {
+          addNotification({
+            type: consts.message.success,
+            message: getRandomString(),
+            id: getRandomString(),
+            delete: false,
+          });
+        }}
+      >
+        add notification
+      </button>
     </MainAuthWrapper>
   );
 });

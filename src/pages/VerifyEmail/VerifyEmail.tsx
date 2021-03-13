@@ -3,21 +3,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation, useParams } from 'react-router';
 import { Typography, Text } from 'styleguide-panfilov';
 import { RootReducerInterface } from '../../../root.reducer';
+import useNotification from '../../components/Notification/useNotification';
+import getRandomString from '../../helpers/getRandomString';
 import { verifyEmailRequestAction } from '../../redux/users/actions';
+import consts from '../../resourse/consts';
 import icons from '../../resourse/icons';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 
 const VerifyEmail = memo(() => {
+  const { addNotification } = useNotification();
   const { abortController } = useContext(FetchCancelContext);
   const params: { id: string } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const { verifyEmailError, verifyEmailSuccess } = useSelector(
+  const { verifyEmailError, verifyEmailSuccess, user } = useSelector(
     (state: RootReducerInterface) => ({
       verifyEmailError: state.users.fetchData.verifyEmailError,
       verifyEmailSuccess: state.users.fetchData.verifyEmailSuccess,
+      user: state.users.user,
     }),
   );
 
@@ -32,9 +37,20 @@ const VerifyEmail = memo(() => {
 
   useEffect(() => {
     if (verifyEmailSuccess || verifyEmailError) {
+      const successMessage = `Email ${user?.email} подтвержден`;
+      const dangerMessage = `Email ${user?.email} не подтвержден`;
+
+      addNotification({
+        message: user?.verifyEmail ? successMessage : dangerMessage,
+        type: user?.verifyEmail ?
+          consts.message.success :
+          consts.message.danger,
+        id: getRandomString(),
+        delete: false,
+      });
       history.push('/');
     }
-  }, [verifyEmailError, verifyEmailSuccess]);
+  }, [verifyEmailError, verifyEmailSuccess, user]);
 
   return (
     <MainAuthWrapper>

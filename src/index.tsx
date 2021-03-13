@@ -4,12 +4,15 @@ import { Provider } from 'react-redux';
 import App from './App/App';
 import store from '../store';
 import FetchCancel from './wrappers/FetchCancel/FetchCancel';
+import NotificationList from './components/Notification/NotificationList';
 
 render(
-  <Provider store={store()}>
-    <FetchCancel>
-      <App />
-    </FetchCancel>
-  </Provider>,
+  <NotificationList>
+    <Provider store={store()}>
+      <FetchCancel>
+        <App />
+      </FetchCancel>
+    </Provider>
+  </NotificationList>,
   document.getElementById('root'),
 );

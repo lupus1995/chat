@@ -26,4 +26,9 @@ export default {
   },
 
   testUserId: '5fe251b307941833081e7f16',
+
+  message: {
+    danger: 'danger',
+    success: 'success',
+  },
 };
