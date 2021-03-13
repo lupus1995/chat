@@ -19,6 +19,7 @@ import {
   VERIFY_EMAIL_REQUEST_ACTION,
   VERIFY_EMAIL_SUCCESS_ACTION,
   SET_USER,
+  GET_MEMBERS_ERROR,
 } from './actions';
 
 export interface UserReducerInterface extends AccessTokenInterface {
