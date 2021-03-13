@@ -20,7 +20,7 @@ import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
 import { RootReducerInterface } from '../../../root.reducer';
 import { AuthUserFormInterface } from '../../interfaces/users/auth/AuthUserFormInterface';
-import { authRequest as authRequestFunc } from '../../redux/users/actions';
+import { authRequest as authRequestFunc } from '../../redux/users/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
 import useNotification from '../../components/Notification/useNotification';
 import getRandomString from '../../helpers/getRandomString';
@@ -47,10 +47,10 @@ const Auth = memo(() => {
   const { abortController } = useContext(FetchCancelContext);
   const { errors, authRequest, authError, authSuccess } = useSelector(
     (state: RootReducerInterface) => ({
-      errors: state.users.errors,
-      authRequest: state.users.fetchData.authRequest,
-      authError: state.users.fetchData.authError,
-      authSuccess: state.users.fetchData.authSuccess,
+      errors: state.users.users.errors,
+      authRequest: state.users.users.fetchData.authRequest,
+      authError: state.users.users.fetchData.authError,
+      authSuccess: state.users.users.fetchData.authSuccess,
     }),
   );
 

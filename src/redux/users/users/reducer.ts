@@ -1,5 +1,7 @@
-import { ErrorMessages } from '../../interfaces/reducer/ErrorMessages';
-import ActionInterface from '../../interfaces/reducer/Action';
+import ActionInterface from '../../../interfaces/reducer/Action';
+import { ErrorMessages } from '../../../interfaces/reducer/ErrorMessages';
+import { AccessTokenInterface } from '../../../interfaces/users/AccessTokenInterface';
+import { UsersInterface } from '../../../interfaces/users/UsersInterface';
 import {
   CREATE_USER_REQUEST,
   CREATE_USER_SUCCESS,
@@ -7,7 +9,6 @@ import {
   AUTH_REQUEST,
   AUTH_SUCCESS,
   AUTH_ERROR,
-  GET_MEMBERS_ERROR,
   GET_MEMBERS_REQUEST,
   GET_MEMBERS_SUCCESS,
   GET_USER_ERROR,
@@ -19,8 +20,6 @@ import {
   VERIFY_EMAIL_SUCCESS_ACTION,
   SET_USER,
 } from './actions';
-import { AccessTokenInterface } from '../../interfaces/users/AccessTokenInterface';
-import { UsersInterface } from '../../interfaces/users/UsersInterface';
 
 export interface UserReducerInterface extends AccessTokenInterface {
   fetchData: {
@@ -46,7 +45,7 @@ export interface UserReducerInterface extends AccessTokenInterface {
   };
 
   errors: ErrorMessages[];
-
+  accessToken: string;
   user: UsersInterface | null;
   members: UsersInterface[];
 }

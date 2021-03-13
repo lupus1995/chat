@@ -9,7 +9,8 @@ import rootReducer from './root.reducer';
 import dialogsSaga from './src/redux/dialogs/dialogs/saga';
 import typesSaga from './src/redux/dialogs/types/saga';
 import messagesSaga from './src/redux/messages/saga';
-import userSaga from './src/redux/users/saga';
+import userSaga from './src/redux/users/users/saga';
+import verifyEmailSaga from './src/redux/users/verifyEmail/saga';
 
 const bindMiddleware = (middleware: any): any => {
   if (process.env.NODE_ENV !== 'production') {
@@ -26,5 +27,6 @@ export default function configureStore() {
   sagaMiddleware.run(typesSaga);
   sagaMiddleware.run(messagesSaga);
   sagaMiddleware.run(userSaga);
+  sagaMiddleware.run(verifyEmailSaga);
   return store;
 }

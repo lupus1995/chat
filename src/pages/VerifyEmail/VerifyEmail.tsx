@@ -1,11 +1,10 @@
 import React, { memo, useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { Typography, Text } from 'styleguide-panfilov';
 import { RootReducerInterface } from '../../../root.reducer';
 import useNotification from '../../components/Notification/useNotification';
 import getRandomString from '../../helpers/getRandomString';
-import { verifyEmailRequestAction } from '../../redux/users/actions';
 import consts from '../../resourse/consts';
 import icons from '../../resourse/icons';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
@@ -20,9 +19,9 @@ const VerifyEmail = memo(() => {
   const dispatch = useDispatch();
   const { verifyEmailError, verifyEmailSuccess, user } = useSelector(
     (state: RootReducerInterface) => ({
-      verifyEmailError: state.users.fetchData.verifyEmailError,
-      verifyEmailSuccess: state.users.fetchData.verifyEmailSuccess,
-      user: state.users.user,
+      verifyEmailError: state.users.users.fetchData.verifyEmailError,
+      verifyEmailSuccess: state.users.users.fetchData.verifyEmailSuccess,
+      user: state.users.users.user,
     }),
   );
 
@@ -42,9 +41,9 @@ const VerifyEmail = memo(() => {
 
       addNotification({
         message: user?.verifyEmail ? successMessage : dangerMessage,
-        type: user?.verifyEmail ?
-          consts.message.success :
-          consts.message.danger,
+        type: user?.verifyEmail
+          ? consts.message.success
+          : consts.message.danger,
         id: getRandomString(),
         delete: false,
       });
