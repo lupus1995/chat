@@ -1,6 +1,6 @@
 export default {
   pages: {
-    auth: '/auth',
+    auth: '/',
     register: '/register',
     chat: '/chat',
     verifyEmail: '/verify/:id',

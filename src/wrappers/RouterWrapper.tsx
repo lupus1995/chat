@@ -1,5 +1,6 @@
 import React, { FC, lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import NotFoundPage from '../pages/NotFiundPage/NotFoundPage';
 import consts from '../resourse/consts';
 
 const RegisterLoader = lazy(() => import('../pages/Register/Register'));
@@ -37,7 +38,8 @@ const RouterWrapper: FC = () => {
       <Route path={consts.pages.register} component={RegisterPage} />
       <Route path={consts.pages.chat} component={ChatPage} />
       <Route path="/verify/:id" component={VerifyEmailPage} />
-      <Route path="/" component={AuthPage} />
+      <Route exact path={consts.pages.auth} component={AuthPage} />
+      <Route path="*" component={NotFoundPage} />
     </Switch>
   );
 };

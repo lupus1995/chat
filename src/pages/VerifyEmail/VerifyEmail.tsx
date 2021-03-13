@@ -5,6 +5,7 @@ import { Typography, Text } from 'styleguide-panfilov';
 import { RootReducerInterface } from '../../../root.reducer';
 import useNotification from '../../components/Notification/useNotification';
 import getRandomString from '../../helpers/getRandomString';
+import { verifyEmailRequestAction } from '../../redux/users/verifyEmail/actions';
 import consts from '../../resourse/consts';
 import icons from '../../resourse/icons';
 import AuthFormContent from '../../wrappers/AuthFormContent/AuthFormContent';
@@ -19,8 +20,8 @@ const VerifyEmail = memo(() => {
   const dispatch = useDispatch();
   const { verifyEmailError, verifyEmailSuccess, user } = useSelector(
     (state: RootReducerInterface) => ({
-      verifyEmailError: state.users.users.fetchData.verifyEmailError,
-      verifyEmailSuccess: state.users.users.fetchData.verifyEmailSuccess,
+      verifyEmailError: state.users.verifyEmail.fetchData.verifyEmailError,
+      verifyEmailSuccess: state.users.verifyEmail.fetchData.verifyEmailSuccess,
       user: state.users.users.user,
     }),
   );
@@ -35,19 +36,21 @@ const VerifyEmail = memo(() => {
   }, []);
 
   useEffect(() => {
+    console.log('verifyEmailSuccess', verifyEmailSuccess);
+    console.log('verifyEmailError', verifyEmailError);
     if (verifyEmailSuccess || verifyEmailError) {
       const successMessage = `Email ${user?.email} подтвержден`;
       const dangerMessage = `Email ${user?.email} не подтвержден`;
 
       addNotification({
         message: user?.verifyEmail ? successMessage : dangerMessage,
-        type: user?.verifyEmail
-          ? consts.message.success
-          : consts.message.danger,
+        type: user?.verifyEmail ?
+          consts.message.success :
+          consts.message.danger,
         id: getRandomString(),
         delete: false,
       });
-      history.push('/');
+      history.push(consts.pages.auth);
     }
   }, [verifyEmailError, verifyEmailSuccess, user]);
 
