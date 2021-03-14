@@ -2,8 +2,8 @@ import React, { memo, useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import { Typography, Text } from 'styleguide-panfilov';
+import { useNotification } from 'notification-panfilov';
 import { RootReducerInterface } from '../../../root.reducer';
-import useNotification from '../../components/Notification/useNotification';
 import getRandomString from '../../helpers/getRandomString';
 import { verifyEmailRequestAction } from '../../redux/users/verifyEmail/actions';
 import consts from '../../resourse/consts';
@@ -36,8 +36,6 @@ const VerifyEmail = memo(() => {
   }, []);
 
   useEffect(() => {
-    console.log('verifyEmailSuccess', verifyEmailSuccess);
-    console.log('verifyEmailError', verifyEmailError);
     if (verifyEmailSuccess || verifyEmailError) {
       const successMessage = `Email ${user?.email} подтвержден`;
       const dangerMessage = `Email ${user?.email} не подтвержден`;

@@ -14,6 +14,7 @@ import {
   emailRules,
 } from 'form-panfilov';
 import { useHistory } from 'react-router-dom';
+import { useNotification } from 'notification-panfilov';
 import consts from '../../resourse/consts';
 import MainAuthWrapper from '../../wrappers/MainAuthWrapper/MainAuthWrapper';
 import LinkAuthWrapper from '../../wrappers/LinkAuthWrapper/LinkAuthWrapper';
@@ -22,7 +23,6 @@ import { RootReducerInterface } from '../../../root.reducer';
 import { AuthUserFormInterface } from '../../interfaces/users/auth/AuthUserFormInterface';
 import { authRequest as authRequestFunc } from '../../redux/users/users/actions';
 import { FetchCancelContext } from '../../wrappers/FetchCancel/FetchCancel';
-import useNotification from '../../components/Notification/useNotification';
 import getRandomString from '../../helpers/getRandomString';
 
 const defaultValue: KeyFormInterface[] = [

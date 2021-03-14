@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { NotificationList } from 'notification-panfilov';
 import App from './App/App';
 import store from '../store';
 import FetchCancel from './wrappers/FetchCancel/FetchCancel';
-import NotificationList from './components/Notification/NotificationList';
 
 render(
   <NotificationList>
