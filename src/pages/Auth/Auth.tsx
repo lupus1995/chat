@@ -104,20 +104,6 @@ const Auth = memo(() => {
           <Link to={consts.pages.register}>Зарегистрироваться</Link>
         </LinkAuthWrapper>
       </AuthFormContent>
-
-      <button
-        type="button"
-        onClick={() => {
-          addNotification({
-            type: consts.message.success,
-            message: getRandomString(),
-            id: getRandomString(),
-            delete: false,
-          });
-        }}
-      >
-        add notification
-      </button>
     </MainAuthWrapper>
   );
 });
